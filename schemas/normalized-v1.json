@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inbodystage1.local/normalized-v1.json",
+  "type": "object",
+  "required": [
+    "encounter_id",
+    "test_timestamp",
+    "source_identifier",
+    "measurements"
+  ],
+  "properties": {
+    "patient_id": {
+      "type": "string"
+    },
+    "encounter_id": {
+      "type": "string"
+    },
+    "test_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "device_model": {
+      "type": "string"
+    },
+    "source_type": {
+      "enum": [
+        "manual",
+        "mock_api",
+        "pdf",
+        "image"
+      ]
+    },
+    "measurements": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 200,
+      "items": {
+        "type": "object",
+        "required": [
+          "metric",
+          "value",
+          "unit"
+        ],
+        "properties": {
+          "metric": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,80}$"
+          },
+          "value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "status": {
+            "enum": [
+              "verified",
+              "unverified"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "quality_note": {
+            "type": "string",
+            "maxLength": 500
+          },
+          "device_reference": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "low",
+              "high",
+              "source",
+              "version"
+            ],
+            "properties": {
+              "low": {
+                "type": "number"
+              },
+              "high": {
+                "type": "number"
+              },
+              "source": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

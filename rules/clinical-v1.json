@@ -1,0 +1,11 @@
+{
+  "version": "clinical-v1.0",
+  "verified_on": "2026-10-07",
+  "rules": [
+    {"id":"cdc-bmi-low", "metric":"bmi", "unit":"kg/m2", "operator":"lt", "threshold":18.5, "min_age":20, "max_age":null, "sex":null, "source":"CDC Adult BMI Categories", "url":"https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html", "source_date":"2024-03-19", "source_version":"reviewed-2024-03-19", "evidence_category":"authoritative-US-screening", "severity":"clinician review", "explanation":"BMI is below the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.", "review_required":true},
+    {"id":"cdc-bmi-high", "metric":"bmi", "unit":"kg/m2", "operator":"gte", "threshold":25, "min_age":20, "max_age":null, "sex":null, "source":"CDC Adult BMI Categories", "url":"https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html", "source_date":"2024-03-19", "source_version":"reviewed-2024-03-19", "evidence_category":"authoritative-US-screening", "severity":"clinician review", "explanation":"BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.", "review_required":true}
+  ],
+  "policy_context": {"source":"AMA BMI policy announcement", "url":"https://www.ama-assn.org/press-center/ama-press-releases/ama-adopts-new-policy-clarifying-role-bmi-measure-medicine", "source_date":"2023-06-14", "explanation":"BMI has limitations and should be considered with other measures of risk. This is context, not a numeric reference interval."},
+  "cms": {"enabled":false,"reason":"No applicable CMS body-composition measurement criterion has been configured."},
+  "manufacturer": {"mode":"source-reported intervals only","reason":"No universal device threshold inferred. Imported intervals require clinician confirmation."}
+}
