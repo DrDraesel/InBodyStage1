@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: inbody
+      POSTGRES_USER: inbody
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U inbody]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports: ["127.0.0.1:8080:8080"]
+    environment:
+      INBODY_HOST: 0.0.0.0
+      INBODY_DATABASE_URL: postgresql://inbody:${POSTGRES_PASSWORD}@db:5432/inbody
+      INBODY_STORAGE_DIR: /app/runtime/sources
+      INBODY_CLINICIAN_TOKEN: ${INBODY_CLINICIAN_TOKEN:?Set clinician token in .env}
+      INBODY_OPERATOR_TOKEN: ${INBODY_OPERATOR_TOKEN:?Set operator token in .env}
+      INBODY_WEBHOOK_TOKEN: ${INBODY_WEBHOOK_TOKEN:-}
+      AI_ENABLED: ${AI_ENABLED:-false}
+      AI_BASE_URL: ${AI_BASE_URL:-https://api.openai.com/v1}
+      AI_API_KEY: ${AI_API_KEY:-}
+      AI_MODEL: ${AI_MODEL:-}
+    volumes:
+      - sources:/app/runtime
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  postgres_data:
+  sources:

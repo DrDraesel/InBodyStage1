@@ -1,0 +1,25 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const root=__dirname+'/..';
+const original=JSON.parse(fs.readFileSync(root+'/preview/demo-data.json','utf8'));
+assert.equal(original.mode,'synthetic-visual-preview');assert.ok(original.patients.every(p=>p.synthetic===1));
+const sandbox={window:{INBODY_PREVIEW_DATA:original},JSON,Error,Object,document:{addEventListener(){}}};
+vm.createContext(sandbox);vm.runInContext(fs.readFileSync(root+'/preview/demo-adapter.js','utf8'),sandbox);
+const api=sandbox.window.INBODY_PREVIEW;
+(async()=>{
+ const patients=await api.request('/patients');assert.equal(patients.length,2);
+ const history=await api.request('/patients/SYN-001/inbody');assert.equal(history.length,3);
+ assert.equal((await api.request('/patients/SYN-002/inbody')).length,0);
+ await assert.rejects(api.request('/patients/SYN-002/inbody/'+history[0].id));
+ const fixture=original.samples['SYN-001'];
+ const body={patient_id:'SYN-001',encounter_id:fixture.encounter_id,source_identifier:fixture.source_identifier,test_timestamp:fixture.test_timestamp,measurements:fixture.measurements.map(m=>({metric:m.metric,value:m.value,unit:m.unit}))};
+ await assert.rejects(api.request('/patients/SYN-001/inbody/import',{method:'POST',body:{...body,encounter_id:'SYN-002-FOLLOW'}}));
+ const r=await api.request('/patients/SYN-001/inbody/import',{method:'POST',body});assert.equal(r.id,fixture.id);
+ assert.equal((await api.request('/patients/SYN-001/inbody')).length,4);
+ assert.equal((await api.request('/patients/SYN-001/inbody/import',{method:'POST',body})).duplicate,true);
+ const reviewed=await api.request('/patients/SYN-001/inbody/'+r.id+'/review',{method:'POST',body:{analysis_id:r.analyses[0].id,status:'accepted',identity_confirmed:true}});
+ assert.equal(reviewed.analyses[0].review_status,'accepted');
+ assert.equal(original.samples['SYN-001'].analyses[0].review_status,'pending');
+ const weight=(await api.request('/patients/SYN-001/inbody/trends')).find(s=>s.metric==='weight');assert.equal(weight.points.length,4);
+ await assert.rejects(api.request('/patients/SYN-001/inbody/'+r.id+'/correct',{method:'POST',body:{}}));
+ console.log('Synthetic preview tests passed: sample import, idempotency, local review simulation, patient isolation, trends and unsupported write rejection.');
+})().catch(e=>{console.error(e);process.exitCode=1;});

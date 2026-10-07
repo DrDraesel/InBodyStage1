@@ -1,0 +1,1214 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "InBodyStage1",
+    "version": "0.1.0",
+    "description": "Local-first synthetic proof of concept. See README for explicit deployment limits."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8080"
+    }
+  ],
+  "paths": {
+    "/patients": {
+      "get": {
+        "summary": "List synthetic patients",
+        "operationId": "get__patients",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create synthetic patient",
+        "operationId": "post__patients",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "name",
+                  "synthetic"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "synthetic": {
+                    "const": true
+                  },
+                  "dob": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "sex": {
+                    "enum": [
+                      "male",
+                      "female",
+                      "unknown"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/patients/{patient_id}/encounters": {
+      "get": {
+        "summary": "List patient encounters",
+        "operationId": "get__patients_patient_id_encounters",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create encounter",
+        "operationId": "post__patients_patient_id_encounters",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/patients/{patient_id}/inbody/import": {
+      "post": {
+        "summary": "Import completed result; source file values require confirmation",
+        "operationId": "post__patients_patient_id_inbody_import",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "encounter_id",
+                  "test_timestamp",
+                  "source_identifier",
+                  "measurements"
+                ],
+                "properties": {
+                  "patient_id": {
+                    "type": "string"
+                  },
+                  "encounter_id": {
+                    "type": "string"
+                  },
+                  "test_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "source_identifier": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "device_model": {
+                    "type": "string"
+                  },
+                  "source_type": {
+                    "enum": [
+                      "manual",
+                      "mock_api",
+                      "pdf",
+                      "image"
+                    ]
+                  },
+                  "measurements": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 200,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "metric",
+                        "value",
+                        "unit"
+                      ],
+                      "properties": {
+                        "metric": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                        },
+                        "value": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "unit": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 40
+                        },
+                        "status": {
+                          "enum": [
+                            "verified",
+                            "unverified"
+                          ]
+                        },
+                        "confidence": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        },
+                        "quality_note": {
+                          "type": "string",
+                          "maxLength": 500
+                        },
+                        "device_reference": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "required": [
+                            "low",
+                            "high",
+                            "source",
+                            "version"
+                          ],
+                          "properties": {
+                            "low": {
+                              "type": "number"
+                            },
+                            "high": {
+                              "type": "number"
+                            },
+                            "source": {
+                              "type": "string"
+                            },
+                            "version": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "metadata",
+                  "files"
+                ],
+                "properties": {
+                  "metadata": {
+                    "type": "string",
+                    "description": "JSON metadata: encounter_id, test_timestamp, source_identifier, device_model, source_type. No guessed timestamp."
+                  },
+                  "files": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 5,
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inbody/webhook": {
+      "post": {
+        "summary": "Internal synthetic fixture webhook; live vendor webhook disabled",
+        "operationId": "post__inbody_webhook",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "encounter_id",
+                      "test_timestamp",
+                      "source_identifier",
+                      "measurements"
+                    ],
+                    "properties": {
+                      "patient_id": {
+                        "type": "string"
+                      },
+                      "encounter_id": {
+                        "type": "string"
+                      },
+                      "test_timestamp": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "source_identifier": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 200
+                      },
+                      "device_model": {
+                        "type": "string"
+                      },
+                      "source_type": {
+                        "enum": [
+                          "manual",
+                          "mock_api",
+                          "pdf",
+                          "image"
+                        ]
+                      },
+                      "measurements": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 200,
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "metric",
+                            "value",
+                            "unit"
+                          ],
+                          "properties": {
+                            "metric": {
+                              "type": "string",
+                              "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                            },
+                            "value": {
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "unit": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 40
+                            },
+                            "status": {
+                              "enum": [
+                                "verified",
+                                "unverified"
+                              ]
+                            },
+                            "confidence": {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            },
+                            "quality_note": {
+                              "type": "string",
+                              "maxLength": 500
+                            },
+                            "device_reference": {
+                              "type": [
+                                "object",
+                                "null"
+                              ],
+                              "required": [
+                                "low",
+                                "high",
+                                "source",
+                                "version"
+                              ],
+                              "properties": {
+                                "low": {
+                                  "type": "number"
+                                },
+                                "high": {
+                                  "type": "number"
+                                },
+                                "source": {
+                                  "type": "string"
+                                },
+                                "version": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "patient_id",
+                      "contract"
+                    ],
+                    "properties": {
+                      "contract": {
+                        "const": "synthetic-normalized-v1"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/patients/{patient_id}/inbody": {
+      "get": {
+        "summary": "List all patient studies including superseded versions",
+        "operationId": "get__patients_patient_id_inbody",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/patients/{patient_id}/inbody/{result_id}": {
+      "get": {
+        "summary": "Get source, measurements, analysis versions and review history",
+        "operationId": "get__patients_patient_id_inbody_result_id",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "result_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/patients/{patient_id}/inbody/trends": {
+      "get": {
+        "summary": "Verified measurement trends excluding superseded tests",
+        "operationId": "get__patients_patient_id_inbody_trends",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/patients/{patient_id}/inbody/{result_id}/analyze": {
+      "post": {
+        "summary": "Append deterministic analysis and optional AI evidence selection",
+        "operationId": "post__patients_patient_id_inbody_result_id_analyze",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "result_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/patients/{patient_id}/inbody/{result_id}/review": {
+      "post": {
+        "summary": "Clinician-only review of current analysis",
+        "operationId": "post__patients_patient_id_inbody_result_id_review",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "result_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "analysis_id",
+                  "status"
+                ],
+                "properties": {
+                  "analysis_id": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "enum": [
+                      "accepted",
+                      "held"
+                    ]
+                  },
+                  "identity_confirmed": {
+                    "type": "boolean"
+                  },
+                  "note": {
+                    "type": "string",
+                    "maxLength": 2000
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/patients/{patient_id}/inbody/{result_id}/correct": {
+      "post": {
+        "summary": "Clinician-only linked correction; source facts remain immutable",
+        "operationId": "post__patients_patient_id_inbody_result_id_correct",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "result_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "reason",
+                  "measurements"
+                ],
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "maxLength": 500
+                  },
+                  "measurements": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 200,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "metric",
+                        "value",
+                        "unit"
+                      ],
+                      "properties": {
+                        "metric": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                        },
+                        "value": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "unit": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 40
+                        },
+                        "status": {
+                          "enum": [
+                            "verified",
+                            "unverified"
+                          ]
+                        },
+                        "confidence": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1
+                        },
+                        "quality_note": {
+                          "type": "string",
+                          "maxLength": 500
+                        },
+                        "device_reference": {
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "required": [
+                            "low",
+                            "high",
+                            "source",
+                            "version"
+                          ],
+                          "properties": {
+                            "low": {
+                              "type": "number"
+                            },
+                            "high": {
+                              "type": "number"
+                            },
+                            "source": {
+                              "type": "string"
+                            },
+                            "version": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/patients/{patient_id}/inbody/{result_id}/source": {
+      "get": {
+        "summary": "Source metadata and SHA-256 hashes",
+        "operationId": "get__patients_patient_id_inbody_result_id_source",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "result_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/patients/{patient_id}/inbody/{result_id}/sources/{sha256}": {
+      "get": {
+        "summary": "Download authorized original source bytes",
+        "operationId": "get__patients_patient_id_inbody_result_id_sources_sha256",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "result_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sha256",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          }
+        ]
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health and synthetic-only mode",
+        "operationId": "get__health",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Server-configured operator/clinician token. Separate token for internal webhook."
+      }
+    }
+  }
+}
