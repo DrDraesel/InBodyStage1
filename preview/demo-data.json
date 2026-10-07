@@ -1,0 +1,2719 @@
+{
+  "mode": "synthetic-visual-preview",
+  "patients": [
+    {
+      "id": "SYN-001",
+      "name": "Alex Morgan \u00b7 Synthetic",
+      "dob": "1982-04-17",
+      "sex": "male",
+      "synthetic": 1
+    },
+    {
+      "id": "SYN-002",
+      "name": "Jordan Lee \u00b7 Synthetic",
+      "dob": "1990-08-22",
+      "sex": "female",
+      "synthetic": 1
+    }
+  ],
+  "encounters": {
+    "SYN-001": [
+      {
+        "id": "SYN-001-BASE",
+        "patient_id": "SYN-001",
+        "label": "Baseline assessment"
+      },
+      {
+        "id": "SYN-001-FOLLOW",
+        "patient_id": "SYN-001",
+        "label": "Follow-up assessment"
+      }
+    ],
+    "SYN-002": [
+      {
+        "id": "SYN-002-BASE",
+        "patient_id": "SYN-002",
+        "label": "Baseline assessment"
+      },
+      {
+        "id": "SYN-002-FOLLOW",
+        "patient_id": "SYN-002",
+        "label": "Follow-up assessment"
+      }
+    ]
+  },
+  "histories": {
+    "SYN-001": [
+      {
+        "claimed_patient_id": null,
+        "device_model": "Synthetic InBody fixture",
+        "encounter_id": "SYN-001-FOLLOW",
+        "id": "6948987c-86d8-4b49-b9d9-b3a32bdb804c",
+        "ingested_at": "2026-10-07T17:05:59.348803+00:00",
+        "measurements": [
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "weight",
+            "original_unit": "kg",
+            "original_value": 81.6,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "kg",
+            "value": 81.6
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "bmi",
+            "original_unit": "kg/m2",
+            "original_value": 26.599999999999998,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "kg/m2",
+            "value": 26.599999999999998
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "skeletal_muscle_mass",
+            "original_unit": "kg",
+            "original_value": 34.6,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "kg",
+            "value": 34.6
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "body_fat_mass",
+            "original_unit": "kg",
+            "original_value": 20.2,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "kg",
+            "value": 20.2
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "percent_body_fat",
+            "original_unit": "%",
+            "original_value": 24.8,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "%",
+            "value": 24.8
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "total_body_water",
+            "original_unit": "L",
+            "original_value": 45.1,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "L",
+            "value": 45.1
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "ecw_tbw",
+            "original_unit": "ratio",
+            "original_value": 0.385,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "ratio",
+            "value": 0.385
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "visceral_fat_area",
+            "original_unit": "cm2",
+            "original_value": 97,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "cm2",
+            "value": 97
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "phase_angle",
+            "original_unit": "deg",
+            "original_value": 6.0,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "deg",
+            "value": 6.0
+          }
+        ],
+        "patient_id": "SYN-001",
+        "provenance": {
+          "identity_binding": "operator-selected; no automatic name matching",
+          "parser_version": "normalized-contract-v1.0",
+          "schema_version": "normalized-v1.0",
+          "software_version": "InBodyStage1-0.1.0",
+          "source_hash": "1836bd9c41fcc1113c639c1607855a5893f91a4674887da5af5ec466d3cd2375",
+          "superseded_source": null
+        },
+        "source_identifier": "demo-2",
+        "source_result": {
+          "files": [],
+          "payload_sha256": "072f2849e9944a89567ab14cffba9077a6bb3477ed518a54965564865fc31a79"
+        },
+        "source_type": "mock_api",
+        "supersedes": null,
+        "test_timestamp": "2026-10-07T09:30:00-04:00",
+        "analyses": [
+          {
+            "clinician_summary": {
+              "ai_generated_synthesis": null,
+              "clinical_considerations": [
+                "Consider testing conditions, hydration, device consistency, and the clinical history when interpreting bioimpedance estimates."
+              ],
+              "data_quality_limitations": [],
+              "longitudinal_comparison": {
+                "changes": [
+                  {
+                    "absolute_change": -1.2,
+                    "change_unit": "kg",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 81.6,
+                    "direction": "decreased",
+                    "from": "2026-09-07T09:30:00-04:00",
+                    "metric": "weight",
+                    "percentage_change": -1.4493,
+                    "previous_value": 82.8,
+                    "to": "2026-10-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": -0.4,
+                    "change_unit": "kg/m2",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 26.599999999999998,
+                    "direction": "decreased",
+                    "from": "2026-09-07T09:30:00-04:00",
+                    "metric": "bmi",
+                    "percentage_change": -1.4815,
+                    "previous_value": 27.0,
+                    "to": "2026-10-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": 0.3,
+                    "change_unit": "kg",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 34.6,
+                    "direction": "increased",
+                    "from": "2026-09-07T09:30:00-04:00",
+                    "metric": "skeletal_muscle_mass",
+                    "percentage_change": 0.8746,
+                    "previous_value": 34.3,
+                    "to": "2026-10-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": -0.9,
+                    "change_unit": "kg",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 20.2,
+                    "direction": "decreased",
+                    "from": "2026-09-07T09:30:00-04:00",
+                    "metric": "body_fat_mass",
+                    "percentage_change": -4.2654,
+                    "previous_value": 21.1,
+                    "to": "2026-10-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": -0.7,
+                    "change_unit": "percentage points",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 24.8,
+                    "direction": "decreased",
+                    "from": "2026-09-07T09:30:00-04:00",
+                    "metric": "percent_body_fat",
+                    "percentage_change": null,
+                    "previous_value": 25.5,
+                    "to": "2026-10-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": 0.2,
+                    "change_unit": "L",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 45.1,
+                    "direction": "increased",
+                    "from": "2026-09-07T09:30:00-04:00",
+                    "metric": "total_body_water",
+                    "percentage_change": 0.4454,
+                    "previous_value": 44.900000000000006,
+                    "to": "2026-10-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": 0.0,
+                    "change_unit": "ratio",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 0.385,
+                    "direction": "unchanged",
+                    "from": "2026-09-07T09:30:00-04:00",
+                    "metric": "ecw_tbw",
+                    "percentage_change": null,
+                    "previous_value": 0.385,
+                    "to": "2026-10-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": -4,
+                    "change_unit": "cm2",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 97,
+                    "direction": "decreased",
+                    "from": "2026-09-07T09:30:00-04:00",
+                    "metric": "visceral_fat_area",
+                    "percentage_change": -3.9604,
+                    "previous_value": 101,
+                    "to": "2026-10-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": 0.1,
+                    "change_unit": "deg",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 6.0,
+                    "direction": "increased",
+                    "from": "2026-09-07T09:30:00-04:00",
+                    "metric": "phase_angle",
+                    "percentage_change": null,
+                    "previous_value": 5.8999999999999995,
+                    "to": "2026-10-07T09:30:00-04:00"
+                  }
+                ],
+                "from": "2026-09-07T09:30:00-04:00",
+                "interval_days": 30.0,
+                "note": "Numerical changes do not by themselves establish improvement or worsening.",
+                "previous_result_id": "3966dba1-5579-44cc-a1a1-5d6df5ef8e68",
+                "to": "2026-10-07T09:30:00-04:00"
+              },
+              "measured_facts": [
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "weight",
+                  "original_unit": "kg",
+                  "original_value": 81.6,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "kg",
+                  "value": 81.6
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "bmi",
+                  "original_unit": "kg/m2",
+                  "original_value": 26.599999999999998,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "kg/m2",
+                  "value": 26.599999999999998
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "skeletal_muscle_mass",
+                  "original_unit": "kg",
+                  "original_value": 34.6,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "kg",
+                  "value": 34.6
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "body_fat_mass",
+                  "original_unit": "kg",
+                  "original_value": 20.2,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "kg",
+                  "value": 20.2
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "percent_body_fat",
+                  "original_unit": "%",
+                  "original_value": 24.8,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "%",
+                  "value": 24.8
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "total_body_water",
+                  "original_unit": "L",
+                  "original_value": 45.1,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "L",
+                  "value": 45.1
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "ecw_tbw",
+                  "original_unit": "ratio",
+                  "original_value": 0.385,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "ratio",
+                  "value": 0.385
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "visceral_fat_area",
+                  "original_unit": "cm2",
+                  "original_value": 97,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "cm2",
+                  "value": 97
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "phase_angle",
+                  "original_unit": "deg",
+                  "original_value": 6.0,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "deg",
+                  "value": 6.0
+                }
+              ],
+              "references": {
+                "cms": {
+                  "enabled": false,
+                  "reason": "No applicable CMS body-composition measurement criterion has been configured."
+                },
+                "manufacturer": {
+                  "mode": "source-reported intervals only",
+                  "reason": "No universal device threshold inferred. Imported intervals require clinician confirmation."
+                },
+                "policy_context": {
+                  "explanation": "BMI has limitations and should be considered with other measures of risk. This is context, not a numeric reference interval.",
+                  "source": "AMA BMI policy announcement",
+                  "source_date": "2023-06-14",
+                  "url": "https://www.ama-assn.org/press-center/ama-press-releases/ama-adopts-new-policy-clarifying-role-bmi-measure-medicine"
+                },
+                "rules": [
+                  {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is below the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-low",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "lt",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 18.5,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  },
+                  {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-high",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "gte",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 25,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  }
+                ],
+                "verified_on": "2026-10-07",
+                "version": "clinical-v1.0"
+              },
+              "review_status": "pending",
+              "rule_derived_interpretation": [
+                {
+                  "flag_type": "clinically relevant",
+                  "measured_value": 26.599999999999998,
+                  "metric": "bmi",
+                  "reason": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "reference_value_or_rule": {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-high",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "gte",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 25,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  },
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "source": "CDC Adult BMI Categories",
+                  "source_version": "reviewed-2024-03-19"
+                }
+              ],
+              "source_device": "Synthetic InBody fixture",
+              "test_timestamp": "2026-10-07T09:30:00-04:00"
+            },
+            "created_at": "2026-10-07T17:05:59.349149+00:00",
+            "data_quality_passed": true,
+            "id": "2c654245-92c9-40cb-80e0-17184f77efc6",
+            "longitudinal_comparison": {
+              "changes": [
+                {
+                  "absolute_change": -1.2,
+                  "change_unit": "kg",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 81.6,
+                  "direction": "decreased",
+                  "from": "2026-09-07T09:30:00-04:00",
+                  "metric": "weight",
+                  "percentage_change": -1.4493,
+                  "previous_value": 82.8,
+                  "to": "2026-10-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": -0.4,
+                  "change_unit": "kg/m2",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 26.599999999999998,
+                  "direction": "decreased",
+                  "from": "2026-09-07T09:30:00-04:00",
+                  "metric": "bmi",
+                  "percentage_change": -1.4815,
+                  "previous_value": 27.0,
+                  "to": "2026-10-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": 0.3,
+                  "change_unit": "kg",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 34.6,
+                  "direction": "increased",
+                  "from": "2026-09-07T09:30:00-04:00",
+                  "metric": "skeletal_muscle_mass",
+                  "percentage_change": 0.8746,
+                  "previous_value": 34.3,
+                  "to": "2026-10-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": -0.9,
+                  "change_unit": "kg",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 20.2,
+                  "direction": "decreased",
+                  "from": "2026-09-07T09:30:00-04:00",
+                  "metric": "body_fat_mass",
+                  "percentage_change": -4.2654,
+                  "previous_value": 21.1,
+                  "to": "2026-10-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": -0.7,
+                  "change_unit": "percentage points",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 24.8,
+                  "direction": "decreased",
+                  "from": "2026-09-07T09:30:00-04:00",
+                  "metric": "percent_body_fat",
+                  "percentage_change": null,
+                  "previous_value": 25.5,
+                  "to": "2026-10-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": 0.2,
+                  "change_unit": "L",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 45.1,
+                  "direction": "increased",
+                  "from": "2026-09-07T09:30:00-04:00",
+                  "metric": "total_body_water",
+                  "percentage_change": 0.4454,
+                  "previous_value": 44.900000000000006,
+                  "to": "2026-10-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": 0.0,
+                  "change_unit": "ratio",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 0.385,
+                  "direction": "unchanged",
+                  "from": "2026-09-07T09:30:00-04:00",
+                  "metric": "ecw_tbw",
+                  "percentage_change": null,
+                  "previous_value": 0.385,
+                  "to": "2026-10-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": -4,
+                  "change_unit": "cm2",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 97,
+                  "direction": "decreased",
+                  "from": "2026-09-07T09:30:00-04:00",
+                  "metric": "visceral_fat_area",
+                  "percentage_change": -3.9604,
+                  "previous_value": 101,
+                  "to": "2026-10-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": 0.1,
+                  "change_unit": "deg",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 6.0,
+                  "direction": "increased",
+                  "from": "2026-09-07T09:30:00-04:00",
+                  "metric": "phase_angle",
+                  "percentage_change": null,
+                  "previous_value": 5.8999999999999995,
+                  "to": "2026-10-07T09:30:00-04:00"
+                }
+              ],
+              "from": "2026-09-07T09:30:00-04:00",
+              "interval_days": 30.0,
+              "note": "Numerical changes do not by themselves establish improvement or worsening.",
+              "previous_result_id": "3966dba1-5579-44cc-a1a1-5d6df5ef8e68",
+              "to": "2026-10-07T09:30:00-04:00"
+            },
+            "patient_summary": {
+              "ai_generated_synthesis": null,
+              "review_status": "pending",
+              "sentences": [
+                "This test estimates your body composition.",
+                "Your weight was 81.6 kilograms. Your total body weight.",
+                "Your body mass index was 26.6 . A screening number based on your weight and height. It does not tell the whole story about body fat or health.",
+                "Your skeletal muscle mass was 34.6 kilograms. An estimate of the muscle that helps you move.",
+                "Your body fat mass was 20.2 kilograms. An estimate of how much of your body weight is fat.",
+                "Your percent body fat was 24.8 percent. The estimated share of your weight that is fat.",
+                "Your total body water was 45.1 liters. An estimate of the water in your body.",
+                "Your body water ratio was 0.385 . The share of estimated body water outside your cells.",
+                "Your visceral fat area was 97 square centimeters. An estimate of fat around organs in your abdomen.",
+                "Your phase angle was 6 degrees. An electrical measurement from the test. Its meaning depends on the device and your health context.",
+                "Between September 07, 2026 and October 07, 2026, your weight decreased by 1.2 kilograms.",
+                "Between September 07, 2026 and October 07, 2026, your body mass index decreased by 0.4 points.",
+                "Between September 07, 2026 and October 07, 2026, your skeletal muscle mass increased by 0.3 kilograms.",
+                "Between September 07, 2026 and October 07, 2026, your body fat mass decreased by 0.9 kilograms.",
+                "Between September 07, 2026 and October 07, 2026, your percent body fat decreased by 0.7 percentage points.",
+                "Between September 07, 2026 and October 07, 2026, your total body water increased by 0.2 liters.",
+                "Between September 07, 2026 and October 07, 2026, your body water ratio unchanged by 0 .",
+                "Between September 07, 2026 and October 07, 2026, your visceral fat area decreased by 4 square centimeters.",
+                "Between September 07, 2026 and October 07, 2026, your phase angle increased by 0.1 degrees.",
+                "Some measurements need review. Discuss these results with your healthcare professional.",
+                "Changes in numbers alone do not tell us whether your health has improved or worsened."
+              ]
+            },
+            "provenance": {
+              "ai": {
+                "model": null,
+                "status": "disabled",
+                "used": false
+              },
+              "analysis_version": "deterministic-analysis-v1.0",
+              "patient_context": {
+                "dob": "1982-04-17",
+                "sex": "male"
+              },
+              "rules_snapshot": {
+                "cms": {
+                  "enabled": false,
+                  "reason": "No applicable CMS body-composition measurement criterion has been configured."
+                },
+                "manufacturer": {
+                  "mode": "source-reported intervals only",
+                  "reason": "No universal device threshold inferred. Imported intervals require clinician confirmation."
+                },
+                "policy_context": {
+                  "explanation": "BMI has limitations and should be considered with other measures of risk. This is context, not a numeric reference interval.",
+                  "source": "AMA BMI policy announcement",
+                  "source_date": "2023-06-14",
+                  "url": "https://www.ama-assn.org/press-center/ama-press-releases/ama-adopts-new-policy-clarifying-role-bmi-measure-medicine"
+                },
+                "rules": [
+                  {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is below the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-low",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "lt",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 18.5,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  },
+                  {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-high",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "gte",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 25,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  }
+                ],
+                "verified_on": "2026-10-07",
+                "version": "clinical-v1.0"
+              },
+              "rules_version": "clinical-v1.0",
+              "source_hash": "1836bd9c41fcc1113c639c1607855a5893f91a4674887da5af5ec466d3cd2375",
+              "test_timestamp": "2026-10-07T09:30:00-04:00"
+            },
+            "result_id": "6948987c-86d8-4b49-b9d9-b3a32bdb804c",
+            "review_status": "pending",
+            "rule_findings": [
+              {
+                "flag_type": "clinically relevant",
+                "measured_value": 26.599999999999998,
+                "metric": "bmi",
+                "reason": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                "reference_value_or_rule": {
+                  "evidence_category": "authoritative-US-screening",
+                  "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "id": "cdc-bmi-high",
+                  "max_age": null,
+                  "metric": "bmi",
+                  "min_age": 20,
+                  "operator": "gte",
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "sex": null,
+                  "source": "CDC Adult BMI Categories",
+                  "source_date": "2024-03-19",
+                  "source_version": "reviewed-2024-03-19",
+                  "threshold": 25,
+                  "unit": "kg/m2",
+                  "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                },
+                "review_required": true,
+                "severity": "clinician review",
+                "source": "CDC Adult BMI Categories",
+                "source_version": "reviewed-2024-03-19"
+              }
+            ],
+            "reviews": []
+          }
+        ]
+      },
+      {
+        "claimed_patient_id": null,
+        "device_model": "Synthetic InBody fixture",
+        "encounter_id": "SYN-001-FOLLOW",
+        "id": "3966dba1-5579-44cc-a1a1-5d6df5ef8e68",
+        "ingested_at": "2026-10-07T17:05:59.347713+00:00",
+        "measurements": [
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "weight",
+            "original_unit": "kg",
+            "original_value": 82.8,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "kg",
+            "value": 82.8
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "bmi",
+            "original_unit": "kg/m2",
+            "original_value": 27.0,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "kg/m2",
+            "value": 27.0
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "skeletal_muscle_mass",
+            "original_unit": "kg",
+            "original_value": 34.3,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "kg",
+            "value": 34.3
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "body_fat_mass",
+            "original_unit": "kg",
+            "original_value": 21.1,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "kg",
+            "value": 21.1
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "percent_body_fat",
+            "original_unit": "%",
+            "original_value": 25.5,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "%",
+            "value": 25.5
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "total_body_water",
+            "original_unit": "L",
+            "original_value": 44.900000000000006,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "L",
+            "value": 44.900000000000006
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "ecw_tbw",
+            "original_unit": "ratio",
+            "original_value": 0.385,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "ratio",
+            "value": 0.385
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "visceral_fat_area",
+            "original_unit": "cm2",
+            "original_value": 101,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "cm2",
+            "value": 101
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "phase_angle",
+            "original_unit": "deg",
+            "original_value": 5.8999999999999995,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "deg",
+            "value": 5.8999999999999995
+          }
+        ],
+        "patient_id": "SYN-001",
+        "provenance": {
+          "identity_binding": "operator-selected; no automatic name matching",
+          "parser_version": "normalized-contract-v1.0",
+          "schema_version": "normalized-v1.0",
+          "software_version": "InBodyStage1-0.1.0",
+          "source_hash": "8987e5dfa38b4393d1ee0cd4afa74a9b9baa14cca472112cd8b70ce1e43e0621",
+          "superseded_source": null
+        },
+        "source_identifier": "demo-1",
+        "source_result": {
+          "files": [],
+          "payload_sha256": "309240ac7a6312a8d326dbd491c77e248fa8f7677accf5bd6a16146ecdc16ea1"
+        },
+        "source_type": "mock_api",
+        "supersedes": null,
+        "test_timestamp": "2026-09-07T09:30:00-04:00",
+        "analyses": [
+          {
+            "clinician_summary": {
+              "ai_generated_synthesis": null,
+              "clinical_considerations": [
+                "Consider testing conditions, hydration, device consistency, and the clinical history when interpreting bioimpedance estimates."
+              ],
+              "data_quality_limitations": [],
+              "longitudinal_comparison": {
+                "changes": [
+                  {
+                    "absolute_change": -1.2,
+                    "change_unit": "kg",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 82.8,
+                    "direction": "decreased",
+                    "from": "2026-08-07T09:30:00-04:00",
+                    "metric": "weight",
+                    "percentage_change": -1.4286,
+                    "previous_value": 84.0,
+                    "to": "2026-09-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": -0.4,
+                    "change_unit": "kg/m2",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 27.0,
+                    "direction": "decreased",
+                    "from": "2026-08-07T09:30:00-04:00",
+                    "metric": "bmi",
+                    "percentage_change": -1.4599,
+                    "previous_value": 27.4,
+                    "to": "2026-09-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": 0.3,
+                    "change_unit": "kg",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 34.3,
+                    "direction": "increased",
+                    "from": "2026-08-07T09:30:00-04:00",
+                    "metric": "skeletal_muscle_mass",
+                    "percentage_change": 0.8824,
+                    "previous_value": 34.0,
+                    "to": "2026-09-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": -0.9,
+                    "change_unit": "kg",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 21.1,
+                    "direction": "decreased",
+                    "from": "2026-08-07T09:30:00-04:00",
+                    "metric": "body_fat_mass",
+                    "percentage_change": -4.0909,
+                    "previous_value": 22.0,
+                    "to": "2026-09-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": -0.7,
+                    "change_unit": "percentage points",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 25.5,
+                    "direction": "decreased",
+                    "from": "2026-08-07T09:30:00-04:00",
+                    "metric": "percent_body_fat",
+                    "percentage_change": null,
+                    "previous_value": 26.2,
+                    "to": "2026-09-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": 0.2,
+                    "change_unit": "L",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 44.900000000000006,
+                    "direction": "increased",
+                    "from": "2026-08-07T09:30:00-04:00",
+                    "metric": "total_body_water",
+                    "percentage_change": 0.4474,
+                    "previous_value": 44.7,
+                    "to": "2026-09-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": 0.0,
+                    "change_unit": "ratio",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 0.385,
+                    "direction": "unchanged",
+                    "from": "2026-08-07T09:30:00-04:00",
+                    "metric": "ecw_tbw",
+                    "percentage_change": null,
+                    "previous_value": 0.385,
+                    "to": "2026-09-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": -4,
+                    "change_unit": "cm2",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 101,
+                    "direction": "decreased",
+                    "from": "2026-08-07T09:30:00-04:00",
+                    "metric": "visceral_fat_area",
+                    "percentage_change": -3.8095,
+                    "previous_value": 105,
+                    "to": "2026-09-07T09:30:00-04:00"
+                  },
+                  {
+                    "absolute_change": 0.1,
+                    "change_unit": "deg",
+                    "clinical_significance": "not classified \u2014 no approved change rule",
+                    "current_value": 5.8999999999999995,
+                    "direction": "increased",
+                    "from": "2026-08-07T09:30:00-04:00",
+                    "metric": "phase_angle",
+                    "percentage_change": null,
+                    "previous_value": 5.8,
+                    "to": "2026-09-07T09:30:00-04:00"
+                  }
+                ],
+                "from": "2026-08-07T09:30:00-04:00",
+                "interval_days": 31.0,
+                "note": "Numerical changes do not by themselves establish improvement or worsening.",
+                "previous_result_id": "127d2b86-8309-472b-83aa-20486a2188bc",
+                "to": "2026-09-07T09:30:00-04:00"
+              },
+              "measured_facts": [
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "weight",
+                  "original_unit": "kg",
+                  "original_value": 82.8,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "kg",
+                  "value": 82.8
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "bmi",
+                  "original_unit": "kg/m2",
+                  "original_value": 27.0,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "kg/m2",
+                  "value": 27.0
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "skeletal_muscle_mass",
+                  "original_unit": "kg",
+                  "original_value": 34.3,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "kg",
+                  "value": 34.3
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "body_fat_mass",
+                  "original_unit": "kg",
+                  "original_value": 21.1,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "kg",
+                  "value": 21.1
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "percent_body_fat",
+                  "original_unit": "%",
+                  "original_value": 25.5,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "%",
+                  "value": 25.5
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "total_body_water",
+                  "original_unit": "L",
+                  "original_value": 44.900000000000006,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "L",
+                  "value": 44.900000000000006
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "ecw_tbw",
+                  "original_unit": "ratio",
+                  "original_value": 0.385,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "ratio",
+                  "value": 0.385
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "visceral_fat_area",
+                  "original_unit": "cm2",
+                  "original_value": 101,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "cm2",
+                  "value": 101
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "phase_angle",
+                  "original_unit": "deg",
+                  "original_value": 5.8999999999999995,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "deg",
+                  "value": 5.8999999999999995
+                }
+              ],
+              "references": {
+                "cms": {
+                  "enabled": false,
+                  "reason": "No applicable CMS body-composition measurement criterion has been configured."
+                },
+                "manufacturer": {
+                  "mode": "source-reported intervals only",
+                  "reason": "No universal device threshold inferred. Imported intervals require clinician confirmation."
+                },
+                "policy_context": {
+                  "explanation": "BMI has limitations and should be considered with other measures of risk. This is context, not a numeric reference interval.",
+                  "source": "AMA BMI policy announcement",
+                  "source_date": "2023-06-14",
+                  "url": "https://www.ama-assn.org/press-center/ama-press-releases/ama-adopts-new-policy-clarifying-role-bmi-measure-medicine"
+                },
+                "rules": [
+                  {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is below the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-low",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "lt",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 18.5,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  },
+                  {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-high",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "gte",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 25,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  }
+                ],
+                "verified_on": "2026-10-07",
+                "version": "clinical-v1.0"
+              },
+              "review_status": "pending",
+              "rule_derived_interpretation": [
+                {
+                  "flag_type": "clinically relevant",
+                  "measured_value": 27.0,
+                  "metric": "bmi",
+                  "reason": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "reference_value_or_rule": {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-high",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "gte",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 25,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  },
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "source": "CDC Adult BMI Categories",
+                  "source_version": "reviewed-2024-03-19"
+                }
+              ],
+              "source_device": "Synthetic InBody fixture",
+              "test_timestamp": "2026-09-07T09:30:00-04:00"
+            },
+            "created_at": "2026-10-07T17:05:59.348081+00:00",
+            "data_quality_passed": true,
+            "id": "35fba9f4-4561-4fcf-8b73-b28874e64037",
+            "longitudinal_comparison": {
+              "changes": [
+                {
+                  "absolute_change": -1.2,
+                  "change_unit": "kg",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 82.8,
+                  "direction": "decreased",
+                  "from": "2026-08-07T09:30:00-04:00",
+                  "metric": "weight",
+                  "percentage_change": -1.4286,
+                  "previous_value": 84.0,
+                  "to": "2026-09-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": -0.4,
+                  "change_unit": "kg/m2",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 27.0,
+                  "direction": "decreased",
+                  "from": "2026-08-07T09:30:00-04:00",
+                  "metric": "bmi",
+                  "percentage_change": -1.4599,
+                  "previous_value": 27.4,
+                  "to": "2026-09-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": 0.3,
+                  "change_unit": "kg",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 34.3,
+                  "direction": "increased",
+                  "from": "2026-08-07T09:30:00-04:00",
+                  "metric": "skeletal_muscle_mass",
+                  "percentage_change": 0.8824,
+                  "previous_value": 34.0,
+                  "to": "2026-09-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": -0.9,
+                  "change_unit": "kg",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 21.1,
+                  "direction": "decreased",
+                  "from": "2026-08-07T09:30:00-04:00",
+                  "metric": "body_fat_mass",
+                  "percentage_change": -4.0909,
+                  "previous_value": 22.0,
+                  "to": "2026-09-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": -0.7,
+                  "change_unit": "percentage points",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 25.5,
+                  "direction": "decreased",
+                  "from": "2026-08-07T09:30:00-04:00",
+                  "metric": "percent_body_fat",
+                  "percentage_change": null,
+                  "previous_value": 26.2,
+                  "to": "2026-09-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": 0.2,
+                  "change_unit": "L",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 44.900000000000006,
+                  "direction": "increased",
+                  "from": "2026-08-07T09:30:00-04:00",
+                  "metric": "total_body_water",
+                  "percentage_change": 0.4474,
+                  "previous_value": 44.7,
+                  "to": "2026-09-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": 0.0,
+                  "change_unit": "ratio",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 0.385,
+                  "direction": "unchanged",
+                  "from": "2026-08-07T09:30:00-04:00",
+                  "metric": "ecw_tbw",
+                  "percentage_change": null,
+                  "previous_value": 0.385,
+                  "to": "2026-09-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": -4,
+                  "change_unit": "cm2",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 101,
+                  "direction": "decreased",
+                  "from": "2026-08-07T09:30:00-04:00",
+                  "metric": "visceral_fat_area",
+                  "percentage_change": -3.8095,
+                  "previous_value": 105,
+                  "to": "2026-09-07T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": 0.1,
+                  "change_unit": "deg",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 5.8999999999999995,
+                  "direction": "increased",
+                  "from": "2026-08-07T09:30:00-04:00",
+                  "metric": "phase_angle",
+                  "percentage_change": null,
+                  "previous_value": 5.8,
+                  "to": "2026-09-07T09:30:00-04:00"
+                }
+              ],
+              "from": "2026-08-07T09:30:00-04:00",
+              "interval_days": 31.0,
+              "note": "Numerical changes do not by themselves establish improvement or worsening.",
+              "previous_result_id": "127d2b86-8309-472b-83aa-20486a2188bc",
+              "to": "2026-09-07T09:30:00-04:00"
+            },
+            "patient_summary": {
+              "ai_generated_synthesis": null,
+              "review_status": "pending",
+              "sentences": [
+                "This test estimates your body composition.",
+                "Your weight was 82.8 kilograms. Your total body weight.",
+                "Your body mass index was 27 . A screening number based on your weight and height. It does not tell the whole story about body fat or health.",
+                "Your skeletal muscle mass was 34.3 kilograms. An estimate of the muscle that helps you move.",
+                "Your body fat mass was 21.1 kilograms. An estimate of how much of your body weight is fat.",
+                "Your percent body fat was 25.5 percent. The estimated share of your weight that is fat.",
+                "Your total body water was 44.9 liters. An estimate of the water in your body.",
+                "Your body water ratio was 0.385 . The share of estimated body water outside your cells.",
+                "Your visceral fat area was 101 square centimeters. An estimate of fat around organs in your abdomen.",
+                "Your phase angle was 5.9 degrees. An electrical measurement from the test. Its meaning depends on the device and your health context.",
+                "Between August 07, 2026 and September 07, 2026, your weight decreased by 1.2 kilograms.",
+                "Between August 07, 2026 and September 07, 2026, your body mass index decreased by 0.4 points.",
+                "Between August 07, 2026 and September 07, 2026, your skeletal muscle mass increased by 0.3 kilograms.",
+                "Between August 07, 2026 and September 07, 2026, your body fat mass decreased by 0.9 kilograms.",
+                "Between August 07, 2026 and September 07, 2026, your percent body fat decreased by 0.7 percentage points.",
+                "Between August 07, 2026 and September 07, 2026, your total body water increased by 0.2 liters.",
+                "Between August 07, 2026 and September 07, 2026, your body water ratio unchanged by 0 .",
+                "Between August 07, 2026 and September 07, 2026, your visceral fat area decreased by 4 square centimeters.",
+                "Between August 07, 2026 and September 07, 2026, your phase angle increased by 0.1 degrees.",
+                "Some measurements need review. Discuss these results with your healthcare professional.",
+                "Changes in numbers alone do not tell us whether your health has improved or worsened."
+              ]
+            },
+            "provenance": {
+              "ai": {
+                "model": null,
+                "status": "disabled",
+                "used": false
+              },
+              "analysis_version": "deterministic-analysis-v1.0",
+              "patient_context": {
+                "dob": "1982-04-17",
+                "sex": "male"
+              },
+              "rules_snapshot": {
+                "cms": {
+                  "enabled": false,
+                  "reason": "No applicable CMS body-composition measurement criterion has been configured."
+                },
+                "manufacturer": {
+                  "mode": "source-reported intervals only",
+                  "reason": "No universal device threshold inferred. Imported intervals require clinician confirmation."
+                },
+                "policy_context": {
+                  "explanation": "BMI has limitations and should be considered with other measures of risk. This is context, not a numeric reference interval.",
+                  "source": "AMA BMI policy announcement",
+                  "source_date": "2023-06-14",
+                  "url": "https://www.ama-assn.org/press-center/ama-press-releases/ama-adopts-new-policy-clarifying-role-bmi-measure-medicine"
+                },
+                "rules": [
+                  {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is below the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-low",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "lt",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 18.5,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  },
+                  {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-high",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "gte",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 25,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  }
+                ],
+                "verified_on": "2026-10-07",
+                "version": "clinical-v1.0"
+              },
+              "rules_version": "clinical-v1.0",
+              "source_hash": "8987e5dfa38b4393d1ee0cd4afa74a9b9baa14cca472112cd8b70ce1e43e0621",
+              "test_timestamp": "2026-09-07T09:30:00-04:00"
+            },
+            "result_id": "3966dba1-5579-44cc-a1a1-5d6df5ef8e68",
+            "review_status": "pending",
+            "rule_findings": [
+              {
+                "flag_type": "clinically relevant",
+                "measured_value": 27.0,
+                "metric": "bmi",
+                "reason": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                "reference_value_or_rule": {
+                  "evidence_category": "authoritative-US-screening",
+                  "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "id": "cdc-bmi-high",
+                  "max_age": null,
+                  "metric": "bmi",
+                  "min_age": 20,
+                  "operator": "gte",
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "sex": null,
+                  "source": "CDC Adult BMI Categories",
+                  "source_date": "2024-03-19",
+                  "source_version": "reviewed-2024-03-19",
+                  "threshold": 25,
+                  "unit": "kg/m2",
+                  "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                },
+                "review_required": true,
+                "severity": "clinician review",
+                "source": "CDC Adult BMI Categories",
+                "source_version": "reviewed-2024-03-19"
+              }
+            ],
+            "reviews": []
+          }
+        ]
+      },
+      {
+        "claimed_patient_id": null,
+        "device_model": "Synthetic InBody fixture",
+        "encounter_id": "SYN-001-BASE",
+        "id": "127d2b86-8309-472b-83aa-20486a2188bc",
+        "ingested_at": "2026-10-07T17:05:59.346401+00:00",
+        "measurements": [
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "weight",
+            "original_unit": "kg",
+            "original_value": 84.0,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "kg",
+            "value": 84.0
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "bmi",
+            "original_unit": "kg/m2",
+            "original_value": 27.4,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "kg/m2",
+            "value": 27.4
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "skeletal_muscle_mass",
+            "original_unit": "kg",
+            "original_value": 34.0,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "kg",
+            "value": 34.0
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "body_fat_mass",
+            "original_unit": "kg",
+            "original_value": 22.0,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "kg",
+            "value": 22.0
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "percent_body_fat",
+            "original_unit": "%",
+            "original_value": 26.2,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "%",
+            "value": 26.2
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "total_body_water",
+            "original_unit": "L",
+            "original_value": 44.7,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "L",
+            "value": 44.7
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "ecw_tbw",
+            "original_unit": "ratio",
+            "original_value": 0.385,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "ratio",
+            "value": 0.385
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "visceral_fat_area",
+            "original_unit": "cm2",
+            "original_value": 105,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "cm2",
+            "value": 105
+          },
+          {
+            "confidence": 1.0,
+            "device_reference": null,
+            "metric": "phase_angle",
+            "original_unit": "deg",
+            "original_value": 5.8,
+            "quality_note": "",
+            "status": "verified",
+            "unit": "deg",
+            "value": 5.8
+          }
+        ],
+        "patient_id": "SYN-001",
+        "provenance": {
+          "identity_binding": "operator-selected; no automatic name matching",
+          "parser_version": "normalized-contract-v1.0",
+          "schema_version": "normalized-v1.0",
+          "software_version": "InBodyStage1-0.1.0",
+          "source_hash": "4443bce73688b4cdfc3b78b6c68855b8c8b611ff30183e64430eb710b6cb5d7e",
+          "superseded_source": null
+        },
+        "source_identifier": "demo-0",
+        "source_result": {
+          "files": [],
+          "payload_sha256": "5db8f92f69e7659177640f5f9f28126c2dd373b8922e7b8bf21e01bdf00177d8"
+        },
+        "source_type": "mock_api",
+        "supersedes": null,
+        "test_timestamp": "2026-08-07T09:30:00-04:00",
+        "analyses": [
+          {
+            "clinician_summary": {
+              "ai_generated_synthesis": null,
+              "clinical_considerations": [
+                "Consider testing conditions, hydration, device consistency, and the clinical history when interpreting bioimpedance estimates."
+              ],
+              "data_quality_limitations": [],
+              "longitudinal_comparison": {
+                "changes": [],
+                "interval_days": null,
+                "note": "No earlier verified comparison available.",
+                "previous_result_id": null
+              },
+              "measured_facts": [
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "weight",
+                  "original_unit": "kg",
+                  "original_value": 84.0,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "kg",
+                  "value": 84.0
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "bmi",
+                  "original_unit": "kg/m2",
+                  "original_value": 27.4,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "kg/m2",
+                  "value": 27.4
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "skeletal_muscle_mass",
+                  "original_unit": "kg",
+                  "original_value": 34.0,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "kg",
+                  "value": 34.0
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "body_fat_mass",
+                  "original_unit": "kg",
+                  "original_value": 22.0,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "kg",
+                  "value": 22.0
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "percent_body_fat",
+                  "original_unit": "%",
+                  "original_value": 26.2,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "%",
+                  "value": 26.2
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "total_body_water",
+                  "original_unit": "L",
+                  "original_value": 44.7,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "L",
+                  "value": 44.7
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "ecw_tbw",
+                  "original_unit": "ratio",
+                  "original_value": 0.385,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "ratio",
+                  "value": 0.385
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "visceral_fat_area",
+                  "original_unit": "cm2",
+                  "original_value": 105,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "cm2",
+                  "value": 105
+                },
+                {
+                  "confidence": 1.0,
+                  "device_reference": null,
+                  "metric": "phase_angle",
+                  "original_unit": "deg",
+                  "original_value": 5.8,
+                  "quality_note": "",
+                  "status": "verified",
+                  "unit": "deg",
+                  "value": 5.8
+                }
+              ],
+              "references": {
+                "cms": {
+                  "enabled": false,
+                  "reason": "No applicable CMS body-composition measurement criterion has been configured."
+                },
+                "manufacturer": {
+                  "mode": "source-reported intervals only",
+                  "reason": "No universal device threshold inferred. Imported intervals require clinician confirmation."
+                },
+                "policy_context": {
+                  "explanation": "BMI has limitations and should be considered with other measures of risk. This is context, not a numeric reference interval.",
+                  "source": "AMA BMI policy announcement",
+                  "source_date": "2023-06-14",
+                  "url": "https://www.ama-assn.org/press-center/ama-press-releases/ama-adopts-new-policy-clarifying-role-bmi-measure-medicine"
+                },
+                "rules": [
+                  {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is below the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-low",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "lt",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 18.5,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  },
+                  {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-high",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "gte",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 25,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  }
+                ],
+                "verified_on": "2026-10-07",
+                "version": "clinical-v1.0"
+              },
+              "review_status": "pending",
+              "rule_derived_interpretation": [
+                {
+                  "flag_type": "clinically relevant",
+                  "measured_value": 27.4,
+                  "metric": "bmi",
+                  "reason": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "reference_value_or_rule": {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-high",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "gte",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 25,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  },
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "source": "CDC Adult BMI Categories",
+                  "source_version": "reviewed-2024-03-19"
+                }
+              ],
+              "source_device": "Synthetic InBody fixture",
+              "test_timestamp": "2026-08-07T09:30:00-04:00"
+            },
+            "created_at": "2026-10-07T17:05:59.346855+00:00",
+            "data_quality_passed": true,
+            "id": "98f518a3-9952-4004-be3c-042c10a0ab87",
+            "longitudinal_comparison": {
+              "changes": [],
+              "interval_days": null,
+              "note": "No earlier verified comparison available.",
+              "previous_result_id": null
+            },
+            "patient_summary": {
+              "ai_generated_synthesis": null,
+              "review_status": "pending",
+              "sentences": [
+                "This test estimates your body composition.",
+                "Your weight was 84 kilograms. Your total body weight.",
+                "Your body mass index was 27.4 . A screening number based on your weight and height. It does not tell the whole story about body fat or health.",
+                "Your skeletal muscle mass was 34 kilograms. An estimate of the muscle that helps you move.",
+                "Your body fat mass was 22 kilograms. An estimate of how much of your body weight is fat.",
+                "Your percent body fat was 26.2 percent. The estimated share of your weight that is fat.",
+                "Your total body water was 44.7 liters. An estimate of the water in your body.",
+                "Your body water ratio was 0.385 . The share of estimated body water outside your cells.",
+                "Your visceral fat area was 105 square centimeters. An estimate of fat around organs in your abdomen.",
+                "Your phase angle was 5.8 degrees. An electrical measurement from the test. Its meaning depends on the device and your health context.",
+                "There is no earlier test available for comparison.",
+                "Some measurements need review. Discuss these results with your healthcare professional.",
+                "Changes in numbers alone do not tell us whether your health has improved or worsened."
+              ]
+            },
+            "provenance": {
+              "ai": {
+                "model": null,
+                "status": "disabled",
+                "used": false
+              },
+              "analysis_version": "deterministic-analysis-v1.0",
+              "patient_context": {
+                "dob": "1982-04-17",
+                "sex": "male"
+              },
+              "rules_snapshot": {
+                "cms": {
+                  "enabled": false,
+                  "reason": "No applicable CMS body-composition measurement criterion has been configured."
+                },
+                "manufacturer": {
+                  "mode": "source-reported intervals only",
+                  "reason": "No universal device threshold inferred. Imported intervals require clinician confirmation."
+                },
+                "policy_context": {
+                  "explanation": "BMI has limitations and should be considered with other measures of risk. This is context, not a numeric reference interval.",
+                  "source": "AMA BMI policy announcement",
+                  "source_date": "2023-06-14",
+                  "url": "https://www.ama-assn.org/press-center/ama-press-releases/ama-adopts-new-policy-clarifying-role-bmi-measure-medicine"
+                },
+                "rules": [
+                  {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is below the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-low",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "lt",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 18.5,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  },
+                  {
+                    "evidence_category": "authoritative-US-screening",
+                    "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                    "id": "cdc-bmi-high",
+                    "max_age": null,
+                    "metric": "bmi",
+                    "min_age": 20,
+                    "operator": "gte",
+                    "review_required": true,
+                    "severity": "clinician review",
+                    "sex": null,
+                    "source": "CDC Adult BMI Categories",
+                    "source_date": "2024-03-19",
+                    "source_version": "reviewed-2024-03-19",
+                    "threshold": 25,
+                    "unit": "kg/m2",
+                    "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                  }
+                ],
+                "verified_on": "2026-10-07",
+                "version": "clinical-v1.0"
+              },
+              "rules_version": "clinical-v1.0",
+              "source_hash": "4443bce73688b4cdfc3b78b6c68855b8c8b611ff30183e64430eb710b6cb5d7e",
+              "test_timestamp": "2026-08-07T09:30:00-04:00"
+            },
+            "result_id": "127d2b86-8309-472b-83aa-20486a2188bc",
+            "review_status": "pending",
+            "rule_findings": [
+              {
+                "flag_type": "clinically relevant",
+                "measured_value": 27.4,
+                "metric": "bmi",
+                "reason": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                "reference_value_or_rule": {
+                  "evidence_category": "authoritative-US-screening",
+                  "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "id": "cdc-bmi-high",
+                  "max_age": null,
+                  "metric": "bmi",
+                  "min_age": 20,
+                  "operator": "gte",
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "sex": null,
+                  "source": "CDC Adult BMI Categories",
+                  "source_date": "2024-03-19",
+                  "source_version": "reviewed-2024-03-19",
+                  "threshold": 25,
+                  "unit": "kg/m2",
+                  "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                },
+                "review_required": true,
+                "severity": "clinician review",
+                "source": "CDC Adult BMI Categories",
+                "source_version": "reviewed-2024-03-19"
+              }
+            ],
+            "reviews": []
+          }
+        ]
+      }
+    ],
+    "SYN-002": []
+  },
+  "samples": {
+    "SYN-001": {
+      "claimed_patient_id": null,
+      "device_model": "Synthetic InBody fixture",
+      "encounter_id": "SYN-001-FOLLOW",
+      "id": "074e793d-061d-4b9c-a8b8-63e0b0e9a649",
+      "ingested_at": "2026-10-07T17:05:59.350737+00:00",
+      "measurements": [
+        {
+          "confidence": 1.0,
+          "device_reference": null,
+          "metric": "weight",
+          "original_unit": "kg",
+          "original_value": 79.9,
+          "quality_note": "",
+          "status": "verified",
+          "unit": "kg",
+          "value": 79.9
+        },
+        {
+          "confidence": 1.0,
+          "device_reference": null,
+          "metric": "bmi",
+          "original_unit": "kg/m2",
+          "original_value": 26.1,
+          "quality_note": "",
+          "status": "verified",
+          "unit": "kg/m2",
+          "value": 26.1
+        },
+        {
+          "confidence": 1.0,
+          "device_reference": null,
+          "metric": "skeletal_muscle_mass",
+          "original_unit": "kg",
+          "original_value": 34.9,
+          "quality_note": "",
+          "status": "verified",
+          "unit": "kg",
+          "value": 34.9
+        },
+        {
+          "confidence": 1.0,
+          "device_reference": null,
+          "metric": "percent_body_fat",
+          "original_unit": "%",
+          "original_value": 23.6,
+          "quality_note": "",
+          "status": "verified",
+          "unit": "%",
+          "value": 23.6
+        },
+        {
+          "confidence": 1.0,
+          "device_reference": null,
+          "metric": "body_fat_mass",
+          "original_unit": "kg",
+          "original_value": 18.86,
+          "quality_note": "",
+          "status": "verified",
+          "unit": "kg",
+          "value": 18.86
+        }
+      ],
+      "patient_id": "SYN-001",
+      "provenance": {
+        "identity_binding": "operator-selected; no automatic name matching",
+        "parser_version": "normalized-contract-v1.0",
+        "schema_version": "normalized-v1.0",
+        "software_version": "InBodyStage1-0.1.0",
+        "source_hash": "429ec3be80915058b762de442aa0a9d05bcdcef237f70e1b3c28a7e5896239f5",
+        "superseded_source": null
+      },
+      "source_identifier": "visual-sample-SYN-001",
+      "source_result": {
+        "files": [],
+        "payload_sha256": "bf82f8a9743308d65ab9c7fc800e3fb3e192488c22f4dce09711aa44830ac55e"
+      },
+      "source_type": "mock_api",
+      "supersedes": null,
+      "test_timestamp": "2026-10-08T09:30:00-04:00",
+      "analyses": [
+        {
+          "clinician_summary": {
+            "ai_generated_synthesis": null,
+            "clinical_considerations": [
+              "Consider testing conditions, hydration, device consistency, and the clinical history when interpreting bioimpedance estimates."
+            ],
+            "data_quality_limitations": [],
+            "longitudinal_comparison": {
+              "changes": [
+                {
+                  "absolute_change": -1.7,
+                  "change_unit": "kg",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 79.9,
+                  "direction": "decreased",
+                  "from": "2026-10-07T09:30:00-04:00",
+                  "metric": "weight",
+                  "percentage_change": -2.0833,
+                  "previous_value": 81.6,
+                  "to": "2026-10-08T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": -0.5,
+                  "change_unit": "kg/m2",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 26.1,
+                  "direction": "decreased",
+                  "from": "2026-10-07T09:30:00-04:00",
+                  "metric": "bmi",
+                  "percentage_change": -1.8797,
+                  "previous_value": 26.599999999999998,
+                  "to": "2026-10-08T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": 0.3,
+                  "change_unit": "kg",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 34.9,
+                  "direction": "increased",
+                  "from": "2026-10-07T09:30:00-04:00",
+                  "metric": "skeletal_muscle_mass",
+                  "percentage_change": 0.8671,
+                  "previous_value": 34.6,
+                  "to": "2026-10-08T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": -1.2,
+                  "change_unit": "percentage points",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 23.6,
+                  "direction": "decreased",
+                  "from": "2026-10-07T09:30:00-04:00",
+                  "metric": "percent_body_fat",
+                  "percentage_change": null,
+                  "previous_value": 24.8,
+                  "to": "2026-10-08T09:30:00-04:00"
+                },
+                {
+                  "absolute_change": -1.34,
+                  "change_unit": "kg",
+                  "clinical_significance": "not classified \u2014 no approved change rule",
+                  "current_value": 18.86,
+                  "direction": "decreased",
+                  "from": "2026-10-07T09:30:00-04:00",
+                  "metric": "body_fat_mass",
+                  "percentage_change": -6.6337,
+                  "previous_value": 20.2,
+                  "to": "2026-10-08T09:30:00-04:00"
+                }
+              ],
+              "from": "2026-10-07T09:30:00-04:00",
+              "interval_days": 1.0,
+              "note": "Numerical changes do not by themselves establish improvement or worsening.",
+              "previous_result_id": "6948987c-86d8-4b49-b9d9-b3a32bdb804c",
+              "to": "2026-10-08T09:30:00-04:00"
+            },
+            "measured_facts": [
+              {
+                "confidence": 1.0,
+                "device_reference": null,
+                "metric": "weight",
+                "original_unit": "kg",
+                "original_value": 79.9,
+                "quality_note": "",
+                "status": "verified",
+                "unit": "kg",
+                "value": 79.9
+              },
+              {
+                "confidence": 1.0,
+                "device_reference": null,
+                "metric": "bmi",
+                "original_unit": "kg/m2",
+                "original_value": 26.1,
+                "quality_note": "",
+                "status": "verified",
+                "unit": "kg/m2",
+                "value": 26.1
+              },
+              {
+                "confidence": 1.0,
+                "device_reference": null,
+                "metric": "skeletal_muscle_mass",
+                "original_unit": "kg",
+                "original_value": 34.9,
+                "quality_note": "",
+                "status": "verified",
+                "unit": "kg",
+                "value": 34.9
+              },
+              {
+                "confidence": 1.0,
+                "device_reference": null,
+                "metric": "percent_body_fat",
+                "original_unit": "%",
+                "original_value": 23.6,
+                "quality_note": "",
+                "status": "verified",
+                "unit": "%",
+                "value": 23.6
+              },
+              {
+                "confidence": 1.0,
+                "device_reference": null,
+                "metric": "body_fat_mass",
+                "original_unit": "kg",
+                "original_value": 18.86,
+                "quality_note": "",
+                "status": "verified",
+                "unit": "kg",
+                "value": 18.86
+              }
+            ],
+            "references": {
+              "cms": {
+                "enabled": false,
+                "reason": "No applicable CMS body-composition measurement criterion has been configured."
+              },
+              "manufacturer": {
+                "mode": "source-reported intervals only",
+                "reason": "No universal device threshold inferred. Imported intervals require clinician confirmation."
+              },
+              "policy_context": {
+                "explanation": "BMI has limitations and should be considered with other measures of risk. This is context, not a numeric reference interval.",
+                "source": "AMA BMI policy announcement",
+                "source_date": "2023-06-14",
+                "url": "https://www.ama-assn.org/press-center/ama-press-releases/ama-adopts-new-policy-clarifying-role-bmi-measure-medicine"
+              },
+              "rules": [
+                {
+                  "evidence_category": "authoritative-US-screening",
+                  "explanation": "BMI is below the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "id": "cdc-bmi-low",
+                  "max_age": null,
+                  "metric": "bmi",
+                  "min_age": 20,
+                  "operator": "lt",
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "sex": null,
+                  "source": "CDC Adult BMI Categories",
+                  "source_date": "2024-03-19",
+                  "source_version": "reviewed-2024-03-19",
+                  "threshold": 18.5,
+                  "unit": "kg/m2",
+                  "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                },
+                {
+                  "evidence_category": "authoritative-US-screening",
+                  "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "id": "cdc-bmi-high",
+                  "max_age": null,
+                  "metric": "bmi",
+                  "min_age": 20,
+                  "operator": "gte",
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "sex": null,
+                  "source": "CDC Adult BMI Categories",
+                  "source_date": "2024-03-19",
+                  "source_version": "reviewed-2024-03-19",
+                  "threshold": 25,
+                  "unit": "kg/m2",
+                  "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                }
+              ],
+              "verified_on": "2026-10-07",
+              "version": "clinical-v1.0"
+            },
+            "review_status": "pending",
+            "rule_derived_interpretation": [
+              {
+                "flag_type": "clinically relevant",
+                "measured_value": 26.1,
+                "metric": "bmi",
+                "reason": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                "reference_value_or_rule": {
+                  "evidence_category": "authoritative-US-screening",
+                  "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "id": "cdc-bmi-high",
+                  "max_age": null,
+                  "metric": "bmi",
+                  "min_age": 20,
+                  "operator": "gte",
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "sex": null,
+                  "source": "CDC Adult BMI Categories",
+                  "source_date": "2024-03-19",
+                  "source_version": "reviewed-2024-03-19",
+                  "threshold": 25,
+                  "unit": "kg/m2",
+                  "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                },
+                "review_required": true,
+                "severity": "clinician review",
+                "source": "CDC Adult BMI Categories",
+                "source_version": "reviewed-2024-03-19"
+              }
+            ],
+            "source_device": "Synthetic InBody fixture",
+            "test_timestamp": "2026-10-08T09:30:00-04:00"
+          },
+          "created_at": "2026-10-07T17:05:59.351184+00:00",
+          "data_quality_passed": true,
+          "id": "3f2aca55-40bc-4c55-a8bc-80107b186705",
+          "longitudinal_comparison": {
+            "changes": [
+              {
+                "absolute_change": -1.7,
+                "change_unit": "kg",
+                "clinical_significance": "not classified \u2014 no approved change rule",
+                "current_value": 79.9,
+                "direction": "decreased",
+                "from": "2026-10-07T09:30:00-04:00",
+                "metric": "weight",
+                "percentage_change": -2.0833,
+                "previous_value": 81.6,
+                "to": "2026-10-08T09:30:00-04:00"
+              },
+              {
+                "absolute_change": -0.5,
+                "change_unit": "kg/m2",
+                "clinical_significance": "not classified \u2014 no approved change rule",
+                "current_value": 26.1,
+                "direction": "decreased",
+                "from": "2026-10-07T09:30:00-04:00",
+                "metric": "bmi",
+                "percentage_change": -1.8797,
+                "previous_value": 26.599999999999998,
+                "to": "2026-10-08T09:30:00-04:00"
+              },
+              {
+                "absolute_change": 0.3,
+                "change_unit": "kg",
+                "clinical_significance": "not classified \u2014 no approved change rule",
+                "current_value": 34.9,
+                "direction": "increased",
+                "from": "2026-10-07T09:30:00-04:00",
+                "metric": "skeletal_muscle_mass",
+                "percentage_change": 0.8671,
+                "previous_value": 34.6,
+                "to": "2026-10-08T09:30:00-04:00"
+              },
+              {
+                "absolute_change": -1.2,
+                "change_unit": "percentage points",
+                "clinical_significance": "not classified \u2014 no approved change rule",
+                "current_value": 23.6,
+                "direction": "decreased",
+                "from": "2026-10-07T09:30:00-04:00",
+                "metric": "percent_body_fat",
+                "percentage_change": null,
+                "previous_value": 24.8,
+                "to": "2026-10-08T09:30:00-04:00"
+              },
+              {
+                "absolute_change": -1.34,
+                "change_unit": "kg",
+                "clinical_significance": "not classified \u2014 no approved change rule",
+                "current_value": 18.86,
+                "direction": "decreased",
+                "from": "2026-10-07T09:30:00-04:00",
+                "metric": "body_fat_mass",
+                "percentage_change": -6.6337,
+                "previous_value": 20.2,
+                "to": "2026-10-08T09:30:00-04:00"
+              }
+            ],
+            "from": "2026-10-07T09:30:00-04:00",
+            "interval_days": 1.0,
+            "note": "Numerical changes do not by themselves establish improvement or worsening.",
+            "previous_result_id": "6948987c-86d8-4b49-b9d9-b3a32bdb804c",
+            "to": "2026-10-08T09:30:00-04:00"
+          },
+          "patient_summary": {
+            "ai_generated_synthesis": null,
+            "review_status": "pending",
+            "sentences": [
+              "This test estimates your body composition.",
+              "Your weight was 79.9 kilograms. Your total body weight.",
+              "Your body mass index was 26.1 . A screening number based on your weight and height. It does not tell the whole story about body fat or health.",
+              "Your skeletal muscle mass was 34.9 kilograms. An estimate of the muscle that helps you move.",
+              "Your percent body fat was 23.6 percent. The estimated share of your weight that is fat.",
+              "Your body fat mass was 18.86 kilograms. An estimate of how much of your body weight is fat.",
+              "Between October 07, 2026 and October 08, 2026, your weight decreased by 1.7 kilograms.",
+              "Between October 07, 2026 and October 08, 2026, your body mass index decreased by 0.5 points.",
+              "Between October 07, 2026 and October 08, 2026, your skeletal muscle mass increased by 0.3 kilograms.",
+              "Between October 07, 2026 and October 08, 2026, your percent body fat decreased by 1.2 percentage points.",
+              "Between October 07, 2026 and October 08, 2026, your body fat mass decreased by 1.34 kilograms.",
+              "Some measurements need review. Discuss these results with your healthcare professional.",
+              "Changes in numbers alone do not tell us whether your health has improved or worsened."
+            ]
+          },
+          "provenance": {
+            "ai": {
+              "model": null,
+              "status": "disabled",
+              "used": false
+            },
+            "analysis_version": "deterministic-analysis-v1.0",
+            "patient_context": {
+              "dob": "1982-04-17",
+              "sex": "male"
+            },
+            "rules_snapshot": {
+              "cms": {
+                "enabled": false,
+                "reason": "No applicable CMS body-composition measurement criterion has been configured."
+              },
+              "manufacturer": {
+                "mode": "source-reported intervals only",
+                "reason": "No universal device threshold inferred. Imported intervals require clinician confirmation."
+              },
+              "policy_context": {
+                "explanation": "BMI has limitations and should be considered with other measures of risk. This is context, not a numeric reference interval.",
+                "source": "AMA BMI policy announcement",
+                "source_date": "2023-06-14",
+                "url": "https://www.ama-assn.org/press-center/ama-press-releases/ama-adopts-new-policy-clarifying-role-bmi-measure-medicine"
+              },
+              "rules": [
+                {
+                  "evidence_category": "authoritative-US-screening",
+                  "explanation": "BMI is below the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "id": "cdc-bmi-low",
+                  "max_age": null,
+                  "metric": "bmi",
+                  "min_age": 20,
+                  "operator": "lt",
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "sex": null,
+                  "source": "CDC Adult BMI Categories",
+                  "source_date": "2024-03-19",
+                  "source_version": "reviewed-2024-03-19",
+                  "threshold": 18.5,
+                  "unit": "kg/m2",
+                  "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                },
+                {
+                  "evidence_category": "authoritative-US-screening",
+                  "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "id": "cdc-bmi-high",
+                  "max_age": null,
+                  "metric": "bmi",
+                  "min_age": 20,
+                  "operator": "gte",
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "sex": null,
+                  "source": "CDC Adult BMI Categories",
+                  "source_date": "2024-03-19",
+                  "source_version": "reviewed-2024-03-19",
+                  "threshold": 25,
+                  "unit": "kg/m2",
+                  "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                }
+              ],
+              "verified_on": "2026-10-07",
+              "version": "clinical-v1.0"
+            },
+            "rules_version": "clinical-v1.0",
+            "source_hash": "429ec3be80915058b762de442aa0a9d05bcdcef237f70e1b3c28a7e5896239f5",
+            "test_timestamp": "2026-10-08T09:30:00-04:00"
+          },
+          "result_id": "074e793d-061d-4b9c-a8b8-63e0b0e9a649",
+          "review_status": "pending",
+          "rule_findings": [
+            {
+              "flag_type": "clinically relevant",
+              "measured_value": 26.1,
+              "metric": "bmi",
+              "reason": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+              "reference_value_or_rule": {
+                "evidence_category": "authoritative-US-screening",
+                "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                "id": "cdc-bmi-high",
+                "max_age": null,
+                "metric": "bmi",
+                "min_age": 20,
+                "operator": "gte",
+                "review_required": true,
+                "severity": "clinician review",
+                "sex": null,
+                "source": "CDC Adult BMI Categories",
+                "source_date": "2024-03-19",
+                "source_version": "reviewed-2024-03-19",
+                "threshold": 25,
+                "unit": "kg/m2",
+                "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+              },
+              "review_required": true,
+              "severity": "clinician review",
+              "source": "CDC Adult BMI Categories",
+              "source_version": "reviewed-2024-03-19"
+            }
+          ],
+          "reviews": []
+        }
+      ]
+    },
+    "SYN-002": {
+      "claimed_patient_id": null,
+      "device_model": "Synthetic InBody fixture",
+      "encounter_id": "SYN-002-FOLLOW",
+      "id": "9abe8cba-c033-4967-8e9b-097c473a8145",
+      "ingested_at": "2026-10-07T17:05:59.351785+00:00",
+      "measurements": [
+        {
+          "confidence": 1.0,
+          "device_reference": null,
+          "metric": "weight",
+          "original_unit": "kg",
+          "original_value": 64.2,
+          "quality_note": "",
+          "status": "verified",
+          "unit": "kg",
+          "value": 64.2
+        },
+        {
+          "confidence": 1.0,
+          "device_reference": null,
+          "metric": "bmi",
+          "original_unit": "kg/m2",
+          "original_value": 23.4,
+          "quality_note": "",
+          "status": "verified",
+          "unit": "kg/m2",
+          "value": 23.4
+        },
+        {
+          "confidence": 1.0,
+          "device_reference": null,
+          "metric": "skeletal_muscle_mass",
+          "original_unit": "kg",
+          "original_value": 25.1,
+          "quality_note": "",
+          "status": "verified",
+          "unit": "kg",
+          "value": 25.1
+        },
+        {
+          "confidence": 1.0,
+          "device_reference": null,
+          "metric": "percent_body_fat",
+          "original_unit": "%",
+          "original_value": 28.0,
+          "quality_note": "",
+          "status": "verified",
+          "unit": "%",
+          "value": 28.0
+        },
+        {
+          "confidence": 1.0,
+          "device_reference": null,
+          "metric": "body_fat_mass",
+          "original_unit": "kg",
+          "original_value": 17.98,
+          "quality_note": "",
+          "status": "verified",
+          "unit": "kg",
+          "value": 17.98
+        }
+      ],
+      "patient_id": "SYN-002",
+      "provenance": {
+        "identity_binding": "operator-selected; no automatic name matching",
+        "parser_version": "normalized-contract-v1.0",
+        "schema_version": "normalized-v1.0",
+        "software_version": "InBodyStage1-0.1.0",
+        "source_hash": "6b3d40e7b1304067216b063ef57366204d393a7fa0f19c3957a498d4a4e551a7",
+        "superseded_source": null
+      },
+      "source_identifier": "visual-sample-SYN-002",
+      "source_result": {
+        "files": [],
+        "payload_sha256": "8918bf628e1316a7920366e328fae1b77be24aa89f4fffb82fe78f0ab2c4fa0e"
+      },
+      "source_type": "mock_api",
+      "supersedes": null,
+      "test_timestamp": "2026-10-08T09:30:00-04:00",
+      "analyses": [
+        {
+          "clinician_summary": {
+            "ai_generated_synthesis": null,
+            "clinical_considerations": [
+              "Consider testing conditions, hydration, device consistency, and the clinical history when interpreting bioimpedance estimates."
+            ],
+            "data_quality_limitations": [],
+            "longitudinal_comparison": {
+              "changes": [],
+              "interval_days": null,
+              "note": "No earlier verified comparison available.",
+              "previous_result_id": null
+            },
+            "measured_facts": [
+              {
+                "confidence": 1.0,
+                "device_reference": null,
+                "metric": "weight",
+                "original_unit": "kg",
+                "original_value": 64.2,
+                "quality_note": "",
+                "status": "verified",
+                "unit": "kg",
+                "value": 64.2
+              },
+              {
+                "confidence": 1.0,
+                "device_reference": null,
+                "metric": "bmi",
+                "original_unit": "kg/m2",
+                "original_value": 23.4,
+                "quality_note": "",
+                "status": "verified",
+                "unit": "kg/m2",
+                "value": 23.4
+              },
+              {
+                "confidence": 1.0,
+                "device_reference": null,
+                "metric": "skeletal_muscle_mass",
+                "original_unit": "kg",
+                "original_value": 25.1,
+                "quality_note": "",
+                "status": "verified",
+                "unit": "kg",
+                "value": 25.1
+              },
+              {
+                "confidence": 1.0,
+                "device_reference": null,
+                "metric": "percent_body_fat",
+                "original_unit": "%",
+                "original_value": 28.0,
+                "quality_note": "",
+                "status": "verified",
+                "unit": "%",
+                "value": 28.0
+              },
+              {
+                "confidence": 1.0,
+                "device_reference": null,
+                "metric": "body_fat_mass",
+                "original_unit": "kg",
+                "original_value": 17.98,
+                "quality_note": "",
+                "status": "verified",
+                "unit": "kg",
+                "value": 17.98
+              }
+            ],
+            "references": {
+              "cms": {
+                "enabled": false,
+                "reason": "No applicable CMS body-composition measurement criterion has been configured."
+              },
+              "manufacturer": {
+                "mode": "source-reported intervals only",
+                "reason": "No universal device threshold inferred. Imported intervals require clinician confirmation."
+              },
+              "policy_context": {
+                "explanation": "BMI has limitations and should be considered with other measures of risk. This is context, not a numeric reference interval.",
+                "source": "AMA BMI policy announcement",
+                "source_date": "2023-06-14",
+                "url": "https://www.ama-assn.org/press-center/ama-press-releases/ama-adopts-new-policy-clarifying-role-bmi-measure-medicine"
+              },
+              "rules": [
+                {
+                  "evidence_category": "authoritative-US-screening",
+                  "explanation": "BMI is below the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "id": "cdc-bmi-low",
+                  "max_age": null,
+                  "metric": "bmi",
+                  "min_age": 20,
+                  "operator": "lt",
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "sex": null,
+                  "source": "CDC Adult BMI Categories",
+                  "source_date": "2024-03-19",
+                  "source_version": "reviewed-2024-03-19",
+                  "threshold": 18.5,
+                  "unit": "kg/m2",
+                  "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                },
+                {
+                  "evidence_category": "authoritative-US-screening",
+                  "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "id": "cdc-bmi-high",
+                  "max_age": null,
+                  "metric": "bmi",
+                  "min_age": 20,
+                  "operator": "gte",
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "sex": null,
+                  "source": "CDC Adult BMI Categories",
+                  "source_date": "2024-03-19",
+                  "source_version": "reviewed-2024-03-19",
+                  "threshold": 25,
+                  "unit": "kg/m2",
+                  "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                }
+              ],
+              "verified_on": "2026-10-07",
+              "version": "clinical-v1.0"
+            },
+            "review_status": "pending",
+            "rule_derived_interpretation": [],
+            "source_device": "Synthetic InBody fixture",
+            "test_timestamp": "2026-10-08T09:30:00-04:00"
+          },
+          "created_at": "2026-10-07T17:05:59.351980+00:00",
+          "data_quality_passed": true,
+          "id": "5eab6f79-b85c-4b60-84c9-4c2fd4d87a71",
+          "longitudinal_comparison": {
+            "changes": [],
+            "interval_days": null,
+            "note": "No earlier verified comparison available.",
+            "previous_result_id": null
+          },
+          "patient_summary": {
+            "ai_generated_synthesis": null,
+            "review_status": "pending",
+            "sentences": [
+              "This test estimates your body composition.",
+              "Your weight was 64.2 kilograms. Your total body weight.",
+              "Your body mass index was 23.4 . A screening number based on your weight and height. It does not tell the whole story about body fat or health.",
+              "Your skeletal muscle mass was 25.1 kilograms. An estimate of the muscle that helps you move.",
+              "Your percent body fat was 28 percent. The estimated share of your weight that is fat.",
+              "Your body fat mass was 17.98 kilograms. An estimate of how much of your body weight is fat.",
+              "There is no earlier test available for comparison.",
+              "Changes in numbers alone do not tell us whether your health has improved or worsened."
+            ]
+          },
+          "provenance": {
+            "ai": {
+              "model": null,
+              "status": "disabled",
+              "used": false
+            },
+            "analysis_version": "deterministic-analysis-v1.0",
+            "patient_context": {
+              "dob": "1990-08-22",
+              "sex": "female"
+            },
+            "rules_snapshot": {
+              "cms": {
+                "enabled": false,
+                "reason": "No applicable CMS body-composition measurement criterion has been configured."
+              },
+              "manufacturer": {
+                "mode": "source-reported intervals only",
+                "reason": "No universal device threshold inferred. Imported intervals require clinician confirmation."
+              },
+              "policy_context": {
+                "explanation": "BMI has limitations and should be considered with other measures of risk. This is context, not a numeric reference interval.",
+                "source": "AMA BMI policy announcement",
+                "source_date": "2023-06-14",
+                "url": "https://www.ama-assn.org/press-center/ama-press-releases/ama-adopts-new-policy-clarifying-role-bmi-measure-medicine"
+              },
+              "rules": [
+                {
+                  "evidence_category": "authoritative-US-screening",
+                  "explanation": "BMI is below the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "id": "cdc-bmi-low",
+                  "max_age": null,
+                  "metric": "bmi",
+                  "min_age": 20,
+                  "operator": "lt",
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "sex": null,
+                  "source": "CDC Adult BMI Categories",
+                  "source_date": "2024-03-19",
+                  "source_version": "reviewed-2024-03-19",
+                  "threshold": 18.5,
+                  "unit": "kg/m2",
+                  "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                },
+                {
+                  "evidence_category": "authoritative-US-screening",
+                  "explanation": "BMI is above the adult screening interval. Interpret alongside body composition and clinical context; BMI alone does not establish a diagnosis.",
+                  "id": "cdc-bmi-high",
+                  "max_age": null,
+                  "metric": "bmi",
+                  "min_age": 20,
+                  "operator": "gte",
+                  "review_required": true,
+                  "severity": "clinician review",
+                  "sex": null,
+                  "source": "CDC Adult BMI Categories",
+                  "source_date": "2024-03-19",
+                  "source_version": "reviewed-2024-03-19",
+                  "threshold": 25,
+                  "unit": "kg/m2",
+                  "url": "https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html"
+                }
+              ],
+              "verified_on": "2026-10-07",
+              "version": "clinical-v1.0"
+            },
+            "rules_version": "clinical-v1.0",
+            "source_hash": "6b3d40e7b1304067216b063ef57366204d393a7fa0f19c3957a498d4a4e551a7",
+            "test_timestamp": "2026-10-08T09:30:00-04:00"
+          },
+          "result_id": "9abe8cba-c033-4967-8e9b-097c473a8145",
+          "review_status": "pending",
+          "rule_findings": [],
+          "reviews": []
+        }
+      ]
+    }
+  }
+}
