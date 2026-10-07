@@ -1,0 +1,10 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+runtime/
+*.db
+*.sqlite*
+.coverage
+dist-preview/
+.vercel/
