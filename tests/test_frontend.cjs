@@ -14,6 +14,17 @@ setImmediate(()=>{
   assert.match(vm.runInContext("state.summary='clinician';summary()",sandbox),/Measured facts/);
   assert.match(vm.runInContext("state.summary='provenance';summary()",sandbox),/traceable record/);
   assert.match(vm.runInContext('history()',sandbox),/Study history/);
+  const demo=JSON.parse(fs.readFileSync(root+'/preview/demo-data.json','utf8'));
+  const plan=demo.samples['SYN-001'].analyses[0].recommendation_plan;
+  assert.ok(plan,'Synthetic preview includes a recommendation draft');
+  sandbox.plan=plan;
+  const recommendations=vm.runInContext('recommendationView(plan)',sandbox);
+  assert.match(recommendations,/Peptides \/ prescription options/);
+  assert.match(recommendations,/Upper-limb training/);
+  assert.match(recommendations,/Lower-limb training/);
+  assert.match(recommendations,/Needed before individualizing/);
+  plan.context.goals='<script>alert(1)</script>';
+  assert.ok(!vm.runInContext('recommendationView(plan)',sandbox).includes('<script>'));
   assert.match(vm.runInContext("state.result=null;overview()",sandbox),/new baseline/);
   console.log('Frontend view-model smoke checks passed: overview, trend, summaries, provenance, history, empty state.');
  }catch(e){console.error(e);process.exitCode=1;}

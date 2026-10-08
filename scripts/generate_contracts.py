@@ -42,7 +42,11 @@ operation('/inbody/webhook','post','Internal synthetic fixture webhook; live ven
 operation(base,'get','List all patient studies including superseded versions')
 operation(base+'/{result_id}','get','Get source, measurements, analysis versions and review history')
 operation(base+'/trends','get','Verified measurement trends excluding superseded tests')
-operation(base+'/{result_id}/analyze','post','Append deterministic analysis and optional AI evidence selection',json_body({'type':'object'}),status='201')
+context={'type':'object','additionalProperties':False,'properties':{
+ 'goals':{'type':'string','maxLength':500},'activity_level':{'enum':['unknown','sedentary','some','regular']},
+ **{key:{'enum':['unknown','yes','no']} for key in ('pain_present','falls_or_balance_concern','pregnancy_or_breastfeeding','cardiovascular_symptoms')},
+ 'clinical_history_reviewed':{'type':'boolean'},'medications_reviewed':{'type':'boolean'}}}
+operation(base+'/{result_id}/analyze','post','Append analysis and clinician recommendation draft; optional AI evidence selection',json_body({'type':'object','properties':{'recommendation_context':context}}),status='201')
 operation(base+'/{result_id}/review','post','Clinician-only review of current analysis',json_body({'type':'object','required':['analysis_id','status'],'properties':{'analysis_id':{'type':'string'},'status':{'enum':['accepted','held']},'identity_confirmed':{'type':'boolean'},'note':{'type':'string','maxLength':2000}}}))
 operation(base+'/{result_id}/correct','post','Clinician-only linked correction; source facts remain immutable',json_body({'type':'object','required':['reason','measurements'],'properties':{'reason':{'type':'string','maxLength':500},'measurements':result['properties']['measurements']}}))
 operation(base+'/{result_id}/source','get','Source metadata and SHA-256 hashes')

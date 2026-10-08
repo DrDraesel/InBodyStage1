@@ -6,3 +6,5 @@
 
 /* Blue clinical dashboard identity */
 h1{font-weight:650;letter-spacing:-1.4px}h2,h3{letter-spacing:-.4px}.brandmark{border-radius:10px;background:var(--primary);color:white;border:0;font-size:21px;font-weight:750}.primary:hover{background:#114b9c;border-color:#114b9c}.quiet:hover{background:#e8f1ff}.statvalue{font-weight:650;font-variant-numeric:tabular-nums}.sidebar{border-top:5px solid var(--primary)}.card h3{font-weight:600}.connection-steps{font-size:12px;line-height:1.8;color:var(--muted)}.connection-steps a{color:#114b9c}
+
+.recommendation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}.recommendation-card{border:1px solid var(--line);border-top:3px solid var(--primary);border-radius:7px;padding:20px;background:#f8fbff}.recommendation-card h4{font-size:15px;margin:0 0 10px}.recommendation-card strong,.recommendation-card li{font-size:12px}.recommendation-card ul{padding-left:20px;color:#405f83}.recommendation-card li{margin:8px 0}.recommendation-card a{color:#114b9c}.tabs{flex-wrap:wrap}#plan-error{color:#794e31}@media(max-width:900px){.recommendation-grid{grid-template-columns:1fr}}

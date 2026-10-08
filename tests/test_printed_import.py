@@ -66,7 +66,7 @@ class PrintedImport(unittest.TestCase):
         self.assertFalse(preview['saved']);self.assertEqual(self.s.history('SYN-1'),[])
         status=app.route('GET','/inbody/connectivity',{},None,'operator')[1]
         self.assertEqual(status['automatic_sync'],'not_configured')
-        self.assertEqual(status['connection_mode'],'local_export_without_cloud_api')
+        self.assertEqual(status['connection_mode'],'usb_export_or_printed_sheet_without_vendor_login')
         self.assertEqual(status['hardware_pairing'],'not_verified')
         self.assertFalse(any('API access' in item for item in status['required']))
 

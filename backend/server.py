@@ -44,8 +44,8 @@ class Application:
             return 200,s.extract_sources(files)
         if path=='/inbody/connectivity' and method=='GET':
             return 200,{'automatic_sync':'not_configured','vendor_mapping':'awaiting_official_documentation',
-                'required':['Exact device model','Clinic computer access','Activated LookinBody 120 installation','Verified device pairing in LookinBody','Automatic CSV/image export folder','Local intake bridge and confirmed patient/encounter mapping'],
-                'connection_mode':'local_export_without_cloud_api','hardware_pairing':'not_verified','local_intake_bridge':'available_not_running_on_clinic_pc',
+                'required':['Device Setup access and USB drive for Excel export, or a printed result sheet','Clinic computer for local import','Validated export field mapping or confirmed manual transcription','Confirmed patient and encounter association'],
+                'connection_mode':'usb_export_or_printed_sheet_without_vendor_login','hardware_pairing':'not_verified','local_intake_bridge':'available_not_running_on_clinic_pc',
                 'import_methods':['pdf','photo_ocr','barcode_qr_evidence','scanner_entry'],
                 'network_note':'Device Wi-Fi was reported by the operator. This server cannot verify or pair clinic hardware; run LookinBody and the intake bridge locally.'}
         if path=='/patients':
@@ -68,7 +68,7 @@ class Application:
             if method=='POST' and rid=='import':
                 return 201,s.import_result(pid,payload,role,payload.get('source_type','manual'),files)
             if rid and method=='GET' and not action: return 200,s.detail(pid,rid)
-            if method=='POST' and action=='analyze': return 201,s.analyze(pid,rid,role)
+            if method=='POST' and action=='analyze': return 201,s.analyze(pid,rid,role,payload.get('recommendation_context'))
             if method=='POST' and action in ('review','correct'):
                 if role not in ('clinician','demo-clinician'): raise PermissionError('Clinician role required')
                 return 200,(s.review(pid,rid,payload,role) if action=='review' else s.correct(pid,rid,payload,role))

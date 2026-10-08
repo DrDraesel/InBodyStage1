@@ -2,6 +2,12 @@
 
 The operator's sample identifies an InBody 380. Device Wi-Fi is reported as connected to Innovative Medical Wellness; no hardware pairing or data transfer has been verified from this development session. Vercel hosts the synthetic visual preview; it cannot pair the clinic's local Bluetooth device. The printer cable is not a PC data connection.
 
+## Without LookinBody registration or credentials
+
+The 380 manual documents local USB Excel export. Insert a flash drive in an available USB host port; choose **Setup → 4. Data Management → Export Data as an MS Excel File**; select a test or date range, then export. Move the drive to the clinic computer. This device-side operation uses the device Setup passcode, not a LookinBody username/password. It is a file transfer rather than a continuous Wi-Fi connection. Avoid a full-history export during active testing because it can occupy the device.
+
+Copy exports to a local inbox and run the bridge below. `.xls` and `.xlsx` originals are retained alongside CSV and images; vendor Excel field mapping is not enabled until a sample export is validated. Do not upload an Excel export through the current PDF/image form. A printed-sheet photo or scan can be imported and transcribed immediately without vendor credentials. If the device Setup passcode is also missing, use the printed-sheet path while obtaining an authorized reset from InBody support (323-932-6503 ext. 2). This bridge does not bypass the device passcode or claim to implement an undocumented Wi-Fi protocol.
+
 ## On the clinic computer
 
 1. Install the licensed LookinBody 120 software and activate it with its InBody USB hard-lock key. Use the [official installation guide](https://lbwebfaq.inbodyusa.com/support/solutions/articles/69000880625-lookinbody-120-installation-guide). Its screenshots use an InBody120 scale; use the InBody 380 manual for your device connection.
@@ -18,7 +24,7 @@ The folders are examples: use your actual LookinBody export folder. This bridge 
 
 ## What the bridge does
 
-After a file is stable for three seconds, it keeps an exact original in a SHA-256-addressed review package. PNG/JPEG/PDF exports receive OCR/text and QR/barcode extraction. CSV/BMP exports are retained in full without guessing proprietary field mappings. Repeated unchanged files are skipped. Source exports remain untouched. Packages contain no automatic patient/encounter assignment and do not create clinical records.
+After a file is stable for three seconds, it keeps an exact original in a SHA-256-addressed review package. PNG/JPEG/PDF exports receive OCR/text and QR/barcode extraction. CSV/Excel/BMP exports are retained in full without guessing proprietary field mappings. Repeated unchanged files are skipped. Source exports remain untouched. Packages contain no automatic patient/encounter assignment and do not create clinical records.
 
 Open the original PNG/JPEG/PDF in the app's **Import result**, extract, associate with the correct patient and encounter, enter the actual test timestamp/timezone, and confirm source values. A normalized vendor CSV mapping and integrated review-queue UI remain future work. This remains a synthetic development workspace; the bridge's output is source evidence, not an approved clinical record. Keep review packages outside the Git repository. Windows folder access controls must be configured on the clinic computer.
 

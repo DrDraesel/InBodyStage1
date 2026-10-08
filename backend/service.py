@@ -4,6 +4,7 @@ import uuid
 from datetime import datetime, timezone
 from backend.validation import normalize, safe_id, Invalid
 from backend.analysis import apply_rules, compare, summaries, VERSION, RULES
+from backend.recommendations import build_plan
 from adapters.inbody.documents import extract, PARSER_VERSION
 from adapters.ai.providers import configured_provider
 
@@ -184,7 +185,7 @@ class Service:
             result['analyses'].append(a)
         return result
 
-    def analyze(self,pid,rid,actor):
+    def analyze(self,pid,rid,actor,recommendation_context=None):
         result = self.detail(pid,rid)
         patient = self.patient(pid)
         earlier = [r for r in self.history(pid) if datetime.fromisoformat(r['test_timestamp'])<datetime.fromisoformat(result['test_timestamp'])]
@@ -192,10 +193,13 @@ class Service:
         flags = apply_rules(result['measurements'],patient,result['test_timestamp'])
         comparison = compare(result,previous)
         clinician,patient_summary = summaries(result,flags,comparison)
+        plan = build_plan(result,patient,comparison,recommendation_context)
         ai = {'used':False,'status':'disabled','model':None}
         if self.provider:
             try:
                 sentences = {'c'+str(i):f['reason'] for i,f in enumerate(flags)}
+                sentences |= {'c_plan_'+str(i):'Clinical discussion draft — '+domain['rationale']
+                              for i,domain in enumerate(plan['domains'])}
                 sentences |= {'p'+str(i):s for i,s in enumerate(patient_summary['sentences'])}
                 synthesis = self.provider.synthesize({'sentences':sentences})
                 # Providers cannot introduce text outside deterministic evidence.
@@ -214,10 +218,12 @@ class Service:
         analysis = {'id':uid(),'result_id':rid,'created_at':now(),
             'rule_findings':flags,'longitudinal_comparison':comparison,
             'clinician_summary':clinician,'patient_summary':patient_summary,
+            'recommendation_plan':plan,
             'review_status':'pending','data_quality_passed':all(m['status']=='verified' and m['value'] is not None for m in result['measurements']),
             'provenance':{'analysis_version':VERSION,'rules_version':RULES['version'],'rules_snapshot':RULES,
                 'source_hash':result['provenance']['source_hash'],'test_timestamp':result['test_timestamp'],
-                'patient_context':{'dob':patient['dob'],'sex':patient['sex']}, 'ai':ai}}
+                'patient_context':{'dob':patient['dob'],'sex':patient['sex']},
+                'recommendation_version':plan['version'],'ai':ai}}
         with self.db.transaction():
             self.db.execute('INSERT INTO analyses VALUES (?,?,?,?)',(analysis['id'],rid,analysis['created_at'],dumps(analysis)))
             self.db.execute('INSERT INTO outbox VALUES (?,?,?,?)',(uid(),now(),'inbody.analysis.complete',

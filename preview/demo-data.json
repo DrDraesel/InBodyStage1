@@ -48,8 +48,8 @@
         "claimed_patient_id": null,
         "device_model": "Synthetic InBody fixture",
         "encounter_id": "SYN-001-FOLLOW",
-        "id": "6948987c-86d8-4b49-b9d9-b3a32bdb804c",
-        "ingested_at": "2026-10-07T17:05:59.348803+00:00",
+        "id": "211192b2-9f2f-4bd4-8558-a9bdce830d46",
+        "ingested_at": "2026-10-08T14:53:40.683184+00:00",
         "measurements": [
           {
             "confidence": 1.0,
@@ -160,6 +160,8 @@
           "source_hash": "1836bd9c41fcc1113c639c1607855a5893f91a4674887da5af5ec466d3cd2375",
           "superseded_source": null
         },
+        "scanned_codes": [],
+        "source_extraction": [],
         "source_identifier": "demo-2",
         "source_result": {
           "files": [],
@@ -290,7 +292,7 @@
                 "from": "2026-09-07T09:30:00-04:00",
                 "interval_days": 30.0,
                 "note": "Numerical changes do not by themselves establish improvement or worsening.",
-                "previous_result_id": "3966dba1-5579-44cc-a1a1-5d6df5ef8e68",
+                "previous_result_id": "8adef6c3-c38f-45bc-a832-a24914250f75",
                 "to": "2026-10-07T09:30:00-04:00"
               },
               "measured_facts": [
@@ -484,9 +486,9 @@
               "source_device": "Synthetic InBody fixture",
               "test_timestamp": "2026-10-07T09:30:00-04:00"
             },
-            "created_at": "2026-10-07T17:05:59.349149+00:00",
+            "created_at": "2026-10-08T14:53:40.683556+00:00",
             "data_quality_passed": true,
-            "id": "2c654245-92c9-40cb-80e0-17184f77efc6",
+            "id": "eedff218-1389-4780-a929-fd29509613f3",
             "longitudinal_comparison": {
               "changes": [
                 {
@@ -601,7 +603,7 @@
               "from": "2026-09-07T09:30:00-04:00",
               "interval_days": 30.0,
               "note": "Numerical changes do not by themselves establish improvement or worsening.",
-              "previous_result_id": "3966dba1-5579-44cc-a1a1-5d6df5ef8e68",
+              "previous_result_id": "8adef6c3-c38f-45bc-a832-a24914250f75",
               "to": "2026-10-07T09:30:00-04:00"
             },
             "patient_summary": {
@@ -642,6 +644,7 @@
                 "dob": "1982-04-17",
                 "sex": "male"
               },
+              "recommendation_version": "clinical-discussion-v1.0",
               "rules_snapshot": {
                 "cms": {
                   "enabled": false,
@@ -702,7 +705,310 @@
               "source_hash": "1836bd9c41fcc1113c639c1607855a5893f91a4674887da5af5ec466d3cd2375",
               "test_timestamp": "2026-10-07T09:30:00-04:00"
             },
-            "result_id": "6948987c-86d8-4b49-b9d9-b3a32bdb804c",
+            "recommendation_plan": {
+              "context": {
+                "activity_level": "unknown",
+                "cardiovascular_symptoms": "unknown",
+                "clinical_history_reviewed": false,
+                "falls_or_balance_concern": "unknown",
+                "goals": "",
+                "medications_reviewed": false,
+                "pain_present": "unknown",
+                "pregnancy_or_breastfeeding": "unknown"
+              },
+              "context_source": "operator-entered; not independently verified",
+              "domains": [
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [
+                    "weight",
+                    "bmi",
+                    "percent_body_fat",
+                    "ecw_tbw"
+                  ],
+                  "id": "medical",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Review blood pressure, waist circumference, weight trajectory, symptoms and medication effects.",
+                    "Consider glucose/A1c, lipids and other testing only when history and examination justify them.",
+                    "Review unintentional weight change or swelling before interpreting a body-composition trend."
+                  ],
+                  "rationale": "Review body-composition estimates with the clinical history, waist measurement and cardiometabolic risk; they do not diagnose metabolic disease. Verified BMI is 26.6 kg/m2; interpret muscularity and other risk factors before setting a weight goal.",
+                  "reference_ids": [
+                    "nutrition",
+                    "device"
+                  ],
+                  "required_assessment": [
+                    "Medical history, symptoms and examination",
+                    "Existing labs and diagnoses",
+                    "Medication and contraindication review"
+                  ],
+                  "reviewer": "Medical or family-medicine clinician",
+                  "status": "clinician_discussion",
+                  "title": "Medical / metabolic review"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [
+                    "weight",
+                    "skeletal_muscle_mass",
+                    "body_fat_mass"
+                  ],
+                  "id": "nutrition",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Discuss a sustainable food pattern with vegetables, fruit, fiber-rich foods and suitable protein sources.",
+                    "Individualize energy and protein needs with activity, age, kidney/liver function and nutritional status.",
+                    "Use symptoms and relevant findings to guide targeted investigations; do not order a blanket functional-lab or supplement panel."
+                  ],
+                  "rationale": "Choose nutrition around the patient\u2019s goals and health context. BIA does not identify nutrient deficiencies, endocrine disorders or a supplement requirement.",
+                  "reference_ids": [
+                    "nutrition"
+                  ],
+                  "required_assessment": [
+                    "Dietary history and goals",
+                    "Kidney/liver status and relevant labs",
+                    "Food access, restrictions and medication interactions"
+                  ],
+                  "reviewer": "Qualified medical clinician and dietitian",
+                  "status": "clinician_discussion",
+                  "title": "Functional nutrition / recovery"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "arm_training",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "After assessment, consider controlled rows, presses and carries within tolerated range.",
+                    "Use comparable left/right loads and technique initially; prescribe extra side-specific work only after functional assessment."
+                  ],
+                  "rationale": "No comparable, verified left/right segmental lean-mass pair. Confirm the source, then test strength, movement quality and symptoms. More lean mass does not prove greater strength.",
+                  "reference_ids": [
+                    "activity",
+                    "device"
+                  ],
+                  "required_assessment": [
+                    "Pain and injury history",
+                    "Bilateral strength and range-of-motion testing",
+                    "Movement/task assessment and training tolerance"
+                  ],
+                  "reviewer": "Chiropractic Physical Medicine / rehabilitation reviewer",
+                  "status": "assessment_required",
+                  "title": "Upper-limb training / symmetry"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "leg_training",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "After assessment, consider supported sit-to-stand, step-ups, calf raises and progressive leg strengthening.",
+                    "Use grip/support and supervision when needed; select unilateral loading only after pain, gait and strength assessment."
+                  ],
+                  "rationale": "No comparable, verified left/right segmental lean-mass pair. Confirm the source, then test strength, movement quality and symptoms. More lean mass does not prove greater strength.",
+                  "reference_ids": [
+                    "activity",
+                    "device"
+                  ],
+                  "required_assessment": [
+                    "Pain and injury history",
+                    "Bilateral strength and range-of-motion testing",
+                    "Movement/task assessment and training tolerance"
+                  ],
+                  "reviewer": "Chiropractic Physical Medicine / rehabilitation reviewer",
+                  "status": "assessment_required",
+                  "title": "Lower-limb training / symmetry"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "balance",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Assess gait, sit-to-stand and supported stance as appropriate; route neurological or vestibular symptoms for domain review.",
+                    "After clearance, consider supervised weight shifts, supported tandem stance and step-control practice.",
+                    "Progress support, surface and visual challenge only after demonstrated control."
+                  ],
+                  "rationale": "Body composition does not measure balance or vestibular function. Reported falls or instability require functional assessment before progression.",
+                  "reference_ids": [
+                    "balance"
+                  ],
+                  "required_assessment": [
+                    "Fall history, dizziness and neurological symptoms",
+                    "Balance/gait testing",
+                    "Support requirements and supervision"
+                  ],
+                  "reviewer": "Chiropractic Physical Medicine / neurovestibular reviewer",
+                  "status": "assessment_required",
+                  "title": "Balance / gait / coordination"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "activity",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "For medically suitable adults, discuss building toward 150 minutes of moderate aerobic activity weekly and strength work on at least 2 days; start below this if necessary.",
+                    "Consider walking, cycling or another tolerated aerobic option with progressive resistance training.",
+                    "If cardiovascular symptoms, pain or instability are present, assess first and defer unsupervised progression."
+                  ],
+                  "rationale": "Use goals, baseline capacity and symptoms to choose a starting dose; InBody alone does not establish exercise clearance.",
+                  "reference_ids": [
+                    "activity",
+                    "balance"
+                  ],
+                  "required_assessment": [
+                    "Clinical clearance and current activity",
+                    "Cardiovascular symptoms, pain and functional tolerance",
+                    "Age and patient goals"
+                  ],
+                  "reviewer": "Medical and physical-medicine reviewers",
+                  "status": "clinician_discussion",
+                  "title": "Exercise / conditioning"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "lifestyle",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Review sleep schedule and possible sleep-disordered breathing when symptoms warrant.",
+                    "Discuss breaking up prolonged sitting, stress management, tobacco exposure and alcohol use.",
+                    "Choose one or two achievable habits and agree on what will be reassessed."
+                  ],
+                  "rationale": "Build a manageable plan around daily routines and preferences; avoid promising longevity or body-composition changes from an isolated metric.",
+                  "reference_ids": [
+                    "nutrition"
+                  ],
+                  "required_assessment": [
+                    "Sleep, work schedule, substance use and stress history",
+                    "Patient priorities and practical barriers"
+                  ],
+                  "reviewer": "Medical / functional-health reviewer",
+                  "status": "clinician_discussion",
+                  "title": "Lifestyle / sleep / adherence"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "peptides",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "If clinically indicated, discuss approved prescription weight-management options such as semaglutide or tirzepatide with a prescriber; eligibility and suitability are not established here.",
+                    "BPC-157, CJC-1295 and ipamorelin: retain as evidence-review topics, not routine recovery, muscle-building or longevity recommendations. FDA identifies safety concerns and limited safety information for these substances.",
+                    "Verify current indication, evidence, product/regulatory status, interactions, contraindications and monitoring before considering any prescription. Compounded products are not interchangeable with FDA-approved products."
+                  ],
+                  "rationale": "An InBody result is not a peptide indication. No peptide, dose or protocol is selected automatically.",
+                  "reference_ids": [
+                    "peptides",
+                    "medications"
+                  ],
+                  "required_assessment": [
+                    "Diagnosis and indication confirmed by prescriber",
+                    "Medication, pregnancy and contraindication review",
+                    "Current product label and regulatory/evidence review",
+                    "Informed discussion and monitoring plan"
+                  ],
+                  "reviewer": "Licensed prescribing medical clinician",
+                  "status": "prescriber_review_required",
+                  "title": "Peptides / prescription options"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [
+                    "weight",
+                    "bmi",
+                    "skeletal_muscle_mass",
+                    "body_fat_mass",
+                    "percent_body_fat",
+                    "total_body_water",
+                    "ecw_tbw",
+                    "visceral_fat_area",
+                    "phase_angle"
+                  ],
+                  "id": "reassessment",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Use consistent device, time of day and testing conditions for repeat measurements.",
+                    "Reassess strength, gait/balance, patient goals and symptoms alongside body composition.",
+                    "Choose the follow-up interval clinically; evaluate sooner if new symptoms or injuries arise."
+                  ],
+                  "rationale": "Track measurements and functional outcomes together; numerical direction alone does not establish clinical improvement.",
+                  "reference_ids": [
+                    "device"
+                  ],
+                  "required_assessment": [
+                    "Baseline functional tests",
+                    "Patient-defined goals",
+                    "Clinician-selected interval"
+                  ],
+                  "reviewer": "Treating clinician",
+                  "status": "clinician_discussion",
+                  "title": "Reassessment / outcomes"
+                }
+              ],
+              "is_treatment_order": false,
+              "limitations": [
+                "No autonomous diagnosis or prescription.",
+                "Drafts are not orders or verified specialist opinions.",
+                "No live AI or external specialist consultation is claimed.",
+                "Context and functional findings are incomplete; source acceptance does not authorize treatment."
+              ],
+              "missing_context": [
+                "goals",
+                "activity_level",
+                "clinical_history_reviewed",
+                "medications_reviewed",
+                "pain_present",
+                "falls_or_balance_concern",
+                "pregnancy_or_breastfeeding",
+                "cardiovascular_symptoms"
+              ],
+              "reference_checked_on": "2026-10-08",
+              "references": {
+                "activity": {
+                  "title": "CDC adult physical activity overview",
+                  "url": "https://www.cdc.gov/physical-activity-basics/guidelines/adults.html"
+                },
+                "balance": {
+                  "title": "CDC older adult physical activity overview",
+                  "url": "https://www.cdc.gov/physical-activity-basics/guidelines/older-adults.html"
+                },
+                "device": {
+                  "title": "InBody 380 manual",
+                  "url": "https://inbodyusa.zendesk.com/hc/en-us/articles/26353282696084-InBody-380-User-s-Manual"
+                },
+                "medications": {
+                  "title": "NIDDK prescription medications for overweight and obesity",
+                  "url": "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"
+                },
+                "nutrition": {
+                  "title": "NIDDK choosing a safe weight-management program",
+                  "url": "https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program"
+                },
+                "peptides": {
+                  "title": "FDA bulk substances with potential significant safety risks",
+                  "url": "https://www.fda.gov/drugs/human-drug-compounding/certain-bulk-drug-substances-use-compounding-may-present-significant-safety-risks"
+                }
+              },
+              "segmental_observations": [],
+              "source_confirmation_required": false,
+              "source_result_id": "211192b2-9f2f-4bd4-8558-a9bdce830d46",
+              "status": "draft_for_clinician_review",
+              "test_timestamp": "2026-10-07T09:30:00-04:00",
+              "version": "clinical-discussion-v1.0"
+            },
+            "result_id": "211192b2-9f2f-4bd4-8558-a9bdce830d46",
             "review_status": "pending",
             "rule_findings": [
               {
@@ -742,8 +1048,8 @@
         "claimed_patient_id": null,
         "device_model": "Synthetic InBody fixture",
         "encounter_id": "SYN-001-FOLLOW",
-        "id": "3966dba1-5579-44cc-a1a1-5d6df5ef8e68",
-        "ingested_at": "2026-10-07T17:05:59.347713+00:00",
+        "id": "8adef6c3-c38f-45bc-a832-a24914250f75",
+        "ingested_at": "2026-10-08T14:53:40.682054+00:00",
         "measurements": [
           {
             "confidence": 1.0,
@@ -854,6 +1160,8 @@
           "source_hash": "8987e5dfa38b4393d1ee0cd4afa74a9b9baa14cca472112cd8b70ce1e43e0621",
           "superseded_source": null
         },
+        "scanned_codes": [],
+        "source_extraction": [],
         "source_identifier": "demo-1",
         "source_result": {
           "files": [],
@@ -984,7 +1292,7 @@
                 "from": "2026-08-07T09:30:00-04:00",
                 "interval_days": 31.0,
                 "note": "Numerical changes do not by themselves establish improvement or worsening.",
-                "previous_result_id": "127d2b86-8309-472b-83aa-20486a2188bc",
+                "previous_result_id": "e5630dff-23f5-48fb-9dfd-58e23ce289e5",
                 "to": "2026-09-07T09:30:00-04:00"
               },
               "measured_facts": [
@@ -1178,9 +1486,9 @@
               "source_device": "Synthetic InBody fixture",
               "test_timestamp": "2026-09-07T09:30:00-04:00"
             },
-            "created_at": "2026-10-07T17:05:59.348081+00:00",
+            "created_at": "2026-10-08T14:53:40.682414+00:00",
             "data_quality_passed": true,
-            "id": "35fba9f4-4561-4fcf-8b73-b28874e64037",
+            "id": "a773605b-ced0-4e3a-8d63-6819673941a9",
             "longitudinal_comparison": {
               "changes": [
                 {
@@ -1295,7 +1603,7 @@
               "from": "2026-08-07T09:30:00-04:00",
               "interval_days": 31.0,
               "note": "Numerical changes do not by themselves establish improvement or worsening.",
-              "previous_result_id": "127d2b86-8309-472b-83aa-20486a2188bc",
+              "previous_result_id": "e5630dff-23f5-48fb-9dfd-58e23ce289e5",
               "to": "2026-09-07T09:30:00-04:00"
             },
             "patient_summary": {
@@ -1336,6 +1644,7 @@
                 "dob": "1982-04-17",
                 "sex": "male"
               },
+              "recommendation_version": "clinical-discussion-v1.0",
               "rules_snapshot": {
                 "cms": {
                   "enabled": false,
@@ -1396,7 +1705,310 @@
               "source_hash": "8987e5dfa38b4393d1ee0cd4afa74a9b9baa14cca472112cd8b70ce1e43e0621",
               "test_timestamp": "2026-09-07T09:30:00-04:00"
             },
-            "result_id": "3966dba1-5579-44cc-a1a1-5d6df5ef8e68",
+            "recommendation_plan": {
+              "context": {
+                "activity_level": "unknown",
+                "cardiovascular_symptoms": "unknown",
+                "clinical_history_reviewed": false,
+                "falls_or_balance_concern": "unknown",
+                "goals": "",
+                "medications_reviewed": false,
+                "pain_present": "unknown",
+                "pregnancy_or_breastfeeding": "unknown"
+              },
+              "context_source": "operator-entered; not independently verified",
+              "domains": [
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [
+                    "weight",
+                    "bmi",
+                    "percent_body_fat",
+                    "ecw_tbw"
+                  ],
+                  "id": "medical",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Review blood pressure, waist circumference, weight trajectory, symptoms and medication effects.",
+                    "Consider glucose/A1c, lipids and other testing only when history and examination justify them.",
+                    "Review unintentional weight change or swelling before interpreting a body-composition trend."
+                  ],
+                  "rationale": "Review body-composition estimates with the clinical history, waist measurement and cardiometabolic risk; they do not diagnose metabolic disease. Verified BMI is 27 kg/m2; interpret muscularity and other risk factors before setting a weight goal.",
+                  "reference_ids": [
+                    "nutrition",
+                    "device"
+                  ],
+                  "required_assessment": [
+                    "Medical history, symptoms and examination",
+                    "Existing labs and diagnoses",
+                    "Medication and contraindication review"
+                  ],
+                  "reviewer": "Medical or family-medicine clinician",
+                  "status": "clinician_discussion",
+                  "title": "Medical / metabolic review"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [
+                    "weight",
+                    "skeletal_muscle_mass",
+                    "body_fat_mass"
+                  ],
+                  "id": "nutrition",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Discuss a sustainable food pattern with vegetables, fruit, fiber-rich foods and suitable protein sources.",
+                    "Individualize energy and protein needs with activity, age, kidney/liver function and nutritional status.",
+                    "Use symptoms and relevant findings to guide targeted investigations; do not order a blanket functional-lab or supplement panel."
+                  ],
+                  "rationale": "Choose nutrition around the patient\u2019s goals and health context. BIA does not identify nutrient deficiencies, endocrine disorders or a supplement requirement.",
+                  "reference_ids": [
+                    "nutrition"
+                  ],
+                  "required_assessment": [
+                    "Dietary history and goals",
+                    "Kidney/liver status and relevant labs",
+                    "Food access, restrictions and medication interactions"
+                  ],
+                  "reviewer": "Qualified medical clinician and dietitian",
+                  "status": "clinician_discussion",
+                  "title": "Functional nutrition / recovery"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "arm_training",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "After assessment, consider controlled rows, presses and carries within tolerated range.",
+                    "Use comparable left/right loads and technique initially; prescribe extra side-specific work only after functional assessment."
+                  ],
+                  "rationale": "No comparable, verified left/right segmental lean-mass pair. Confirm the source, then test strength, movement quality and symptoms. More lean mass does not prove greater strength.",
+                  "reference_ids": [
+                    "activity",
+                    "device"
+                  ],
+                  "required_assessment": [
+                    "Pain and injury history",
+                    "Bilateral strength and range-of-motion testing",
+                    "Movement/task assessment and training tolerance"
+                  ],
+                  "reviewer": "Chiropractic Physical Medicine / rehabilitation reviewer",
+                  "status": "assessment_required",
+                  "title": "Upper-limb training / symmetry"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "leg_training",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "After assessment, consider supported sit-to-stand, step-ups, calf raises and progressive leg strengthening.",
+                    "Use grip/support and supervision when needed; select unilateral loading only after pain, gait and strength assessment."
+                  ],
+                  "rationale": "No comparable, verified left/right segmental lean-mass pair. Confirm the source, then test strength, movement quality and symptoms. More lean mass does not prove greater strength.",
+                  "reference_ids": [
+                    "activity",
+                    "device"
+                  ],
+                  "required_assessment": [
+                    "Pain and injury history",
+                    "Bilateral strength and range-of-motion testing",
+                    "Movement/task assessment and training tolerance"
+                  ],
+                  "reviewer": "Chiropractic Physical Medicine / rehabilitation reviewer",
+                  "status": "assessment_required",
+                  "title": "Lower-limb training / symmetry"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "balance",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Assess gait, sit-to-stand and supported stance as appropriate; route neurological or vestibular symptoms for domain review.",
+                    "After clearance, consider supervised weight shifts, supported tandem stance and step-control practice.",
+                    "Progress support, surface and visual challenge only after demonstrated control."
+                  ],
+                  "rationale": "Body composition does not measure balance or vestibular function. Reported falls or instability require functional assessment before progression.",
+                  "reference_ids": [
+                    "balance"
+                  ],
+                  "required_assessment": [
+                    "Fall history, dizziness and neurological symptoms",
+                    "Balance/gait testing",
+                    "Support requirements and supervision"
+                  ],
+                  "reviewer": "Chiropractic Physical Medicine / neurovestibular reviewer",
+                  "status": "assessment_required",
+                  "title": "Balance / gait / coordination"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "activity",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "For medically suitable adults, discuss building toward 150 minutes of moderate aerobic activity weekly and strength work on at least 2 days; start below this if necessary.",
+                    "Consider walking, cycling or another tolerated aerobic option with progressive resistance training.",
+                    "If cardiovascular symptoms, pain or instability are present, assess first and defer unsupervised progression."
+                  ],
+                  "rationale": "Use goals, baseline capacity and symptoms to choose a starting dose; InBody alone does not establish exercise clearance.",
+                  "reference_ids": [
+                    "activity",
+                    "balance"
+                  ],
+                  "required_assessment": [
+                    "Clinical clearance and current activity",
+                    "Cardiovascular symptoms, pain and functional tolerance",
+                    "Age and patient goals"
+                  ],
+                  "reviewer": "Medical and physical-medicine reviewers",
+                  "status": "clinician_discussion",
+                  "title": "Exercise / conditioning"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "lifestyle",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Review sleep schedule and possible sleep-disordered breathing when symptoms warrant.",
+                    "Discuss breaking up prolonged sitting, stress management, tobacco exposure and alcohol use.",
+                    "Choose one or two achievable habits and agree on what will be reassessed."
+                  ],
+                  "rationale": "Build a manageable plan around daily routines and preferences; avoid promising longevity or body-composition changes from an isolated metric.",
+                  "reference_ids": [
+                    "nutrition"
+                  ],
+                  "required_assessment": [
+                    "Sleep, work schedule, substance use and stress history",
+                    "Patient priorities and practical barriers"
+                  ],
+                  "reviewer": "Medical / functional-health reviewer",
+                  "status": "clinician_discussion",
+                  "title": "Lifestyle / sleep / adherence"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "peptides",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "If clinically indicated, discuss approved prescription weight-management options such as semaglutide or tirzepatide with a prescriber; eligibility and suitability are not established here.",
+                    "BPC-157, CJC-1295 and ipamorelin: retain as evidence-review topics, not routine recovery, muscle-building or longevity recommendations. FDA identifies safety concerns and limited safety information for these substances.",
+                    "Verify current indication, evidence, product/regulatory status, interactions, contraindications and monitoring before considering any prescription. Compounded products are not interchangeable with FDA-approved products."
+                  ],
+                  "rationale": "An InBody result is not a peptide indication. No peptide, dose or protocol is selected automatically.",
+                  "reference_ids": [
+                    "peptides",
+                    "medications"
+                  ],
+                  "required_assessment": [
+                    "Diagnosis and indication confirmed by prescriber",
+                    "Medication, pregnancy and contraindication review",
+                    "Current product label and regulatory/evidence review",
+                    "Informed discussion and monitoring plan"
+                  ],
+                  "reviewer": "Licensed prescribing medical clinician",
+                  "status": "prescriber_review_required",
+                  "title": "Peptides / prescription options"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [
+                    "weight",
+                    "bmi",
+                    "skeletal_muscle_mass",
+                    "body_fat_mass",
+                    "percent_body_fat",
+                    "total_body_water",
+                    "ecw_tbw",
+                    "visceral_fat_area",
+                    "phase_angle"
+                  ],
+                  "id": "reassessment",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Use consistent device, time of day and testing conditions for repeat measurements.",
+                    "Reassess strength, gait/balance, patient goals and symptoms alongside body composition.",
+                    "Choose the follow-up interval clinically; evaluate sooner if new symptoms or injuries arise."
+                  ],
+                  "rationale": "Track measurements and functional outcomes together; numerical direction alone does not establish clinical improvement.",
+                  "reference_ids": [
+                    "device"
+                  ],
+                  "required_assessment": [
+                    "Baseline functional tests",
+                    "Patient-defined goals",
+                    "Clinician-selected interval"
+                  ],
+                  "reviewer": "Treating clinician",
+                  "status": "clinician_discussion",
+                  "title": "Reassessment / outcomes"
+                }
+              ],
+              "is_treatment_order": false,
+              "limitations": [
+                "No autonomous diagnosis or prescription.",
+                "Drafts are not orders or verified specialist opinions.",
+                "No live AI or external specialist consultation is claimed.",
+                "Context and functional findings are incomplete; source acceptance does not authorize treatment."
+              ],
+              "missing_context": [
+                "goals",
+                "activity_level",
+                "clinical_history_reviewed",
+                "medications_reviewed",
+                "pain_present",
+                "falls_or_balance_concern",
+                "pregnancy_or_breastfeeding",
+                "cardiovascular_symptoms"
+              ],
+              "reference_checked_on": "2026-10-08",
+              "references": {
+                "activity": {
+                  "title": "CDC adult physical activity overview",
+                  "url": "https://www.cdc.gov/physical-activity-basics/guidelines/adults.html"
+                },
+                "balance": {
+                  "title": "CDC older adult physical activity overview",
+                  "url": "https://www.cdc.gov/physical-activity-basics/guidelines/older-adults.html"
+                },
+                "device": {
+                  "title": "InBody 380 manual",
+                  "url": "https://inbodyusa.zendesk.com/hc/en-us/articles/26353282696084-InBody-380-User-s-Manual"
+                },
+                "medications": {
+                  "title": "NIDDK prescription medications for overweight and obesity",
+                  "url": "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"
+                },
+                "nutrition": {
+                  "title": "NIDDK choosing a safe weight-management program",
+                  "url": "https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program"
+                },
+                "peptides": {
+                  "title": "FDA bulk substances with potential significant safety risks",
+                  "url": "https://www.fda.gov/drugs/human-drug-compounding/certain-bulk-drug-substances-use-compounding-may-present-significant-safety-risks"
+                }
+              },
+              "segmental_observations": [],
+              "source_confirmation_required": false,
+              "source_result_id": "8adef6c3-c38f-45bc-a832-a24914250f75",
+              "status": "draft_for_clinician_review",
+              "test_timestamp": "2026-09-07T09:30:00-04:00",
+              "version": "clinical-discussion-v1.0"
+            },
+            "result_id": "8adef6c3-c38f-45bc-a832-a24914250f75",
             "review_status": "pending",
             "rule_findings": [
               {
@@ -1436,8 +2048,8 @@
         "claimed_patient_id": null,
         "device_model": "Synthetic InBody fixture",
         "encounter_id": "SYN-001-BASE",
-        "id": "127d2b86-8309-472b-83aa-20486a2188bc",
-        "ingested_at": "2026-10-07T17:05:59.346401+00:00",
+        "id": "e5630dff-23f5-48fb-9dfd-58e23ce289e5",
+        "ingested_at": "2026-10-08T14:53:40.681043+00:00",
         "measurements": [
           {
             "confidence": 1.0,
@@ -1548,6 +2160,8 @@
           "source_hash": "4443bce73688b4cdfc3b78b6c68855b8c8b611ff30183e64430eb710b6cb5d7e",
           "superseded_source": null
         },
+        "scanned_codes": [],
+        "source_extraction": [],
         "source_identifier": "demo-0",
         "source_result": {
           "files": [],
@@ -1761,9 +2375,9 @@
               "source_device": "Synthetic InBody fixture",
               "test_timestamp": "2026-08-07T09:30:00-04:00"
             },
-            "created_at": "2026-10-07T17:05:59.346855+00:00",
+            "created_at": "2026-10-08T14:53:40.681417+00:00",
             "data_quality_passed": true,
-            "id": "98f518a3-9952-4004-be3c-042c10a0ab87",
+            "id": "fb4e5b01-a904-41cf-bb29-3ac3de32f1f3",
             "longitudinal_comparison": {
               "changes": [],
               "interval_days": null,
@@ -1800,6 +2414,7 @@
                 "dob": "1982-04-17",
                 "sex": "male"
               },
+              "recommendation_version": "clinical-discussion-v1.0",
               "rules_snapshot": {
                 "cms": {
                   "enabled": false,
@@ -1860,7 +2475,300 @@
               "source_hash": "4443bce73688b4cdfc3b78b6c68855b8c8b611ff30183e64430eb710b6cb5d7e",
               "test_timestamp": "2026-08-07T09:30:00-04:00"
             },
-            "result_id": "127d2b86-8309-472b-83aa-20486a2188bc",
+            "recommendation_plan": {
+              "context": {
+                "activity_level": "unknown",
+                "cardiovascular_symptoms": "unknown",
+                "clinical_history_reviewed": false,
+                "falls_or_balance_concern": "unknown",
+                "goals": "",
+                "medications_reviewed": false,
+                "pain_present": "unknown",
+                "pregnancy_or_breastfeeding": "unknown"
+              },
+              "context_source": "operator-entered; not independently verified",
+              "domains": [
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [
+                    "weight",
+                    "bmi",
+                    "percent_body_fat",
+                    "ecw_tbw"
+                  ],
+                  "id": "medical",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Review blood pressure, waist circumference, weight trajectory, symptoms and medication effects.",
+                    "Consider glucose/A1c, lipids and other testing only when history and examination justify them.",
+                    "Review unintentional weight change or swelling before interpreting a body-composition trend."
+                  ],
+                  "rationale": "Review body-composition estimates with the clinical history, waist measurement and cardiometabolic risk; they do not diagnose metabolic disease. Verified BMI is 27.4 kg/m2; interpret muscularity and other risk factors before setting a weight goal.",
+                  "reference_ids": [
+                    "nutrition",
+                    "device"
+                  ],
+                  "required_assessment": [
+                    "Medical history, symptoms and examination",
+                    "Existing labs and diagnoses",
+                    "Medication and contraindication review"
+                  ],
+                  "reviewer": "Medical or family-medicine clinician",
+                  "status": "clinician_discussion",
+                  "title": "Medical / metabolic review"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [
+                    "weight",
+                    "skeletal_muscle_mass",
+                    "body_fat_mass"
+                  ],
+                  "id": "nutrition",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Discuss a sustainable food pattern with vegetables, fruit, fiber-rich foods and suitable protein sources.",
+                    "Individualize energy and protein needs with activity, age, kidney/liver function and nutritional status.",
+                    "Use symptoms and relevant findings to guide targeted investigations; do not order a blanket functional-lab or supplement panel."
+                  ],
+                  "rationale": "Choose nutrition around the patient\u2019s goals and health context. BIA does not identify nutrient deficiencies, endocrine disorders or a supplement requirement.",
+                  "reference_ids": [
+                    "nutrition"
+                  ],
+                  "required_assessment": [
+                    "Dietary history and goals",
+                    "Kidney/liver status and relevant labs",
+                    "Food access, restrictions and medication interactions"
+                  ],
+                  "reviewer": "Qualified medical clinician and dietitian",
+                  "status": "clinician_discussion",
+                  "title": "Functional nutrition / recovery"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "arm_training",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "After assessment, consider controlled rows, presses and carries within tolerated range.",
+                    "Use comparable left/right loads and technique initially; prescribe extra side-specific work only after functional assessment."
+                  ],
+                  "rationale": "No comparable, verified left/right segmental lean-mass pair. Confirm the source, then test strength, movement quality and symptoms. More lean mass does not prove greater strength.",
+                  "reference_ids": [
+                    "activity",
+                    "device"
+                  ],
+                  "required_assessment": [
+                    "Pain and injury history",
+                    "Bilateral strength and range-of-motion testing",
+                    "Movement/task assessment and training tolerance"
+                  ],
+                  "reviewer": "Chiropractic Physical Medicine / rehabilitation reviewer",
+                  "status": "assessment_required",
+                  "title": "Upper-limb training / symmetry"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "leg_training",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "After assessment, consider supported sit-to-stand, step-ups, calf raises and progressive leg strengthening.",
+                    "Use grip/support and supervision when needed; select unilateral loading only after pain, gait and strength assessment."
+                  ],
+                  "rationale": "No comparable, verified left/right segmental lean-mass pair. Confirm the source, then test strength, movement quality and symptoms. More lean mass does not prove greater strength.",
+                  "reference_ids": [
+                    "activity",
+                    "device"
+                  ],
+                  "required_assessment": [
+                    "Pain and injury history",
+                    "Bilateral strength and range-of-motion testing",
+                    "Movement/task assessment and training tolerance"
+                  ],
+                  "reviewer": "Chiropractic Physical Medicine / rehabilitation reviewer",
+                  "status": "assessment_required",
+                  "title": "Lower-limb training / symmetry"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "balance",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Assess gait, sit-to-stand and supported stance as appropriate; route neurological or vestibular symptoms for domain review.",
+                    "After clearance, consider supervised weight shifts, supported tandem stance and step-control practice.",
+                    "Progress support, surface and visual challenge only after demonstrated control."
+                  ],
+                  "rationale": "Body composition does not measure balance or vestibular function. Reported falls or instability require functional assessment before progression.",
+                  "reference_ids": [
+                    "balance"
+                  ],
+                  "required_assessment": [
+                    "Fall history, dizziness and neurological symptoms",
+                    "Balance/gait testing",
+                    "Support requirements and supervision"
+                  ],
+                  "reviewer": "Chiropractic Physical Medicine / neurovestibular reviewer",
+                  "status": "assessment_required",
+                  "title": "Balance / gait / coordination"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "activity",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "For medically suitable adults, discuss building toward 150 minutes of moderate aerobic activity weekly and strength work on at least 2 days; start below this if necessary.",
+                    "Consider walking, cycling or another tolerated aerobic option with progressive resistance training.",
+                    "If cardiovascular symptoms, pain or instability are present, assess first and defer unsupervised progression."
+                  ],
+                  "rationale": "Use goals, baseline capacity and symptoms to choose a starting dose; InBody alone does not establish exercise clearance.",
+                  "reference_ids": [
+                    "activity",
+                    "balance"
+                  ],
+                  "required_assessment": [
+                    "Clinical clearance and current activity",
+                    "Cardiovascular symptoms, pain and functional tolerance",
+                    "Age and patient goals"
+                  ],
+                  "reviewer": "Medical and physical-medicine reviewers",
+                  "status": "clinician_discussion",
+                  "title": "Exercise / conditioning"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "lifestyle",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Review sleep schedule and possible sleep-disordered breathing when symptoms warrant.",
+                    "Discuss breaking up prolonged sitting, stress management, tobacco exposure and alcohol use.",
+                    "Choose one or two achievable habits and agree on what will be reassessed."
+                  ],
+                  "rationale": "Build a manageable plan around daily routines and preferences; avoid promising longevity or body-composition changes from an isolated metric.",
+                  "reference_ids": [
+                    "nutrition"
+                  ],
+                  "required_assessment": [
+                    "Sleep, work schedule, substance use and stress history",
+                    "Patient priorities and practical barriers"
+                  ],
+                  "reviewer": "Medical / functional-health reviewer",
+                  "status": "clinician_discussion",
+                  "title": "Lifestyle / sleep / adherence"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "peptides",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "If clinically indicated, discuss approved prescription weight-management options such as semaglutide or tirzepatide with a prescriber; eligibility and suitability are not established here.",
+                    "BPC-157, CJC-1295 and ipamorelin: retain as evidence-review topics, not routine recovery, muscle-building or longevity recommendations. FDA identifies safety concerns and limited safety information for these substances.",
+                    "Verify current indication, evidence, product/regulatory status, interactions, contraindications and monitoring before considering any prescription. Compounded products are not interchangeable with FDA-approved products."
+                  ],
+                  "rationale": "An InBody result is not a peptide indication. No peptide, dose or protocol is selected automatically.",
+                  "reference_ids": [
+                    "peptides",
+                    "medications"
+                  ],
+                  "required_assessment": [
+                    "Diagnosis and indication confirmed by prescriber",
+                    "Medication, pregnancy and contraindication review",
+                    "Current product label and regulatory/evidence review",
+                    "Informed discussion and monitoring plan"
+                  ],
+                  "reviewer": "Licensed prescribing medical clinician",
+                  "status": "prescriber_review_required",
+                  "title": "Peptides / prescription options"
+                },
+                {
+                  "clinician_review_required": true,
+                  "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                  "evidence_metrics": [],
+                  "id": "reassessment",
+                  "is_treatment_order": false,
+                  "options_to_discuss": [
+                    "Use consistent device, time of day and testing conditions for repeat measurements.",
+                    "Reassess strength, gait/balance, patient goals and symptoms alongside body composition.",
+                    "Choose the follow-up interval clinically; evaluate sooner if new symptoms or injuries arise."
+                  ],
+                  "rationale": "Track measurements and functional outcomes together; numerical direction alone does not establish clinical improvement.",
+                  "reference_ids": [
+                    "device"
+                  ],
+                  "required_assessment": [
+                    "Baseline functional tests",
+                    "Patient-defined goals",
+                    "Clinician-selected interval"
+                  ],
+                  "reviewer": "Treating clinician",
+                  "status": "clinician_discussion",
+                  "title": "Reassessment / outcomes"
+                }
+              ],
+              "is_treatment_order": false,
+              "limitations": [
+                "No autonomous diagnosis or prescription.",
+                "Drafts are not orders or verified specialist opinions.",
+                "No live AI or external specialist consultation is claimed.",
+                "Context and functional findings are incomplete; source acceptance does not authorize treatment."
+              ],
+              "missing_context": [
+                "goals",
+                "activity_level",
+                "clinical_history_reviewed",
+                "medications_reviewed",
+                "pain_present",
+                "falls_or_balance_concern",
+                "pregnancy_or_breastfeeding",
+                "cardiovascular_symptoms"
+              ],
+              "reference_checked_on": "2026-10-08",
+              "references": {
+                "activity": {
+                  "title": "CDC adult physical activity overview",
+                  "url": "https://www.cdc.gov/physical-activity-basics/guidelines/adults.html"
+                },
+                "balance": {
+                  "title": "CDC older adult physical activity overview",
+                  "url": "https://www.cdc.gov/physical-activity-basics/guidelines/older-adults.html"
+                },
+                "device": {
+                  "title": "InBody 380 manual",
+                  "url": "https://inbodyusa.zendesk.com/hc/en-us/articles/26353282696084-InBody-380-User-s-Manual"
+                },
+                "medications": {
+                  "title": "NIDDK prescription medications for overweight and obesity",
+                  "url": "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"
+                },
+                "nutrition": {
+                  "title": "NIDDK choosing a safe weight-management program",
+                  "url": "https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program"
+                },
+                "peptides": {
+                  "title": "FDA bulk substances with potential significant safety risks",
+                  "url": "https://www.fda.gov/drugs/human-drug-compounding/certain-bulk-drug-substances-use-compounding-may-present-significant-safety-risks"
+                }
+              },
+              "segmental_observations": [],
+              "source_confirmation_required": false,
+              "source_result_id": "e5630dff-23f5-48fb-9dfd-58e23ce289e5",
+              "status": "draft_for_clinician_review",
+              "test_timestamp": "2026-08-07T09:30:00-04:00",
+              "version": "clinical-discussion-v1.0"
+            },
+            "result_id": "e5630dff-23f5-48fb-9dfd-58e23ce289e5",
             "review_status": "pending",
             "rule_findings": [
               {
@@ -1904,8 +2812,8 @@
       "claimed_patient_id": null,
       "device_model": "Synthetic InBody fixture",
       "encounter_id": "SYN-001-FOLLOW",
-      "id": "074e793d-061d-4b9c-a8b8-63e0b0e9a649",
-      "ingested_at": "2026-10-07T17:05:59.350737+00:00",
+      "id": "44b1d2c0-7f99-41f5-a9be-19a93db82bd8",
+      "ingested_at": "2026-10-08T14:53:40.684820+00:00",
       "measurements": [
         {
           "confidence": 1.0,
@@ -1972,6 +2880,8 @@
         "source_hash": "429ec3be80915058b762de442aa0a9d05bcdcef237f70e1b3c28a7e5896239f5",
         "superseded_source": null
       },
+      "scanned_codes": [],
+      "source_extraction": [],
       "source_identifier": "visual-sample-SYN-001",
       "source_result": {
         "files": [],
@@ -2054,7 +2964,7 @@
               "from": "2026-10-07T09:30:00-04:00",
               "interval_days": 1.0,
               "note": "Numerical changes do not by themselves establish improvement or worsening.",
-              "previous_result_id": "6948987c-86d8-4b49-b9d9-b3a32bdb804c",
+              "previous_result_id": "211192b2-9f2f-4bd4-8558-a9bdce830d46",
               "to": "2026-10-08T09:30:00-04:00"
             },
             "measured_facts": [
@@ -2204,9 +3114,9 @@
             "source_device": "Synthetic InBody fixture",
             "test_timestamp": "2026-10-08T09:30:00-04:00"
           },
-          "created_at": "2026-10-07T17:05:59.351184+00:00",
+          "created_at": "2026-10-08T14:53:40.685383+00:00",
           "data_quality_passed": true,
-          "id": "3f2aca55-40bc-4c55-a8bc-80107b186705",
+          "id": "0105bf11-f122-48c2-bb29-9a29260770da",
           "longitudinal_comparison": {
             "changes": [
               {
@@ -2273,7 +3183,7 @@
             "from": "2026-10-07T09:30:00-04:00",
             "interval_days": 1.0,
             "note": "Numerical changes do not by themselves establish improvement or worsening.",
-            "previous_result_id": "6948987c-86d8-4b49-b9d9-b3a32bdb804c",
+            "previous_result_id": "211192b2-9f2f-4bd4-8558-a9bdce830d46",
             "to": "2026-10-08T09:30:00-04:00"
           },
           "patient_summary": {
@@ -2306,6 +3216,7 @@
               "dob": "1982-04-17",
               "sex": "male"
             },
+            "recommendation_version": "clinical-discussion-v1.0",
             "rules_snapshot": {
               "cms": {
                 "enabled": false,
@@ -2366,7 +3277,305 @@
             "source_hash": "429ec3be80915058b762de442aa0a9d05bcdcef237f70e1b3c28a7e5896239f5",
             "test_timestamp": "2026-10-08T09:30:00-04:00"
           },
-          "result_id": "074e793d-061d-4b9c-a8b8-63e0b0e9a649",
+          "recommendation_plan": {
+            "context": {
+              "activity_level": "unknown",
+              "cardiovascular_symptoms": "unknown",
+              "clinical_history_reviewed": false,
+              "falls_or_balance_concern": "unknown",
+              "goals": "",
+              "medications_reviewed": false,
+              "pain_present": "unknown",
+              "pregnancy_or_breastfeeding": "unknown"
+            },
+            "context_source": "operator-entered; not independently verified",
+            "domains": [
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [
+                  "weight",
+                  "bmi",
+                  "percent_body_fat"
+                ],
+                "id": "medical",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "Review blood pressure, waist circumference, weight trajectory, symptoms and medication effects.",
+                  "Consider glucose/A1c, lipids and other testing only when history and examination justify them.",
+                  "Review unintentional weight change or swelling before interpreting a body-composition trend."
+                ],
+                "rationale": "Review body-composition estimates with the clinical history, waist measurement and cardiometabolic risk; they do not diagnose metabolic disease. Verified BMI is 26.1 kg/m2; interpret muscularity and other risk factors before setting a weight goal.",
+                "reference_ids": [
+                  "nutrition",
+                  "device"
+                ],
+                "required_assessment": [
+                  "Medical history, symptoms and examination",
+                  "Existing labs and diagnoses",
+                  "Medication and contraindication review"
+                ],
+                "reviewer": "Medical or family-medicine clinician",
+                "status": "clinician_discussion",
+                "title": "Medical / metabolic review"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [
+                  "weight",
+                  "skeletal_muscle_mass",
+                  "body_fat_mass"
+                ],
+                "id": "nutrition",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "Discuss a sustainable food pattern with vegetables, fruit, fiber-rich foods and suitable protein sources.",
+                  "Individualize energy and protein needs with activity, age, kidney/liver function and nutritional status.",
+                  "Use symptoms and relevant findings to guide targeted investigations; do not order a blanket functional-lab or supplement panel."
+                ],
+                "rationale": "Choose nutrition around the patient\u2019s goals and health context. BIA does not identify nutrient deficiencies, endocrine disorders or a supplement requirement.",
+                "reference_ids": [
+                  "nutrition"
+                ],
+                "required_assessment": [
+                  "Dietary history and goals",
+                  "Kidney/liver status and relevant labs",
+                  "Food access, restrictions and medication interactions"
+                ],
+                "reviewer": "Qualified medical clinician and dietitian",
+                "status": "clinician_discussion",
+                "title": "Functional nutrition / recovery"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [],
+                "id": "arm_training",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "After assessment, consider controlled rows, presses and carries within tolerated range.",
+                  "Use comparable left/right loads and technique initially; prescribe extra side-specific work only after functional assessment."
+                ],
+                "rationale": "No comparable, verified left/right segmental lean-mass pair. Confirm the source, then test strength, movement quality and symptoms. More lean mass does not prove greater strength.",
+                "reference_ids": [
+                  "activity",
+                  "device"
+                ],
+                "required_assessment": [
+                  "Pain and injury history",
+                  "Bilateral strength and range-of-motion testing",
+                  "Movement/task assessment and training tolerance"
+                ],
+                "reviewer": "Chiropractic Physical Medicine / rehabilitation reviewer",
+                "status": "assessment_required",
+                "title": "Upper-limb training / symmetry"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [],
+                "id": "leg_training",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "After assessment, consider supported sit-to-stand, step-ups, calf raises and progressive leg strengthening.",
+                  "Use grip/support and supervision when needed; select unilateral loading only after pain, gait and strength assessment."
+                ],
+                "rationale": "No comparable, verified left/right segmental lean-mass pair. Confirm the source, then test strength, movement quality and symptoms. More lean mass does not prove greater strength.",
+                "reference_ids": [
+                  "activity",
+                  "device"
+                ],
+                "required_assessment": [
+                  "Pain and injury history",
+                  "Bilateral strength and range-of-motion testing",
+                  "Movement/task assessment and training tolerance"
+                ],
+                "reviewer": "Chiropractic Physical Medicine / rehabilitation reviewer",
+                "status": "assessment_required",
+                "title": "Lower-limb training / symmetry"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [],
+                "id": "balance",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "Assess gait, sit-to-stand and supported stance as appropriate; route neurological or vestibular symptoms for domain review.",
+                  "After clearance, consider supervised weight shifts, supported tandem stance and step-control practice.",
+                  "Progress support, surface and visual challenge only after demonstrated control."
+                ],
+                "rationale": "Body composition does not measure balance or vestibular function. Reported falls or instability require functional assessment before progression.",
+                "reference_ids": [
+                  "balance"
+                ],
+                "required_assessment": [
+                  "Fall history, dizziness and neurological symptoms",
+                  "Balance/gait testing",
+                  "Support requirements and supervision"
+                ],
+                "reviewer": "Chiropractic Physical Medicine / neurovestibular reviewer",
+                "status": "assessment_required",
+                "title": "Balance / gait / coordination"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [],
+                "id": "activity",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "For medically suitable adults, discuss building toward 150 minutes of moderate aerobic activity weekly and strength work on at least 2 days; start below this if necessary.",
+                  "Consider walking, cycling or another tolerated aerobic option with progressive resistance training.",
+                  "If cardiovascular symptoms, pain or instability are present, assess first and defer unsupervised progression."
+                ],
+                "rationale": "Use goals, baseline capacity and symptoms to choose a starting dose; InBody alone does not establish exercise clearance.",
+                "reference_ids": [
+                  "activity",
+                  "balance"
+                ],
+                "required_assessment": [
+                  "Clinical clearance and current activity",
+                  "Cardiovascular symptoms, pain and functional tolerance",
+                  "Age and patient goals"
+                ],
+                "reviewer": "Medical and physical-medicine reviewers",
+                "status": "clinician_discussion",
+                "title": "Exercise / conditioning"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [],
+                "id": "lifestyle",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "Review sleep schedule and possible sleep-disordered breathing when symptoms warrant.",
+                  "Discuss breaking up prolonged sitting, stress management, tobacco exposure and alcohol use.",
+                  "Choose one or two achievable habits and agree on what will be reassessed."
+                ],
+                "rationale": "Build a manageable plan around daily routines and preferences; avoid promising longevity or body-composition changes from an isolated metric.",
+                "reference_ids": [
+                  "nutrition"
+                ],
+                "required_assessment": [
+                  "Sleep, work schedule, substance use and stress history",
+                  "Patient priorities and practical barriers"
+                ],
+                "reviewer": "Medical / functional-health reviewer",
+                "status": "clinician_discussion",
+                "title": "Lifestyle / sleep / adherence"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [],
+                "id": "peptides",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "If clinically indicated, discuss approved prescription weight-management options such as semaglutide or tirzepatide with a prescriber; eligibility and suitability are not established here.",
+                  "BPC-157, CJC-1295 and ipamorelin: retain as evidence-review topics, not routine recovery, muscle-building or longevity recommendations. FDA identifies safety concerns and limited safety information for these substances.",
+                  "Verify current indication, evidence, product/regulatory status, interactions, contraindications and monitoring before considering any prescription. Compounded products are not interchangeable with FDA-approved products."
+                ],
+                "rationale": "An InBody result is not a peptide indication. No peptide, dose or protocol is selected automatically.",
+                "reference_ids": [
+                  "peptides",
+                  "medications"
+                ],
+                "required_assessment": [
+                  "Diagnosis and indication confirmed by prescriber",
+                  "Medication, pregnancy and contraindication review",
+                  "Current product label and regulatory/evidence review",
+                  "Informed discussion and monitoring plan"
+                ],
+                "reviewer": "Licensed prescribing medical clinician",
+                "status": "prescriber_review_required",
+                "title": "Peptides / prescription options"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [
+                  "weight",
+                  "bmi",
+                  "skeletal_muscle_mass",
+                  "percent_body_fat",
+                  "body_fat_mass"
+                ],
+                "id": "reassessment",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "Use consistent device, time of day and testing conditions for repeat measurements.",
+                  "Reassess strength, gait/balance, patient goals and symptoms alongside body composition.",
+                  "Choose the follow-up interval clinically; evaluate sooner if new symptoms or injuries arise."
+                ],
+                "rationale": "Track measurements and functional outcomes together; numerical direction alone does not establish clinical improvement.",
+                "reference_ids": [
+                  "device"
+                ],
+                "required_assessment": [
+                  "Baseline functional tests",
+                  "Patient-defined goals",
+                  "Clinician-selected interval"
+                ],
+                "reviewer": "Treating clinician",
+                "status": "clinician_discussion",
+                "title": "Reassessment / outcomes"
+              }
+            ],
+            "is_treatment_order": false,
+            "limitations": [
+              "No autonomous diagnosis or prescription.",
+              "Drafts are not orders or verified specialist opinions.",
+              "No live AI or external specialist consultation is claimed.",
+              "Context and functional findings are incomplete; source acceptance does not authorize treatment."
+            ],
+            "missing_context": [
+              "goals",
+              "activity_level",
+              "clinical_history_reviewed",
+              "medications_reviewed",
+              "pain_present",
+              "falls_or_balance_concern",
+              "pregnancy_or_breastfeeding",
+              "cardiovascular_symptoms"
+            ],
+            "reference_checked_on": "2026-10-08",
+            "references": {
+              "activity": {
+                "title": "CDC adult physical activity overview",
+                "url": "https://www.cdc.gov/physical-activity-basics/guidelines/adults.html"
+              },
+              "balance": {
+                "title": "CDC older adult physical activity overview",
+                "url": "https://www.cdc.gov/physical-activity-basics/guidelines/older-adults.html"
+              },
+              "device": {
+                "title": "InBody 380 manual",
+                "url": "https://inbodyusa.zendesk.com/hc/en-us/articles/26353282696084-InBody-380-User-s-Manual"
+              },
+              "medications": {
+                "title": "NIDDK prescription medications for overweight and obesity",
+                "url": "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"
+              },
+              "nutrition": {
+                "title": "NIDDK choosing a safe weight-management program",
+                "url": "https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program"
+              },
+              "peptides": {
+                "title": "FDA bulk substances with potential significant safety risks",
+                "url": "https://www.fda.gov/drugs/human-drug-compounding/certain-bulk-drug-substances-use-compounding-may-present-significant-safety-risks"
+              }
+            },
+            "segmental_observations": [],
+            "source_confirmation_required": false,
+            "source_result_id": "44b1d2c0-7f99-41f5-a9be-19a93db82bd8",
+            "status": "draft_for_clinician_review",
+            "test_timestamp": "2026-10-08T09:30:00-04:00",
+            "version": "clinical-discussion-v1.0"
+          },
+          "result_id": "44b1d2c0-7f99-41f5-a9be-19a93db82bd8",
           "review_status": "pending",
           "rule_findings": [
             {
@@ -2406,8 +3615,8 @@
       "claimed_patient_id": null,
       "device_model": "Synthetic InBody fixture",
       "encounter_id": "SYN-002-FOLLOW",
-      "id": "9abe8cba-c033-4967-8e9b-097c473a8145",
-      "ingested_at": "2026-10-07T17:05:59.351785+00:00",
+      "id": "efb7951a-090b-446d-b225-cb4cbf6da3cb",
+      "ingested_at": "2026-10-08T14:53:40.685946+00:00",
       "measurements": [
         {
           "confidence": 1.0,
@@ -2474,6 +3683,8 @@
         "source_hash": "6b3d40e7b1304067216b063ef57366204d393a7fa0f19c3957a498d4a4e551a7",
         "superseded_source": null
       },
+      "scanned_codes": [],
+      "source_extraction": [],
       "source_identifier": "visual-sample-SYN-002",
       "source_result": {
         "files": [],
@@ -2614,9 +3825,9 @@
             "source_device": "Synthetic InBody fixture",
             "test_timestamp": "2026-10-08T09:30:00-04:00"
           },
-          "created_at": "2026-10-07T17:05:59.351980+00:00",
+          "created_at": "2026-10-08T14:53:40.686128+00:00",
           "data_quality_passed": true,
-          "id": "5eab6f79-b85c-4b60-84c9-4c2fd4d87a71",
+          "id": "7305922b-8437-4d8c-bead-9b10c6cb05a5",
           "longitudinal_comparison": {
             "changes": [],
             "interval_days": null,
@@ -2648,6 +3859,7 @@
               "dob": "1990-08-22",
               "sex": "female"
             },
+            "recommendation_version": "clinical-discussion-v1.0",
             "rules_snapshot": {
               "cms": {
                 "enabled": false,
@@ -2708,7 +3920,299 @@
             "source_hash": "6b3d40e7b1304067216b063ef57366204d393a7fa0f19c3957a498d4a4e551a7",
             "test_timestamp": "2026-10-08T09:30:00-04:00"
           },
-          "result_id": "9abe8cba-c033-4967-8e9b-097c473a8145",
+          "recommendation_plan": {
+            "context": {
+              "activity_level": "unknown",
+              "cardiovascular_symptoms": "unknown",
+              "clinical_history_reviewed": false,
+              "falls_or_balance_concern": "unknown",
+              "goals": "",
+              "medications_reviewed": false,
+              "pain_present": "unknown",
+              "pregnancy_or_breastfeeding": "unknown"
+            },
+            "context_source": "operator-entered; not independently verified",
+            "domains": [
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [
+                  "weight",
+                  "bmi",
+                  "percent_body_fat"
+                ],
+                "id": "medical",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "Review blood pressure, waist circumference, weight trajectory, symptoms and medication effects.",
+                  "Consider glucose/A1c, lipids and other testing only when history and examination justify them.",
+                  "Review unintentional weight change or swelling before interpreting a body-composition trend."
+                ],
+                "rationale": "Review body-composition estimates with the clinical history, waist measurement and cardiometabolic risk; they do not diagnose metabolic disease. Verified BMI is 23.4 kg/m2; interpret muscularity and other risk factors before setting a weight goal.",
+                "reference_ids": [
+                  "nutrition",
+                  "device"
+                ],
+                "required_assessment": [
+                  "Medical history, symptoms and examination",
+                  "Existing labs and diagnoses",
+                  "Medication and contraindication review"
+                ],
+                "reviewer": "Medical or family-medicine clinician",
+                "status": "clinician_discussion",
+                "title": "Medical / metabolic review"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [
+                  "weight",
+                  "skeletal_muscle_mass",
+                  "body_fat_mass"
+                ],
+                "id": "nutrition",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "Discuss a sustainable food pattern with vegetables, fruit, fiber-rich foods and suitable protein sources.",
+                  "Individualize energy and protein needs with activity, age, kidney/liver function and nutritional status.",
+                  "Use symptoms and relevant findings to guide targeted investigations; do not order a blanket functional-lab or supplement panel."
+                ],
+                "rationale": "Choose nutrition around the patient\u2019s goals and health context. BIA does not identify nutrient deficiencies, endocrine disorders or a supplement requirement.",
+                "reference_ids": [
+                  "nutrition"
+                ],
+                "required_assessment": [
+                  "Dietary history and goals",
+                  "Kidney/liver status and relevant labs",
+                  "Food access, restrictions and medication interactions"
+                ],
+                "reviewer": "Qualified medical clinician and dietitian",
+                "status": "clinician_discussion",
+                "title": "Functional nutrition / recovery"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [],
+                "id": "arm_training",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "After assessment, consider controlled rows, presses and carries within tolerated range.",
+                  "Use comparable left/right loads and technique initially; prescribe extra side-specific work only after functional assessment."
+                ],
+                "rationale": "No comparable, verified left/right segmental lean-mass pair. Confirm the source, then test strength, movement quality and symptoms. More lean mass does not prove greater strength.",
+                "reference_ids": [
+                  "activity",
+                  "device"
+                ],
+                "required_assessment": [
+                  "Pain and injury history",
+                  "Bilateral strength and range-of-motion testing",
+                  "Movement/task assessment and training tolerance"
+                ],
+                "reviewer": "Chiropractic Physical Medicine / rehabilitation reviewer",
+                "status": "assessment_required",
+                "title": "Upper-limb training / symmetry"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [],
+                "id": "leg_training",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "After assessment, consider supported sit-to-stand, step-ups, calf raises and progressive leg strengthening.",
+                  "Use grip/support and supervision when needed; select unilateral loading only after pain, gait and strength assessment."
+                ],
+                "rationale": "No comparable, verified left/right segmental lean-mass pair. Confirm the source, then test strength, movement quality and symptoms. More lean mass does not prove greater strength.",
+                "reference_ids": [
+                  "activity",
+                  "device"
+                ],
+                "required_assessment": [
+                  "Pain and injury history",
+                  "Bilateral strength and range-of-motion testing",
+                  "Movement/task assessment and training tolerance"
+                ],
+                "reviewer": "Chiropractic Physical Medicine / rehabilitation reviewer",
+                "status": "assessment_required",
+                "title": "Lower-limb training / symmetry"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [],
+                "id": "balance",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "Assess gait, sit-to-stand and supported stance as appropriate; route neurological or vestibular symptoms for domain review.",
+                  "After clearance, consider supervised weight shifts, supported tandem stance and step-control practice.",
+                  "Progress support, surface and visual challenge only after demonstrated control."
+                ],
+                "rationale": "Body composition does not measure balance or vestibular function. Reported falls or instability require functional assessment before progression.",
+                "reference_ids": [
+                  "balance"
+                ],
+                "required_assessment": [
+                  "Fall history, dizziness and neurological symptoms",
+                  "Balance/gait testing",
+                  "Support requirements and supervision"
+                ],
+                "reviewer": "Chiropractic Physical Medicine / neurovestibular reviewer",
+                "status": "assessment_required",
+                "title": "Balance / gait / coordination"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [],
+                "id": "activity",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "For medically suitable adults, discuss building toward 150 minutes of moderate aerobic activity weekly and strength work on at least 2 days; start below this if necessary.",
+                  "Consider walking, cycling or another tolerated aerobic option with progressive resistance training.",
+                  "If cardiovascular symptoms, pain or instability are present, assess first and defer unsupervised progression."
+                ],
+                "rationale": "Use goals, baseline capacity and symptoms to choose a starting dose; InBody alone does not establish exercise clearance.",
+                "reference_ids": [
+                  "activity",
+                  "balance"
+                ],
+                "required_assessment": [
+                  "Clinical clearance and current activity",
+                  "Cardiovascular symptoms, pain and functional tolerance",
+                  "Age and patient goals"
+                ],
+                "reviewer": "Medical and physical-medicine reviewers",
+                "status": "clinician_discussion",
+                "title": "Exercise / conditioning"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [],
+                "id": "lifestyle",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "Review sleep schedule and possible sleep-disordered breathing when symptoms warrant.",
+                  "Discuss breaking up prolonged sitting, stress management, tobacco exposure and alcohol use.",
+                  "Choose one or two achievable habits and agree on what will be reassessed."
+                ],
+                "rationale": "Build a manageable plan around daily routines and preferences; avoid promising longevity or body-composition changes from an isolated metric.",
+                "reference_ids": [
+                  "nutrition"
+                ],
+                "required_assessment": [
+                  "Sleep, work schedule, substance use and stress history",
+                  "Patient priorities and practical barriers"
+                ],
+                "reviewer": "Medical / functional-health reviewer",
+                "status": "clinician_discussion",
+                "title": "Lifestyle / sleep / adherence"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [],
+                "id": "peptides",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "If clinically indicated, discuss approved prescription weight-management options such as semaglutide or tirzepatide with a prescriber; eligibility and suitability are not established here.",
+                  "BPC-157, CJC-1295 and ipamorelin: retain as evidence-review topics, not routine recovery, muscle-building or longevity recommendations. FDA identifies safety concerns and limited safety information for these substances.",
+                  "Verify current indication, evidence, product/regulatory status, interactions, contraindications and monitoring before considering any prescription. Compounded products are not interchangeable with FDA-approved products."
+                ],
+                "rationale": "An InBody result is not a peptide indication. No peptide, dose or protocol is selected automatically.",
+                "reference_ids": [
+                  "peptides",
+                  "medications"
+                ],
+                "required_assessment": [
+                  "Diagnosis and indication confirmed by prescriber",
+                  "Medication, pregnancy and contraindication review",
+                  "Current product label and regulatory/evidence review",
+                  "Informed discussion and monitoring plan"
+                ],
+                "reviewer": "Licensed prescribing medical clinician",
+                "status": "prescriber_review_required",
+                "title": "Peptides / prescription options"
+              },
+              {
+                "clinician_review_required": true,
+                "evidence_level": "General guidance plus source observations; individualized efficacy not established",
+                "evidence_metrics": [],
+                "id": "reassessment",
+                "is_treatment_order": false,
+                "options_to_discuss": [
+                  "Use consistent device, time of day and testing conditions for repeat measurements.",
+                  "Reassess strength, gait/balance, patient goals and symptoms alongside body composition.",
+                  "Choose the follow-up interval clinically; evaluate sooner if new symptoms or injuries arise."
+                ],
+                "rationale": "Track measurements and functional outcomes together; numerical direction alone does not establish clinical improvement.",
+                "reference_ids": [
+                  "device"
+                ],
+                "required_assessment": [
+                  "Baseline functional tests",
+                  "Patient-defined goals",
+                  "Clinician-selected interval"
+                ],
+                "reviewer": "Treating clinician",
+                "status": "clinician_discussion",
+                "title": "Reassessment / outcomes"
+              }
+            ],
+            "is_treatment_order": false,
+            "limitations": [
+              "No autonomous diagnosis or prescription.",
+              "Drafts are not orders or verified specialist opinions.",
+              "No live AI or external specialist consultation is claimed.",
+              "Context and functional findings are incomplete; source acceptance does not authorize treatment."
+            ],
+            "missing_context": [
+              "goals",
+              "activity_level",
+              "clinical_history_reviewed",
+              "medications_reviewed",
+              "pain_present",
+              "falls_or_balance_concern",
+              "pregnancy_or_breastfeeding",
+              "cardiovascular_symptoms"
+            ],
+            "reference_checked_on": "2026-10-08",
+            "references": {
+              "activity": {
+                "title": "CDC adult physical activity overview",
+                "url": "https://www.cdc.gov/physical-activity-basics/guidelines/adults.html"
+              },
+              "balance": {
+                "title": "CDC older adult physical activity overview",
+                "url": "https://www.cdc.gov/physical-activity-basics/guidelines/older-adults.html"
+              },
+              "device": {
+                "title": "InBody 380 manual",
+                "url": "https://inbodyusa.zendesk.com/hc/en-us/articles/26353282696084-InBody-380-User-s-Manual"
+              },
+              "medications": {
+                "title": "NIDDK prescription medications for overweight and obesity",
+                "url": "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"
+              },
+              "nutrition": {
+                "title": "NIDDK choosing a safe weight-management program",
+                "url": "https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program"
+              },
+              "peptides": {
+                "title": "FDA bulk substances with potential significant safety risks",
+                "url": "https://www.fda.gov/drugs/human-drug-compounding/certain-bulk-drug-substances-use-compounding-may-present-significant-safety-risks"
+              }
+            },
+            "segmental_observations": [],
+            "source_confirmation_required": false,
+            "source_result_id": "efb7951a-090b-446d-b225-cb4cbf6da3cb",
+            "status": "draft_for_clinician_review",
+            "test_timestamp": "2026-10-08T09:30:00-04:00",
+            "version": "clinical-discussion-v1.0"
+          },
+          "result_id": "efb7951a-090b-446d-b225-cb4cbf6da3cb",
           "review_status": "pending",
           "rule_findings": [],
           "reviews": []

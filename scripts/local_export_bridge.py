@@ -13,7 +13,7 @@ from pathlib import Path
 
 from adapters.inbody.documents import MAX_BYTES, extract
 
-EXTENSIONS = {'.csv', '.pdf', '.png', '.jpg', '.jpeg', '.bmp'}
+EXTENSIONS = {'.csv', '.pdf', '.png', '.jpg', '.jpeg', '.bmp', '.xls', '.xlsx'}
 
 
 def collect(inbox, queue, settle_seconds=3):
@@ -47,7 +47,7 @@ def collect(inbox, queue, settle_seconds=3):
             except ValueError as error:
                 evidence['warnings'].append(str(error))
         else:
-            evidence['warnings'].append('Original export retained. CSV/BMP field mapping is not enabled; review or export a PNG/JPEG/PDF.')
+            evidence['warnings'].append('Original export retained. CSV/Excel/BMP field mapping is not enabled; review or export a PNG/JPEG/PDF.')
         record = {'bridge_version': 'local-export-v1', 'status': 'awaiting_source_review',
                   'patient_id': None, 'encounter_id': None, 'review_required': True,
                   'hardware_connection_verified': False, 'source_sha256': digest,

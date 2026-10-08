@@ -32,3 +32,15 @@ class LocalExportBridge(unittest.TestCase):
             self.assertEqual(collect(inbox, Path(directory) / 'review', 60), [])
             with self.assertRaises(ValueError):
                 collect(inbox, inbox / 'review', 0)
+
+    def test_excel_is_preserved_without_invented_mapping(self):
+        with tempfile.TemporaryDirectory() as directory:
+            inbox = Path(directory) / 'exports'; inbox.mkdir()
+            queue = Path(directory) / 'review'
+            data = b'synthetic opaque export placeholder; not a parsed workbook'
+            (inbox / 'synthetic.xls').write_bytes(data)
+            digest = collect(inbox, queue, 0)[0]
+            record = json.loads((queue / digest / 'review.json').read_text())
+            self.assertEqual((queue / digest / 'original.xls').read_bytes(), data)
+            self.assertEqual(record['extraction']['measurements'], [])
+            self.assertIn('Excel', record['extraction']['warnings'][0])

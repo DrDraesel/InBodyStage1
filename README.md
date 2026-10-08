@@ -4,6 +4,8 @@ A standalone, local-first **synthetic proof of concept** for Coherence / IMW. Im
 
 The interface uses a blue clinical dashboard palette. For local acquisition without a cloud API, see [InBody 380 connection and automatic export setup](docs/local-device-connection.md). The local export bridge preserves files in an unassigned review queue; hardware pairing must be completed in LookinBody 120 on the clinic computer.
 
+Without LookinBody credentials, use device-side USB Excel export or printed-sheet import. Excel originals are preserved pending field mapping. The **Recommendations · draft** tab adds nine evidence-linked medical, functional-health, exercise, balance, lifestyle and peptide discussion domains; see [recommendation scope and review requirements](docs/clinical-recommendations.md). Drafts are not treatment orders.
+
 **This is executable Stage 1 software, not a production clinical deployment.** Real patient use is not enabled. The live InBody connector, paid AI account validation, institutional identity integration and clinical rule approval remain outstanding.
 
 ## Quick start (local SQLite)

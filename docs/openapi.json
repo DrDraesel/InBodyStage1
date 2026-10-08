@@ -850,7 +850,7 @@
     },
     "/patients/{patient_id}/inbody/{result_id}/analyze": {
       "post": {
-        "summary": "Append deterministic analysis and optional AI evidence selection",
+        "summary": "Append analysis and clinician recommendation draft; optional AI evidence selection",
         "operationId": "post__patients_patient_id_inbody_result_id_analyze",
         "security": [
           {
@@ -907,7 +907,61 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "recommendation_context": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "goals": {
+                        "type": "string",
+                        "maxLength": 500
+                      },
+                      "activity_level": {
+                        "enum": [
+                          "unknown",
+                          "sedentary",
+                          "some",
+                          "regular"
+                        ]
+                      },
+                      "pain_present": {
+                        "enum": [
+                          "unknown",
+                          "yes",
+                          "no"
+                        ]
+                      },
+                      "falls_or_balance_concern": {
+                        "enum": [
+                          "unknown",
+                          "yes",
+                          "no"
+                        ]
+                      },
+                      "pregnancy_or_breastfeeding": {
+                        "enum": [
+                          "unknown",
+                          "yes",
+                          "no"
+                        ]
+                      },
+                      "cardiovascular_symptoms": {
+                        "enum": [
+                          "unknown",
+                          "yes",
+                          "no"
+                        ]
+                      },
+                      "clinical_history_reviewed": {
+                        "type": "boolean"
+                      },
+                      "medications_reviewed": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                }
               }
             }
           }
