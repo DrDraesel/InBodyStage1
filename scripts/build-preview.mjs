@@ -8,7 +8,7 @@ const fixture=JSON.parse(await readFile(path.join(root,'preview/demo-data.json')
 if(fixture.mode!=='synthetic-visual-preview'||fixture.patients.some(p=>p.synthetic!==1))throw Error('Refusing non-synthetic preview data');
 let html=await readFile(path.join(root,'frontend/index.html'),'utf8');
 html=html.replace('<title>InBodyStage1 · Coherence</title>','<title>InBodyStage1 · Visual Preview</title>').replace('<script src="/app.js" defer></script>', '<script src="/demo-data.js" defer></script><script src="/demo-adapter.js" defer></script><script src="/app.js" defer></script>');
-const extra='\n.preview-banner{background:#e6eddf;color:#496548;border:1px solid #d2dfcb;padding:11px 16px;border-radius:5px;font-size:11px;margin-bottom:25px;}\n';
+const extra='\n.preview-banner{background:#e4efff;color:#275da1;border:1px solid #bfd5f0;padding:11px 16px;border-radius:5px;font-size:11px;margin-bottom:25px;}\n';
 const css=(await readFile(path.join(root,'frontend/style.css'),'utf8'))+extra;
 const fixtureJS='window.INBODY_PREVIEW_DATA='+JSON.stringify(fixture).replaceAll('<','\\u003c')+';\n';
 const adapter=await readFile(path.join(root,'preview/demo-adapter.js'),'utf8');

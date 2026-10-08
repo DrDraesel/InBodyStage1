@@ -44,9 +44,10 @@ class Application:
             return 200,s.extract_sources(files)
         if path=='/inbody/connectivity' and method=='GET':
             return 200,{'automatic_sync':'not_configured','vendor_mapping':'awaiting_official_documentation',
-                'required':['Exact device model','Device registered in LookinBody Web','Approved API access and key','Server IP whitelist and webhook setup','Validated sample response and patient/encounter mapping'],
+                'required':['Exact device model','Clinic computer access','Activated LookinBody 120 installation','Verified device pairing in LookinBody','Automatic CSV/image export folder','Local intake bridge and confirmed patient/encounter mapping'],
+                'connection_mode':'local_export_without_cloud_api','hardware_pairing':'not_verified','local_intake_bridge':'available_not_running_on_clinic_pc',
                 'import_methods':['pdf','photo_ocr','barcode_qr_evidence','scanner_entry'],
-                'network_note':'Device Wi-Fi is configured on the InBody. This server does not discover or pair with devices.'}
+                'network_note':'Device Wi-Fi was reported by the operator. This server cannot verify or pair clinic hardware; run LookinBody and the intake bridge locally.'}
         if path=='/patients':
             if method=='GET': return 200,s.patients()
             if method=='POST': return 201,s.add_patient(payload,role)
