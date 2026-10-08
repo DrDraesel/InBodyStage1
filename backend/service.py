@@ -31,20 +31,32 @@ class Service:
         pid = safe_id(data.get('id'),'patient_id')
         if data.get('synthetic') is not True:
             raise Invalid('Stage 1 accepts synthetic patients only')
-        name = data.get('name')
+        first_name, last_name = data.get('first_name'), data.get('last_name')
+        if first_name is not None or last_name is not None:
+            if not all(isinstance(part,str) and 1 <= len(part.strip()) <= 50 and not any(ord(c)<32 for c in part) for part in (first_name,last_name)):
+                raise Invalid('First and last name are required, maximum 50 characters each')
+            first_name, last_name = first_name.strip(), last_name.strip()
+            name = first_name+' '+last_name
+        else:
+            name = data.get('name')
         if not isinstance(name,str) or not 1<=len(name)<=100:
             raise Invalid('Patient name required, maximum 100 characters')
         dob = data.get('dob')
         if dob:
             from datetime import date
-            date.fromisoformat(dob)
+            try:
+                parsed_dob = date.fromisoformat(dob)
+                if parsed_dob.isoformat() != dob or parsed_dob > date.today():
+                    raise ValueError()
+            except (TypeError,ValueError):
+                raise Invalid('Date of birth must be a valid YYYY-MM-DD date, not in the future')
         sex = data.get('sex')
         if sex not in (None,'female','male','unknown'):
             raise Invalid('Invalid sex')
         with self.db.transaction():
             if self.db.one('SELECT id FROM patients WHERE id=?',(pid,)):
                 raise Conflict('Patient already exists')
-            self.db.execute('INSERT INTO patients VALUES (?,?,?,?,?)',(pid,name,dob,sex,1))
+            self.db.execute('INSERT INTO patients (id,name,dob,sex,synthetic,first_name,last_name) VALUES (?,?,?,?,?,?,?)',(pid,name,dob,sex,1,first_name,last_name))
             self.audit(actor,'patient.created',pid)
         return self.patient(pid)
 

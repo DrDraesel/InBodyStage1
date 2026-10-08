@@ -1,6 +1,6 @@
 'use strict';
 const $=id=>document.getElementById(id);
-const state={patient:null,results:[],result:null,trends:[],view:'overview',summary:'patient',compare:null,token:'',queueFile:null};
+const state={patient:null,patients:[],results:[],result:null,trends:[],view:'overview',summary:'patient',compare:null,token:'',queueFile:null};
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const label=m=>m.replaceAll('_',' ').replace(/^./,c=>c.toUpperCase());
 const date=s=>new Date(s).toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'});
@@ -14,17 +14,19 @@ async function api(path,options={}){
 }
 function notify(message){$('notice').textContent=message;}
 async function loadPatients(){
- try{const patients=await api('/patients');$('patient').innerHTML=patients.map(p=>`<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('');
+ try{const patients=await api('/patients');state.patients=patients;$('patient').innerHTML=patients.map(p=>`<option value="${esc(p.id)}">${esc(p.name)} · ${esc(p.dob||'DOB not recorded')} · ${esc(p.id)}</option>`).join('');
  if(!patients.length){$('content').innerHTML='<div class="empty"><h2>No synthetic patients yet</h2><p>Start the server with --seed or add a synthetic patient.</p></div>';return;}
  state.patient=$('patient').value;await loadPatient();
  }catch(e){notify(e.message);if(e.message.includes('Authentication'))$('token-dialog').showModal();}
 }
 async function loadPatient(){
  state.patient=$('patient').value;state.compare=null;
+ $('patient-identity').textContent=patientIdentity();
  const encounters=await api(`/patients/${state.patient}/encounters`);
  $('encounter').innerHTML=encounters.map(e=>`<option value="${esc(e.id)}">${esc(e.label)}</option>`).join('');
  await refresh();
 }
+function patientIdentity(){const patient=state.patients.find(p=>p.id===state.patient);return patient?`${patient.name} · Date of birth: ${patient.dob||'not recorded'} · Record: ${patient.id}`:'Select a patient record.';}
 async function refresh(rid){
  const [all,trends]=await Promise.all([api(`/patients/${state.patient}/inbody`),api(`/patients/${state.patient}/inbody/trends`)]);
  const superseded=new Set(all.map(r=>r.supersedes).filter(Boolean));state.results=all;state.trends=trends;
@@ -76,7 +78,7 @@ function drawChart(metric){
  target.innerHTML=`<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label(series.metric))} trend"><title>${esc(label(series.metric))}, ${esc(series.unit)}. ${pts.map(p=>date(p.test_timestamp)+': '+number(p.value)).join('; ')}</title>${[0,1,2].map(i=>`<line x1="${pad}" y1="${pad+i*(H-2*pad)/2}" x2="${W-pad}" y2="${pad+i*(H-2*pad)/2}"/><text x="0" y="${pad+i*(H-2*pad)/2+3}">${number(max-i*(max-min)/2)}</text>`).join('')}<path d="${xy.map((p,i)=>(i?'L':'M')+p.join(',')).join(' ')}"/>${xy.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="4"><title>${esc(pts[i].test_timestamp)}: ${number(pts[i].value)} ${esc(series.unit)}</title></circle>${pts.length<=5?`<text x="${p[0]}" y="${H-6}" text-anchor="middle">${esc(date(pts[i].test_timestamp))}</text>`:''}`).join('')}</svg>`;
 }
 function render(){document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active',b.dataset.view===state.view));$('content').innerHTML=state.view==='history'?history():overview();drawChart();}
-function openImport(){if(!window.INBODY_PREVIEW){state.queueFile=null;$('queue-selected').textContent='';$('files').value='';$('camera-file').value='';$('scanned-codes').value='';$('extraction-output').textContent='';$('source-type').value='image';$('source-type').onchange();}if(window.INBODY_PREVIEW){window.INBODY_PREVIEW.prepareImport(state.patient,$('encounter').value);}if(!state.patient){notify('Select or create a synthetic patient first.');return;}$('import-error').textContent='';$('import-dialog').showModal();}
+function openImport(){$('import-patient-identity').textContent=patientIdentity();$('import-identity-confirm').checked=false;if(!window.INBODY_PREVIEW){state.queueFile=null;$('queue-selected').textContent='';$('files').value='';$('camera-file').value='';$('scanned-codes').value='';$('extraction-output').textContent='';$('source-type').value='image';$('source-type').onchange();}if(window.INBODY_PREVIEW){window.INBODY_PREVIEW.prepareImport(state.patient,$('encounter').value);}if(!state.patient){notify('Select or create a synthetic patient first.');return;}$('import-error').textContent='';$('import-dialog').showModal();}
 $('import-button').onclick=openImport;$('close-import').onclick=()=>$('import-dialog').close();
 $('auth').onclick=()=>$('token-dialog').showModal();$('close-token').onclick=()=>$('token-dialog').close();
 $('token-form').onsubmit=async e=>{e.preventDefault();state.token=$('token').value;$('token').value='';$('token-dialog').close();await loadPatients();};
@@ -84,6 +86,7 @@ $('patient').onchange=()=>loadPatient().catch(e=>notify(e.message));
 $('source-type').onchange=()=>{const file=['pdf','image','spreadsheet'].includes($('source-type').value);$('file-label').hidden=!file;$('json-label').hidden=false;if(file)$('measurements').value='[]';$('extraction-output').textContent='';};
 function selectedFiles(){return [...(state.queueFile?[state.queueFile]:[]),...($('files').files||[]),...($('camera-file').files||[])];}
 function fileBody(fields){const files=selectedFiles();if(!files.length)throw Error('Choose or photograph a result sheet.');const body=new FormData();body.append('metadata',JSON.stringify(fields));for(const file of files)body.append('files',file);return body;}
+$('files').onchange=()=>{const files=Array.from($('files').files||[]);if(!files.length)return;$('source-type').value=files.every(f=>/\.(csv|xlsx|xls)$/i.test(f.name))?'spreadsheet':files.some(f=>/\.pdf$/i.test(f.name))?'pdf':'image';$('source-type').onchange();};
 $('camera-file').onchange=()=>{$('source-type').value='image';$('source-type').onchange();};
 $('extract-files').onclick=async()=>{
  if(window.INBODY_PREVIEW){$('import-error').textContent='OCR and code decoding run in the local application. This hosted preview uses synthetic samples.';return;}
@@ -118,7 +121,9 @@ document.addEventListener('click',async e=>{
 document.addEventListener('change',e=>{if(e.target.id==='chart-metric')drawChart(e.target.value);if(e.target.id==='comparison'){state.compare=e.target.value;render();}});
 $('close-correction').onclick=()=>$('correction-dialog').close();
 $('correction-form').onsubmit=async e=>{e.preventDefault();try{const result=await api(`/patients/${state.patient}/inbody/${state.result.id}/correct`,{method:'POST',body:{measurements:JSON.parse($('correction-json').value),reason:$('correction-reason').value}});$('correction-dialog').close();await refresh(result.id);notify('New version saved. The original source and values remain preserved.');}catch(e){$('correction-error').textContent=e.message;}};
-$('new-patient').onclick=async()=>{const id=prompt('Synthetic patient ID (letters, numbers, dash or underscore)');if(!id)return;const name=prompt('Synthetic patient name');if(!name)return;try{await api('/patients',{method:'POST',body:{id,name,synthetic:true,sex:'unknown'}});await api(`/patients/${id}/encounters`,{method:'POST',body:{id:id+'-ASSESSMENT',label:'Assessment'}});await loadPatients();$('patient').value=id;await loadPatient();}catch(e){notify(e.message);}};
+$('new-patient').onclick=()=>{if(window.INBODY_PREVIEW){notify('Patient details are managed in the local application. This preview uses synthetic samples.');return;}$('patient-form').reset();$('patient-error').textContent='';$('patient-dob').max=new Date().toLocaleDateString('en-CA');$('patient-dialog').showModal();};
+$('close-patient').onclick=()=>$('patient-dialog').close();
+$('patient-form').onsubmit=async e=>{e.preventDefault();$('save-patient').disabled=true;try{const fields=Object.fromEntries(new FormData(e.target));fields.synthetic=e.target.elements.namedItem('synthetic').checked;const patient=await api('/patients',{method:'POST',body:fields});await api(`/patients/${patient.id}/encounters`,{method:'POST',body:{id:patient.id+'-ASSESSMENT',label:'Assessment'}});await loadPatients();$('patient').value=patient.id;await loadPatient();$('patient-dialog').close();notify('Patient details saved. Upload the InBody report for this record.');}catch(error){$('patient-error').textContent=error.message;}finally{$('save-patient').disabled=false;}};
 loadPatients();
 
 $('close-plan').onclick=()=>$('plan-dialog').close();

@@ -29,7 +29,7 @@ def operation(path,method,summary,body=None,parameters=None,status='200'):
 json_body=lambda schema:{'application/json':{'schema':schema}}
 base='/patients/{patient_id}/inbody'
 operation('/patients','get','List synthetic patients')
-operation('/patients','post','Create synthetic patient',json_body({'type':'object','required':['id','name','synthetic'],'properties':{'id':{'type':'string'},'name':{'type':'string'},'synthetic':{'const':True},'dob':{'type':'string','format':'date'},'sex':{'enum':['male','female','unknown']}}}),status='201')
+operation('/patients','post','Create synthetic patient with structured identity',json_body({'type':'object','required':['id','synthetic'],'anyOf':[{'required':['name']},{'required':['first_name','last_name']}],'properties':{'id':{'type':'string'},'name':{'type':'string','maxLength':100},'first_name':{'type':'string','minLength':1,'maxLength':50},'last_name':{'type':'string','minLength':1,'maxLength':50},'synthetic':{'const':True},'dob':{'type':'string','format':'date'},'sex':{'enum':['male','female','unknown']}}}),status='201')
 operation('/patients/{patient_id}/encounters','get','List patient encounters')
 operation('/patients/{patient_id}/encounters','post','Create encounter',json_body({'type':'object','required':['id'],'properties':{'id':{'type':'string'},'label':{'type':'string'}}}),status='201')
 operation(base+'/import','post','Import completed result; source file values require confirmation',{

@@ -52,6 +52,12 @@ class Database:
             for statement in (ROOT/'migrations/001_initial.sql').read_text().split(';'):
                 if statement.strip():
                     self.execute(statement)
+            # Add structured identity fields without splitting historical display names.
+            columns = ({row['column_name'] for row in self.rows("SELECT column_name FROM information_schema.columns WHERE table_name='patients' AND table_schema=current_schema()")}
+                       if self.postgres else {row['name'] for row in self.rows('PRAGMA table_info(patients)')})
+            for column in ('first_name', 'last_name'):
+                if column not in columns:
+                    self.execute(f'ALTER TABLE patients ADD COLUMN {column} TEXT')
             if not self.postgres:
                 for table in ('results','analyses','reviews','audit','outbox'):
                     for action in ('UPDATE','DELETE'):

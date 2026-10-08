@@ -212,3 +212,7 @@ See [printed-result-import.md](docs/printed-result-import.md) for the photograph
 - **Smoke:** run `python -m scripts.smoke`. It starts a temporary authenticated server and exercises the real HTTP flow with synthetic exports. The CI workflow runs it after the unit suite.
 
 Live InBody API mapping remains deferred until credentials and an official sample contract are available. Live AI model verification needs the chosen provider credentials. Vercel scope `imw2` currently returns permission denied; there is no verified hosted deployment of this checkpoint. PostgreSQL/Windows target verification, clinical review and production approval remain separate from the passing local MVP checks.
+
+### Report upload and patient details
+
+Use **Add patient details** to enter separate first name, last name, date of birth, and a unique synthetic record ID. Then select **Upload / import report**, attach a PDF or PNG/JPEG photograph containing all printed barcode/QR codes, and select **Extract text, measurements & codes**. Check the selected identity, encounter, actual test time and measurements against the original before importing. Decoded codes are retained as evidence; an interpretation link does not supply measurements or automatically identify a patient. Historical display names are preserved without guessing how to split them. Stage 1 remains synthetic-only; hosted preview does not accept patient files or identities.

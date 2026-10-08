@@ -49,7 +49,7 @@
         }
       },
       "post": {
-        "summary": "Create synthetic patient",
+        "summary": "Create synthetic patient with structured identity",
         "operationId": "post__patients",
         "security": [
           {
@@ -91,15 +91,38 @@
                 "type": "object",
                 "required": [
                   "id",
-                  "name",
                   "synthetic"
+                ],
+                "anyOf": [
+                  {
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "first_name",
+                      "last_name"
+                    ]
+                  }
                 ],
                 "properties": {
                   "id": {
                     "type": "string"
                   },
                   "name": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 100
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 50
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 50
                   },
                   "synthetic": {
                     "const": true
