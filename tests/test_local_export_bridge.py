@@ -43,4 +43,4 @@ class LocalExportBridge(unittest.TestCase):
             record = json.loads((queue / digest / 'review.json').read_text())
             self.assertEqual((queue / digest / 'original.xls').read_bytes(), data)
             self.assertEqual(record['extraction']['measurements'], [])
-            self.assertIn('Excel', record['extraction']['warnings'][0])
+            self.assertIn('Unreadable XLS', record['extraction']['warnings'][0])

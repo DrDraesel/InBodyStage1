@@ -6,6 +6,7 @@ from backend.validation import normalize, safe_id, Invalid
 from backend.analysis import apply_rules, compare, summaries, VERSION, RULES
 from backend.recommendations import build_plan
 from adapters.inbody.documents import extract, PARSER_VERSION
+from adapters.inbody.spreadsheets import extract_sheet
 from adapters.ai.providers import configured_provider
 
 def uid(): return str(uuid.uuid4())
@@ -72,7 +73,7 @@ class Service:
 
     def import_result(self,pid,payload,actor,source_type='manual',files=None,supersedes=None):
         self.patient(pid)
-        if source_type not in ('manual','mock_api','pdf','image','correction'):
+        if source_type not in ('manual','mock_api','pdf','image','spreadsheet','correction'):
             raise Invalid('Unsupported source type; live vendor mapping is disabled')
         if payload.get('patient_id') and payload['patient_id'] != pid:
             raise Invalid('Payload patient association differs from selected patient')
@@ -83,14 +84,14 @@ class Service:
         if not isinstance(scanner,str) or len(scanner)>4096:
             raise Invalid('Scanner entry must be text, maximum 4096 characters')
         claimed = None
-        if source_type in ('pdf','image'):
+        if source_type in ('pdf','image','spreadsheet'):
             if not files or not 1<=len(files)<=5:
                 raise Invalid('Supply 1–5 source files')
             combined = {}
             for data, kind in files:
-                if kind != source_type:
+                if kind != source_type and not (source_type=='spreadsheet' and kind in ('csv','xlsx','xls')):
                     raise Invalid('Choose a single import type')
-                parsed = extract(data,kind,allow_empty=True)
+                parsed = extract_sheet(data,kind) if source_type=='spreadsheet' else extract(data,kind,allow_empty=True)
                 extraction.append(parsed)
                 if parsed['claimed_patient_id'] and parsed['claimed_patient_id'] != pid:
                     raise Invalid('Source patient identifier conflicts with selected patient')
@@ -152,7 +153,7 @@ class Service:
         documents = []
         combined = {}
         for data, kind in files:
-            parsed = extract(data,kind,allow_empty=True)
+            parsed = extract_sheet(data,kind) if kind in ('csv','xlsx','xls') else extract(data,kind,allow_empty=True)
             documents.append(dict(parsed,source_sha256=hashlib.sha256(data).hexdigest()))
             for m in parsed['measurements']:
                 previous = combined.get(m['metric'])
@@ -277,6 +278,10 @@ class Service:
             raise Missing('Source not found for this result')
         data = self.storage.get(digest)
         media = 'application/pdf' if data.startswith(b'%PDF-') else 'image/png' if data.startswith(b'\x89PNG') else 'image/jpeg' if data.startswith(b'\xff\xd8') else 'application/json'
+        for entry in source['files'] + (inherited['files'] if inherited else []):
+            if entry['sha256']==digest and entry['media_type'] in ('csv','xlsx','xls'):
+                from backend.inbox import MEDIA
+                media=MEDIA[entry['media_type']]
         return data,media
 
     def trends(self,pid):

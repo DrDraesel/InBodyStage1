@@ -1,5 +1,6 @@
 """Evidence-linked clinical discussion drafts, never treatment orders."""
 from backend.validation import Invalid, age_at
+from backend.clinic_services import service_options, TOPICS, VERSION as CATALOG_VERSION
 
 VERSION = 'clinical-discussion-v1.0'
 REFERENCES = {
@@ -18,11 +19,11 @@ def validate_context(context):
         raise Invalid('Recommendation context must be an object')
     allowed = {'goals', 'activity_level', 'pain_present', 'falls_or_balance_concern',
                'pregnancy_or_breastfeeding', 'cardiovascular_symptoms',
-               'clinical_history_reviewed', 'medications_reviewed'}
+               'clinical_history_reviewed', 'medications_reviewed', 'requested_service_topics'}
     if set(context) - allowed:
         raise Invalid('Unknown recommendation context field')
     result = {'goals': '', 'activity_level': 'unknown', 'clinical_history_reviewed': False,
-              'medications_reviewed': False}
+              'medications_reviewed': False, 'requested_service_topics': []}
     result.update({key: 'unknown' for key in ('pain_present', 'falls_or_balance_concern',
                                             'pregnancy_or_breastfeeding', 'cardiovascular_symptoms')})
     result.update(context)
@@ -36,6 +37,9 @@ def validate_context(context):
     for key in ('clinical_history_reviewed', 'medications_reviewed'):
         if not isinstance(result[key], bool):
             raise Invalid('Review flags must be boolean')
+    topics = result['requested_service_topics']
+    if not isinstance(topics, list) or len(topics)>len(TOPICS) or not all(isinstance(topic,str) and topic in TOPICS for topic in topics) or len(set(topics))!=len(topics):
+        raise Invalid('Service topics must be unique known catalog identifiers')
     return result
 
 
@@ -147,6 +151,7 @@ def build_plan(result, patient, comparison, context=None):
             'context': context, 'context_source': 'operator-entered; not independently verified',
             'missing_context': missing, 'source_confirmation_required': incomplete,
             'segmental_observations': segment_pairs, 'domains': domains, 'references': REFERENCES,
+            'clinic_service_catalog_version': CATALOG_VERSION, 'clinic_care_options': service_options(context),
             'reference_checked_on': '2026-10-08',
             'limitations': ['No autonomous diagnosis or prescription.', 'Drafts are not orders or verified specialist opinions.',
                             'No live AI or external specialist consultation is claimed.',

@@ -32,7 +32,8 @@
         "manual",
         "mock_api",
         "pdf",
-        "image"
+        "image",
+        "spreadsheet"
       ]
     },
     "measurements": {

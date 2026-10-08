@@ -13,6 +13,8 @@ from backend.database import Database, ROOT
 from backend.service import Service, Invalid, Missing, Conflict, dumps
 from adapters.storage.local import LocalSourceStorage
 from adapters.inbody.documents import MAX_BYTES
+from backend.config import load_env, readiness
+from backend import inbox
 
 MAX_REQUEST = 5*MAX_BYTES+65536
 
@@ -40,6 +42,13 @@ class Application:
 
     def route(self,method,path,payload,files,role):
         s = self.service
+        if path=='/inbody/readiness' and method=='GET':
+            return 200,readiness()
+        if path=='/inbody/inbox' and method=='GET':
+            return 200,inbox.listing()
+        if path=='/inbody/services' and method=='GET':
+            from backend.clinic_services import service_options, VERSION
+            return 200,{'version':VERSION,'services':service_options({})}
         if path=='/inbody/extract' and method=='POST':
             return 200,s.extract_sources(files)
         if path=='/inbody/connectivity' and method=='GET':
@@ -112,6 +121,14 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send(200,file.read_bytes(),kind if path!='/openapi.json' else 'application/json; charset=utf-8')
             token=self.headers.get('Authorization','').removeprefix('Bearer ')
             role=self.server.app.role(token,path=='/inbody/webhook')
+            inbox_match=re.fullmatch(r'/inbody/inbox/([a-f0-9]{64})/source',path)
+            if inbox_match and self.command=='GET':
+                record,data,kind=inbox.package(inbox_match[1])
+                with self.server.app.service.db.lock:
+                    self.server.app.service.audit(role,'inbox.source.downloaded',inbox_match[1])
+                media=inbox.MEDIA[kind]
+                if record['original_file'].endswith('.png'): media='image/png'
+                return self.send(200,data,media)
             source_match=re.fullmatch(r'/patients/([A-Za-z0-9_-]+)/inbody/([A-Za-z0-9_-]+)/sources/([a-f0-9]{64})',path)
             if source_match and self.command=='GET':
                 with self.server.app.service.db.transaction():
@@ -135,7 +152,11 @@ class Handler(BaseHTTPRequestHandler):
                         elif name=='files':
                             typ=part.get_content_type()
                             kind='pdf' if typ=='application/pdf' else 'image' if typ in ('image/png','image/jpeg') else None
-                            if not kind: raise Invalid('Only PDF, PNG, JPEG files accepted')
+                            filename=part.get_filename() or ''
+                            extension=Path(filename).suffix.lower()
+                            if extension in ('.csv','.xlsx','.xls') and typ in ('text/csv','text/plain','application/octet-stream','application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'):
+                                kind=extension[1:]
+                            if not kind: raise Invalid('Only PDF, PNG, JPEG, CSV, XLSX or XLS files accepted')
                             if len(data)>MAX_BYTES: raise Invalid('File too large')
                             files.append((data,kind))
                         else: raise Invalid('Unexpected multipart field')
@@ -164,6 +185,7 @@ class Server(ThreadingHTTPServer):
         return sock,addr
 
 def main():
+    load_env()
     parser=argparse.ArgumentParser()
     parser.add_argument('--seed',action='store_true')
     args=parser.parse_args()

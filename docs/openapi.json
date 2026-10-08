@@ -319,7 +319,8 @@
                       "manual",
                       "mock_api",
                       "pdf",
-                      "image"
+                      "image",
+                      "spreadsheet"
                     ]
                   },
                   "measurements": {
@@ -527,6 +528,169 @@
         }
       }
     },
+    "/inbody/readiness": {
+      "get": {
+        "summary": "Report local setup readiness without exposing secret values",
+        "operationId": "get__inbody_readiness",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/inbody/services": {
+      "get": {
+        "summary": "Website-advertised IMW service education catalog; not clinical eligibility",
+        "operationId": "get__inbody_services",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/inbody/inbox": {
+      "get": {
+        "summary": "List integrity-checked, unassigned local export packages",
+        "operationId": "get__inbody_inbox",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        }
+      }
+    },
+    "/inbody/inbox/{sha256}/source": {
+      "get": {
+        "summary": "Download authenticated, hash-verified queued source",
+        "operationId": "get__inbody_inbox_sha256_source",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "object",
+                    "array"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Authentication or role denied"
+          },
+          "404": {
+            "description": "Patient-scoped resource not found"
+          },
+          "409": {
+            "description": "Version or idempotency conflict"
+          }
+        },
+        "parameters": [
+          {
+            "name": "sha256",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          }
+        ]
+      }
+    },
     "/inbody/webhook": {
       "post": {
         "summary": "Internal synthetic fixture webhook; live vendor webhook disabled",
@@ -601,7 +765,8 @@
                           "manual",
                           "mock_api",
                           "pdf",
-                          "image"
+                          "image",
+                          "spreadsheet"
                         ]
                       },
                       "measurements": {
@@ -958,6 +1123,14 @@
                       },
                       "medications_reviewed": {
                         "type": "boolean"
+                      },
+                      "requested_service_topics": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "maxItems": 12,
+                        "items": {
+                          "type": "string"
+                        }
                       }
                     }
                   }

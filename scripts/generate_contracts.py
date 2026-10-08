@@ -12,7 +12,7 @@ measurement={'type':'object','required':['metric','value','unit'],'properties':{
 result={'type':'object','required':['encounter_id','test_timestamp','source_identifier','measurements'],'properties':{
  'patient_id':{'type':'string'},'encounter_id':{'type':'string'},'test_timestamp':{'type':'string','format':'date-time'},
  'source_identifier':{'type':'string','minLength':1,'maxLength':200},'device_model':{'type':'string'},
- 'source_type':{'enum':['manual','mock_api','pdf','image']},
+ 'source_type':{'enum':['manual','mock_api','pdf','image','spreadsheet']},
  'measurements':{'type':'array','minItems':1,'maxItems':200,'items':measurement}}}
 schema={'$schema':'https://json-schema.org/draft/2020-12/schema','$id':'https://inbodystage1.local/normalized-v1.json',**result}
 (ROOT/'schemas/normalized-v1.json').write_text(json.dumps(schema,indent=2)+'\n')
@@ -38,6 +38,11 @@ operation(base+'/import','post','Import completed result; source file values req
  'files':{'type':'array','minItems':1,'maxItems':5,'items':{'type':'string','format':'binary'}}}}}},status='201')
 operation('/inbody/extract','post','Preview OCR and barcode/QR evidence without saving a result',{'multipart/form-data':{'schema':{'type':'object','required':['files'],'properties':{'metadata':{'type':'string'},'files':{'type':'array','minItems':1,'maxItems':5,'items':{'type':'string','format':'binary'}}}}}})
 operation('/inbody/connectivity','get','Report app sync readiness; does not probe the clinic network')
+operation('/inbody/readiness','get','Report local setup readiness without exposing secret values')
+operation('/inbody/services','get','Website-advertised IMW service education catalog; not clinical eligibility')
+operation('/inbody/inbox','get','List integrity-checked, unassigned local export packages')
+operation('/inbody/inbox/{sha256}/source','get','Download authenticated, hash-verified queued source')
+paths['/inbody/inbox/{sha256}/source']['get']['parameters']=[{'name':'sha256','in':'path','required':True,'schema':{'type':'string','pattern':'^[a-f0-9]{64}$'}}]
 operation('/inbody/webhook','post','Internal synthetic fixture webhook; live vendor webhook disabled',json_body({'allOf':[result,{'type':'object','required':['patient_id','contract'],'properties':{'contract':{'const':'synthetic-normalized-v1'}}}]}),status='201')
 operation(base,'get','List all patient studies including superseded versions')
 operation(base+'/{result_id}','get','Get source, measurements, analysis versions and review history')
@@ -45,7 +50,8 @@ operation(base+'/trends','get','Verified measurement trends excluding superseded
 context={'type':'object','additionalProperties':False,'properties':{
  'goals':{'type':'string','maxLength':500},'activity_level':{'enum':['unknown','sedentary','some','regular']},
  **{key:{'enum':['unknown','yes','no']} for key in ('pain_present','falls_or_balance_concern','pregnancy_or_breastfeeding','cardiovascular_symptoms')},
- 'clinical_history_reviewed':{'type':'boolean'},'medications_reviewed':{'type':'boolean'}}}
+ 'clinical_history_reviewed':{'type':'boolean'},'medications_reviewed':{'type':'boolean'},
+ 'requested_service_topics':{'type':'array','uniqueItems':True,'maxItems':12,'items':{'type':'string'}}}}
 operation(base+'/{result_id}/analyze','post','Append analysis and clinician recommendation draft; optional AI evidence selection',json_body({'type':'object','properties':{'recommendation_context':context}}),status='201')
 operation(base+'/{result_id}/review','post','Clinician-only review of current analysis',json_body({'type':'object','required':['analysis_id','status'],'properties':{'analysis_id':{'type':'string'},'status':{'enum':['accepted','held']},'identity_confirmed':{'type':'boolean'},'note':{'type':'string','maxLength':2000}}}))
 operation(base+'/{result_id}/correct','post','Clinician-only linked correction; source facts remain immutable',json_body({'type':'object','required':['reason','measurements'],'properties':{'reason':{'type':'string','maxLength':500},'measurements':result['properties']['measurements']}}))

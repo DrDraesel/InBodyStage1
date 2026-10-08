@@ -4,7 +4,7 @@ A standalone, local-first **synthetic proof of concept** for Coherence / IMW. Im
 
 The interface uses a blue clinical dashboard palette. For local acquisition without a cloud API, see [InBody 380 connection and automatic export setup](docs/local-device-connection.md). The local export bridge preserves files in an unassigned review queue; hardware pairing must be completed in LookinBody 120 on the clinic computer.
 
-Without LookinBody credentials, use device-side USB Excel export or printed-sheet import. Excel originals are preserved pending field mapping. The **Recommendations · draft** tab adds nine evidence-linked medical, functional-health, exercise, balance, lifestyle and peptide discussion domains; see [recommendation scope and review requirements](docs/clinical-recommendations.md). Drafts are not treatment orders.
+Without LookinBody credentials, use device-side USB Excel export or printed-sheet import. CSV/Excel originals are preserved; explicit labeled values can be extracted, while proprietary layouts still need a validated mapping. The **Recommendations · draft** tab adds nine evidence-linked medical, functional-health, exercise, balance, lifestyle and peptide discussion domains; see [recommendation scope and review requirements](docs/clinical-recommendations.md). Drafts are not treatment orders.
 
 **This is executable Stage 1 software, not a production clinical deployment.** Real patient use is not enabled. The live InBody connector, paid AI account validation, institutional identity integration and clinical rule approval remain outstanding.
 
@@ -24,7 +24,7 @@ python -m backend.server --seed
 
 Open **http://127.0.0.1:8080**. The seeded records are labeled synthetic. One patient has three repeat studies; the second starts empty. Tesseract must be available on PATH; on Ubuntu install `tesseract-ocr` and `fonts-dejavu-core`. The tests use DejaVu Sans at its usual Ubuntu path.
 
-The default development server accepts loopback connections without a token. It rejects other hostnames and cross-origin browser requests. Do not expose the development server on the internet. If using `.env`, copy `.env.example` and load it into your process environment; it is not implicitly loaded by Python. The Windows launcher `scripts/start.ps1` loads `.env` and starts the seeded server.
+The default development server accepts loopback connections without a token. It rejects other hostnames and cross-origin browser requests. Do not expose the development server on the internet. Run `python -m scripts.setup_local` to create missing `.env` settings and different random access tokens without printing secrets. Python automatically loads the repository `.env` as literal settings; process environment overrides take precedence. The Windows launcher `scripts/start.ps1` runs setup and starts the seeded server. Open `.env` locally to copy the clinician/operator token into the workspace Access token dialog. Existing configuration is preserved.
 
 ## PostgreSQL target
 
@@ -202,3 +202,13 @@ A separate synthetic preview is ready for Vercel. Run `node scripts/build-previe
 ## Printed results and code capture
 
 See [printed-result-import.md](docs/printed-result-import.md) for the photograph/PDF extraction preview, barcode/QR decoding, handheld scanner entry, retained full source text, manual transcription and LookinBody sync prerequisites. The device Wi-Fi connection is Founder-reported; automatic sync remains unconfigured.
+
+## Completed MVP integration checkpoint
+
+- **Local setup:** automatic literal `.env` loading, a non-secret readiness panel, and Windows setup with generated clinician/operator access tokens. AI stays disabled until the selected provider key/model are configured; deterministic analysis and recommendation drafts remain available.
+- **USB exports:** CSV, XLSX and XLS uploads retain originals and extracted tables. Explicit metric/value/unit rows or one test row with labeled units are recognized. Multi-patient IDs are rejected; unsupported/multi-test layouts require a selected export or manual transcription. Formulas are never executed. This is not a validated universal InBody export mapping.
+- **Review queue:** run `python -m scripts.local_export_bridge --inbox YOUR_EXPORT_FOLDER --queue runtime/inbox --watch`. The authenticated **Local export review queue** checks source hashes before download/import. Set `INBODY_INBOX_DIR` to use another queue folder. Patient, encounter and timestamp remain explicit.
+- **Clinic options:** **IMW care options** contains 12 service-education routes sourced from the clinic website and linked to requested topics or assessment concerns. See [website catalog verification](docs/imw-service-catalog.md). No purchase, appointment, external message or GHL mutation is triggered.
+- **Smoke:** run `python -m scripts.smoke`. It starts a temporary authenticated server and exercises the real HTTP flow with synthetic exports. The CI workflow runs it after the unit suite.
+
+Live InBody API mapping remains deferred until credentials and an official sample contract are available. Live AI model verification needs the chosen provider credentials. Vercel scope `imw2` currently returns permission denied; there is no verified hosted deployment of this checkpoint. PostgreSQL/Windows target verification, clinical review and production approval remain separate from the passing local MVP checks.

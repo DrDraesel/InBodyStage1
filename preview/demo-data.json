@@ -48,8 +48,8 @@
         "claimed_patient_id": null,
         "device_model": "Synthetic InBody fixture",
         "encounter_id": "SYN-001-FOLLOW",
-        "id": "211192b2-9f2f-4bd4-8558-a9bdce830d46",
-        "ingested_at": "2026-10-08T14:53:40.683184+00:00",
+        "id": "d73fcdef-e40f-4317-a0f9-9f764c4a9d4b",
+        "ingested_at": "2026-10-08T15:20:58.733434+00:00",
         "measurements": [
           {
             "confidence": 1.0,
@@ -292,7 +292,7 @@
                 "from": "2026-09-07T09:30:00-04:00",
                 "interval_days": 30.0,
                 "note": "Numerical changes do not by themselves establish improvement or worsening.",
-                "previous_result_id": "8adef6c3-c38f-45bc-a832-a24914250f75",
+                "previous_result_id": "c2df7b5c-3781-4cf9-a2e8-36e9e5f2250e",
                 "to": "2026-10-07T09:30:00-04:00"
               },
               "measured_facts": [
@@ -486,9 +486,9 @@
               "source_device": "Synthetic InBody fixture",
               "test_timestamp": "2026-10-07T09:30:00-04:00"
             },
-            "created_at": "2026-10-08T14:53:40.683556+00:00",
+            "created_at": "2026-10-08T15:20:58.733786+00:00",
             "data_quality_passed": true,
-            "id": "eedff218-1389-4780-a929-fd29509613f3",
+            "id": "fcbc8b04-827f-4fe6-8c51-32fb1a3f7551",
             "longitudinal_comparison": {
               "changes": [
                 {
@@ -603,7 +603,7 @@
               "from": "2026-09-07T09:30:00-04:00",
               "interval_days": 30.0,
               "note": "Numerical changes do not by themselves establish improvement or worsening.",
-              "previous_result_id": "8adef6c3-c38f-45bc-a832-a24914250f75",
+              "previous_result_id": "c2df7b5c-3781-4cf9-a2e8-36e9e5f2250e",
               "to": "2026-10-07T09:30:00-04:00"
             },
             "patient_summary": {
@@ -706,6 +706,217 @@
               "test_timestamp": "2026-10-07T09:30:00-04:00"
             },
             "recommendation_plan": {
+              "clinic_care_options": [
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "rehabilitation",
+                  "listed_options": [
+                    "Spinal decompression",
+                    "Chiropractic adjustments",
+                    "Postural rehabilitation",
+                    "Shockwave and laser modalities"
+                  ],
+                  "needed": "Pain, injury, mobility and functional examination; modality-specific contraindications.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/chiropractic-and-physical-therapy",
+                  "status": "catalog_only",
+                  "title": "Chiropractic and rehabilitation assessment",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "weight_management",
+                  "listed_options": [
+                    "Semaglutide-based care",
+                    "Metabolic assessment",
+                    "Brown-fat activation discussion"
+                  ],
+                  "needed": "Patient goals, metabolic history, medication suitability and a clinician-defined plan. No weight-loss eligibility inferred from InBody alone.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/weight-loss-programs",
+                  "status": "catalog_only",
+                  "title": "Medical weight-management assessment",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "hormone_review",
+                  "listed_options": [
+                    "Hormone replacement",
+                    "Testosterone assessment",
+                    "NAD+ discussion"
+                  ],
+                  "needed": "Relevant symptoms, diagnosis, labs and prescriber review. Muscle or fat estimates do not diagnose a hormone deficiency.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/anti-aging-medicine",
+                  "status": "catalog_only",
+                  "title": "Hormone and longevity consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "wellness",
+                  "listed_options": [
+                    "Red-light modalities",
+                    "Mind-body practices",
+                    "Vagus-nerve stimulation discussion",
+                    "Individual wellness planning"
+                  ],
+                  "needed": "Goals, device-specific assessment and an evidence-informed discussion; website benefit claims are not evidence of efficacy.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/biohacking-and-optimization",
+                  "status": "catalog_only",
+                  "title": "Lifestyle and personalized wellness",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "joint_review",
+                  "listed_options": [
+                    "Joint injections",
+                    "PRP discussion"
+                  ],
+                  "needed": "Diagnosed condition, examination, product/procedure-specific evidence and medical eligibility.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/regenerative-medicine",
+                  "status": "catalog_only",
+                  "title": "Joint and musculoskeletal consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "infusion_review",
+                  "listed_options": [
+                    "Micronutrient infusions",
+                    "NAD+ infusions"
+                  ],
+                  "needed": "Medical indication, relevant labs, renal/cardiac status and interaction review. An InBody result does not establish an infusion requirement.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/iv-therapy",
+                  "status": "catalog_only",
+                  "title": "Infusion assessment",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "brain_health",
+                  "listed_options": [
+                    "Clarity Direct Neurofeedback",
+                    "PEMF discussion"
+                  ],
+                  "needed": "Symptoms and domain-specific evaluation; body composition is not a neurofeedback or PEMF indication.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/brain-health",
+                  "status": "catalog_only",
+                  "title": "Brain-health evaluation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "injury_review",
+                  "listed_options": [
+                    "Post-collision concussion assessment",
+                    "Medical-legal documentation"
+                  ],
+                  "needed": "Actual injury history, neurological/clinical assessment and appropriate documentation.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/personal-injury",
+                  "status": "catalog_only",
+                  "title": "Post-injury and concussion review",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "aesthetic_review",
+                  "listed_options": [
+                    "PRP aesthetics discussion",
+                    "Hair-restoration consultation"
+                  ],
+                  "needed": "Patient-requested goal and dedicated assessment. Educational discussion of transplants on the page does not confirm in-clinic surgical capacity.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/aesthetic-treatments",
+                  "status": "catalog_only",
+                  "title": "Hair and aesthetic consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "pelvic_health",
+                  "listed_options": [
+                    "VTone pelvic-floor treatment discussion"
+                  ],
+                  "needed": "Relevant symptoms, pelvic-health assessment and device eligibility. Page contains a [Medspa Name] placeholder; operational details need confirmation.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/v-tone",
+                  "status": "catalog_only",
+                  "title": "Pelvic-health / VTone consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "exomind",
+                  "listed_options": [
+                    "ExoMind brain-stimulation service linked from the clinic homepage"
+                  ],
+                  "needed": "Dedicated medical evaluation, intended-use and contraindication review; not selected from InBody measurements.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/",
+                  "status": "catalog_only",
+                  "title": "ExoMind consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "exosome_review",
+                  "listed_options": [
+                    "The website advertises exosome infusions"
+                  ],
+                  "needed": "Independent evidence and regulatory review. FDA reports no approved exosome products; this is not an automatically recommended weight-loss or recovery intervention.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "safety_reference": "https://www.fda.gov/safety/medical-product-safety-information/public-safety-alert-due-marketing-unapproved-stem-cell-and-exosome-products",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/weight-loss-programs",
+                  "status": "evidence_regulatory_review_required",
+                  "title": "Exosome offering \u2014 evidence and regulatory review",
+                  "website_checked_on": "2026-10-08"
+                }
+              ],
+              "clinic_service_catalog_version": "imw-website-catalog-v1.0",
               "context": {
                 "activity_level": "unknown",
                 "cardiovascular_symptoms": "unknown",
@@ -714,7 +925,8 @@
                 "goals": "",
                 "medications_reviewed": false,
                 "pain_present": "unknown",
-                "pregnancy_or_breastfeeding": "unknown"
+                "pregnancy_or_breastfeeding": "unknown",
+                "requested_service_topics": []
               },
               "context_source": "operator-entered; not independently verified",
               "domains": [
@@ -1003,12 +1215,12 @@
               },
               "segmental_observations": [],
               "source_confirmation_required": false,
-              "source_result_id": "211192b2-9f2f-4bd4-8558-a9bdce830d46",
+              "source_result_id": "d73fcdef-e40f-4317-a0f9-9f764c4a9d4b",
               "status": "draft_for_clinician_review",
               "test_timestamp": "2026-10-07T09:30:00-04:00",
               "version": "clinical-discussion-v1.0"
             },
-            "result_id": "211192b2-9f2f-4bd4-8558-a9bdce830d46",
+            "result_id": "d73fcdef-e40f-4317-a0f9-9f764c4a9d4b",
             "review_status": "pending",
             "rule_findings": [
               {
@@ -1048,8 +1260,8 @@
         "claimed_patient_id": null,
         "device_model": "Synthetic InBody fixture",
         "encounter_id": "SYN-001-FOLLOW",
-        "id": "8adef6c3-c38f-45bc-a832-a24914250f75",
-        "ingested_at": "2026-10-08T14:53:40.682054+00:00",
+        "id": "c2df7b5c-3781-4cf9-a2e8-36e9e5f2250e",
+        "ingested_at": "2026-10-08T15:20:58.732195+00:00",
         "measurements": [
           {
             "confidence": 1.0,
@@ -1292,7 +1504,7 @@
                 "from": "2026-08-07T09:30:00-04:00",
                 "interval_days": 31.0,
                 "note": "Numerical changes do not by themselves establish improvement or worsening.",
-                "previous_result_id": "e5630dff-23f5-48fb-9dfd-58e23ce289e5",
+                "previous_result_id": "ba1c31a1-38dc-412e-b9f1-616fed598541",
                 "to": "2026-09-07T09:30:00-04:00"
               },
               "measured_facts": [
@@ -1486,9 +1698,9 @@
               "source_device": "Synthetic InBody fixture",
               "test_timestamp": "2026-09-07T09:30:00-04:00"
             },
-            "created_at": "2026-10-08T14:53:40.682414+00:00",
+            "created_at": "2026-10-08T15:20:58.732646+00:00",
             "data_quality_passed": true,
-            "id": "a773605b-ced0-4e3a-8d63-6819673941a9",
+            "id": "730d62c1-9310-4d56-a8d1-17b43032472e",
             "longitudinal_comparison": {
               "changes": [
                 {
@@ -1603,7 +1815,7 @@
               "from": "2026-08-07T09:30:00-04:00",
               "interval_days": 31.0,
               "note": "Numerical changes do not by themselves establish improvement or worsening.",
-              "previous_result_id": "e5630dff-23f5-48fb-9dfd-58e23ce289e5",
+              "previous_result_id": "ba1c31a1-38dc-412e-b9f1-616fed598541",
               "to": "2026-09-07T09:30:00-04:00"
             },
             "patient_summary": {
@@ -1706,6 +1918,217 @@
               "test_timestamp": "2026-09-07T09:30:00-04:00"
             },
             "recommendation_plan": {
+              "clinic_care_options": [
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "rehabilitation",
+                  "listed_options": [
+                    "Spinal decompression",
+                    "Chiropractic adjustments",
+                    "Postural rehabilitation",
+                    "Shockwave and laser modalities"
+                  ],
+                  "needed": "Pain, injury, mobility and functional examination; modality-specific contraindications.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/chiropractic-and-physical-therapy",
+                  "status": "catalog_only",
+                  "title": "Chiropractic and rehabilitation assessment",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "weight_management",
+                  "listed_options": [
+                    "Semaglutide-based care",
+                    "Metabolic assessment",
+                    "Brown-fat activation discussion"
+                  ],
+                  "needed": "Patient goals, metabolic history, medication suitability and a clinician-defined plan. No weight-loss eligibility inferred from InBody alone.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/weight-loss-programs",
+                  "status": "catalog_only",
+                  "title": "Medical weight-management assessment",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "hormone_review",
+                  "listed_options": [
+                    "Hormone replacement",
+                    "Testosterone assessment",
+                    "NAD+ discussion"
+                  ],
+                  "needed": "Relevant symptoms, diagnosis, labs and prescriber review. Muscle or fat estimates do not diagnose a hormone deficiency.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/anti-aging-medicine",
+                  "status": "catalog_only",
+                  "title": "Hormone and longevity consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "wellness",
+                  "listed_options": [
+                    "Red-light modalities",
+                    "Mind-body practices",
+                    "Vagus-nerve stimulation discussion",
+                    "Individual wellness planning"
+                  ],
+                  "needed": "Goals, device-specific assessment and an evidence-informed discussion; website benefit claims are not evidence of efficacy.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/biohacking-and-optimization",
+                  "status": "catalog_only",
+                  "title": "Lifestyle and personalized wellness",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "joint_review",
+                  "listed_options": [
+                    "Joint injections",
+                    "PRP discussion"
+                  ],
+                  "needed": "Diagnosed condition, examination, product/procedure-specific evidence and medical eligibility.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/regenerative-medicine",
+                  "status": "catalog_only",
+                  "title": "Joint and musculoskeletal consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "infusion_review",
+                  "listed_options": [
+                    "Micronutrient infusions",
+                    "NAD+ infusions"
+                  ],
+                  "needed": "Medical indication, relevant labs, renal/cardiac status and interaction review. An InBody result does not establish an infusion requirement.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/iv-therapy",
+                  "status": "catalog_only",
+                  "title": "Infusion assessment",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "brain_health",
+                  "listed_options": [
+                    "Clarity Direct Neurofeedback",
+                    "PEMF discussion"
+                  ],
+                  "needed": "Symptoms and domain-specific evaluation; body composition is not a neurofeedback or PEMF indication.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/brain-health",
+                  "status": "catalog_only",
+                  "title": "Brain-health evaluation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "injury_review",
+                  "listed_options": [
+                    "Post-collision concussion assessment",
+                    "Medical-legal documentation"
+                  ],
+                  "needed": "Actual injury history, neurological/clinical assessment and appropriate documentation.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/personal-injury",
+                  "status": "catalog_only",
+                  "title": "Post-injury and concussion review",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "aesthetic_review",
+                  "listed_options": [
+                    "PRP aesthetics discussion",
+                    "Hair-restoration consultation"
+                  ],
+                  "needed": "Patient-requested goal and dedicated assessment. Educational discussion of transplants on the page does not confirm in-clinic surgical capacity.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/aesthetic-treatments",
+                  "status": "catalog_only",
+                  "title": "Hair and aesthetic consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "pelvic_health",
+                  "listed_options": [
+                    "VTone pelvic-floor treatment discussion"
+                  ],
+                  "needed": "Relevant symptoms, pelvic-health assessment and device eligibility. Page contains a [Medspa Name] placeholder; operational details need confirmation.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/v-tone",
+                  "status": "catalog_only",
+                  "title": "Pelvic-health / VTone consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "exomind",
+                  "listed_options": [
+                    "ExoMind brain-stimulation service linked from the clinic homepage"
+                  ],
+                  "needed": "Dedicated medical evaluation, intended-use and contraindication review; not selected from InBody measurements.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/",
+                  "status": "catalog_only",
+                  "title": "ExoMind consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "exosome_review",
+                  "listed_options": [
+                    "The website advertises exosome infusions"
+                  ],
+                  "needed": "Independent evidence and regulatory review. FDA reports no approved exosome products; this is not an automatically recommended weight-loss or recovery intervention.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "safety_reference": "https://www.fda.gov/safety/medical-product-safety-information/public-safety-alert-due-marketing-unapproved-stem-cell-and-exosome-products",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/weight-loss-programs",
+                  "status": "evidence_regulatory_review_required",
+                  "title": "Exosome offering \u2014 evidence and regulatory review",
+                  "website_checked_on": "2026-10-08"
+                }
+              ],
+              "clinic_service_catalog_version": "imw-website-catalog-v1.0",
               "context": {
                 "activity_level": "unknown",
                 "cardiovascular_symptoms": "unknown",
@@ -1714,7 +2137,8 @@
                 "goals": "",
                 "medications_reviewed": false,
                 "pain_present": "unknown",
-                "pregnancy_or_breastfeeding": "unknown"
+                "pregnancy_or_breastfeeding": "unknown",
+                "requested_service_topics": []
               },
               "context_source": "operator-entered; not independently verified",
               "domains": [
@@ -2003,12 +2427,12 @@
               },
               "segmental_observations": [],
               "source_confirmation_required": false,
-              "source_result_id": "8adef6c3-c38f-45bc-a832-a24914250f75",
+              "source_result_id": "c2df7b5c-3781-4cf9-a2e8-36e9e5f2250e",
               "status": "draft_for_clinician_review",
               "test_timestamp": "2026-09-07T09:30:00-04:00",
               "version": "clinical-discussion-v1.0"
             },
-            "result_id": "8adef6c3-c38f-45bc-a832-a24914250f75",
+            "result_id": "c2df7b5c-3781-4cf9-a2e8-36e9e5f2250e",
             "review_status": "pending",
             "rule_findings": [
               {
@@ -2048,8 +2472,8 @@
         "claimed_patient_id": null,
         "device_model": "Synthetic InBody fixture",
         "encounter_id": "SYN-001-BASE",
-        "id": "e5630dff-23f5-48fb-9dfd-58e23ce289e5",
-        "ingested_at": "2026-10-08T14:53:40.681043+00:00",
+        "id": "ba1c31a1-38dc-412e-b9f1-616fed598541",
+        "ingested_at": "2026-10-08T15:20:58.730528+00:00",
         "measurements": [
           {
             "confidence": 1.0,
@@ -2375,9 +2799,9 @@
               "source_device": "Synthetic InBody fixture",
               "test_timestamp": "2026-08-07T09:30:00-04:00"
             },
-            "created_at": "2026-10-08T14:53:40.681417+00:00",
+            "created_at": "2026-10-08T15:20:58.731317+00:00",
             "data_quality_passed": true,
-            "id": "fb4e5b01-a904-41cf-bb29-3ac3de32f1f3",
+            "id": "890fa029-0825-498c-8772-6df6922904c8",
             "longitudinal_comparison": {
               "changes": [],
               "interval_days": null,
@@ -2476,6 +2900,217 @@
               "test_timestamp": "2026-08-07T09:30:00-04:00"
             },
             "recommendation_plan": {
+              "clinic_care_options": [
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "rehabilitation",
+                  "listed_options": [
+                    "Spinal decompression",
+                    "Chiropractic adjustments",
+                    "Postural rehabilitation",
+                    "Shockwave and laser modalities"
+                  ],
+                  "needed": "Pain, injury, mobility and functional examination; modality-specific contraindications.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/chiropractic-and-physical-therapy",
+                  "status": "catalog_only",
+                  "title": "Chiropractic and rehabilitation assessment",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "weight_management",
+                  "listed_options": [
+                    "Semaglutide-based care",
+                    "Metabolic assessment",
+                    "Brown-fat activation discussion"
+                  ],
+                  "needed": "Patient goals, metabolic history, medication suitability and a clinician-defined plan. No weight-loss eligibility inferred from InBody alone.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/weight-loss-programs",
+                  "status": "catalog_only",
+                  "title": "Medical weight-management assessment",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "hormone_review",
+                  "listed_options": [
+                    "Hormone replacement",
+                    "Testosterone assessment",
+                    "NAD+ discussion"
+                  ],
+                  "needed": "Relevant symptoms, diagnosis, labs and prescriber review. Muscle or fat estimates do not diagnose a hormone deficiency.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/anti-aging-medicine",
+                  "status": "catalog_only",
+                  "title": "Hormone and longevity consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "wellness",
+                  "listed_options": [
+                    "Red-light modalities",
+                    "Mind-body practices",
+                    "Vagus-nerve stimulation discussion",
+                    "Individual wellness planning"
+                  ],
+                  "needed": "Goals, device-specific assessment and an evidence-informed discussion; website benefit claims are not evidence of efficacy.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/biohacking-and-optimization",
+                  "status": "catalog_only",
+                  "title": "Lifestyle and personalized wellness",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "joint_review",
+                  "listed_options": [
+                    "Joint injections",
+                    "PRP discussion"
+                  ],
+                  "needed": "Diagnosed condition, examination, product/procedure-specific evidence and medical eligibility.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/regenerative-medicine",
+                  "status": "catalog_only",
+                  "title": "Joint and musculoskeletal consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "infusion_review",
+                  "listed_options": [
+                    "Micronutrient infusions",
+                    "NAD+ infusions"
+                  ],
+                  "needed": "Medical indication, relevant labs, renal/cardiac status and interaction review. An InBody result does not establish an infusion requirement.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/iv-therapy",
+                  "status": "catalog_only",
+                  "title": "Infusion assessment",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "brain_health",
+                  "listed_options": [
+                    "Clarity Direct Neurofeedback",
+                    "PEMF discussion"
+                  ],
+                  "needed": "Symptoms and domain-specific evaluation; body composition is not a neurofeedback or PEMF indication.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/brain-health",
+                  "status": "catalog_only",
+                  "title": "Brain-health evaluation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "injury_review",
+                  "listed_options": [
+                    "Post-collision concussion assessment",
+                    "Medical-legal documentation"
+                  ],
+                  "needed": "Actual injury history, neurological/clinical assessment and appropriate documentation.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/personal-injury",
+                  "status": "catalog_only",
+                  "title": "Post-injury and concussion review",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "aesthetic_review",
+                  "listed_options": [
+                    "PRP aesthetics discussion",
+                    "Hair-restoration consultation"
+                  ],
+                  "needed": "Patient-requested goal and dedicated assessment. Educational discussion of transplants on the page does not confirm in-clinic surgical capacity.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/aesthetic-treatments",
+                  "status": "catalog_only",
+                  "title": "Hair and aesthetic consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "pelvic_health",
+                  "listed_options": [
+                    "VTone pelvic-floor treatment discussion"
+                  ],
+                  "needed": "Relevant symptoms, pelvic-health assessment and device eligibility. Page contains a [Medspa Name] placeholder; operational details need confirmation.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/v-tone",
+                  "status": "catalog_only",
+                  "title": "Pelvic-health / VTone consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "exomind",
+                  "listed_options": [
+                    "ExoMind brain-stimulation service linked from the clinic homepage"
+                  ],
+                  "needed": "Dedicated medical evaluation, intended-use and contraindication review; not selected from InBody measurements.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/",
+                  "status": "catalog_only",
+                  "title": "ExoMind consultation",
+                  "website_checked_on": "2026-10-08"
+                },
+                {
+                  "availability_status": "website_advertised; operational_availability_unverified",
+                  "booking_created": false,
+                  "clinician_review_required": true,
+                  "id": "exosome_review",
+                  "listed_options": [
+                    "The website advertises exosome infusions"
+                  ],
+                  "needed": "Independent evidence and regulatory review. FDA reports no approved exosome products; this is not an automatically recommended weight-loss or recovery intervention.",
+                  "price": null,
+                  "relevance_basis": "No patient-specific service indication established",
+                  "safety_reference": "https://www.fda.gov/safety/medical-product-safety-information/public-safety-alert-due-marketing-unapproved-stem-cell-and-exosome-products",
+                  "source_url": "https://www.innovativemedicalwellness.com/en/weight-loss-programs",
+                  "status": "evidence_regulatory_review_required",
+                  "title": "Exosome offering \u2014 evidence and regulatory review",
+                  "website_checked_on": "2026-10-08"
+                }
+              ],
+              "clinic_service_catalog_version": "imw-website-catalog-v1.0",
               "context": {
                 "activity_level": "unknown",
                 "cardiovascular_symptoms": "unknown",
@@ -2484,7 +3119,8 @@
                 "goals": "",
                 "medications_reviewed": false,
                 "pain_present": "unknown",
-                "pregnancy_or_breastfeeding": "unknown"
+                "pregnancy_or_breastfeeding": "unknown",
+                "requested_service_topics": []
               },
               "context_source": "operator-entered; not independently verified",
               "domains": [
@@ -2763,12 +3399,12 @@
               },
               "segmental_observations": [],
               "source_confirmation_required": false,
-              "source_result_id": "e5630dff-23f5-48fb-9dfd-58e23ce289e5",
+              "source_result_id": "ba1c31a1-38dc-412e-b9f1-616fed598541",
               "status": "draft_for_clinician_review",
               "test_timestamp": "2026-08-07T09:30:00-04:00",
               "version": "clinical-discussion-v1.0"
             },
-            "result_id": "e5630dff-23f5-48fb-9dfd-58e23ce289e5",
+            "result_id": "ba1c31a1-38dc-412e-b9f1-616fed598541",
             "review_status": "pending",
             "rule_findings": [
               {
@@ -2812,8 +3448,8 @@
       "claimed_patient_id": null,
       "device_model": "Synthetic InBody fixture",
       "encounter_id": "SYN-001-FOLLOW",
-      "id": "44b1d2c0-7f99-41f5-a9be-19a93db82bd8",
-      "ingested_at": "2026-10-08T14:53:40.684820+00:00",
+      "id": "1f2e2231-caea-4ff8-b685-3c9afc14afd9",
+      "ingested_at": "2026-10-08T15:20:58.735184+00:00",
       "measurements": [
         {
           "confidence": 1.0,
@@ -2964,7 +3600,7 @@
               "from": "2026-10-07T09:30:00-04:00",
               "interval_days": 1.0,
               "note": "Numerical changes do not by themselves establish improvement or worsening.",
-              "previous_result_id": "211192b2-9f2f-4bd4-8558-a9bdce830d46",
+              "previous_result_id": "d73fcdef-e40f-4317-a0f9-9f764c4a9d4b",
               "to": "2026-10-08T09:30:00-04:00"
             },
             "measured_facts": [
@@ -3114,9 +3750,9 @@
             "source_device": "Synthetic InBody fixture",
             "test_timestamp": "2026-10-08T09:30:00-04:00"
           },
-          "created_at": "2026-10-08T14:53:40.685383+00:00",
+          "created_at": "2026-10-08T15:20:58.735606+00:00",
           "data_quality_passed": true,
-          "id": "0105bf11-f122-48c2-bb29-9a29260770da",
+          "id": "d8c0311f-cf9f-4f5d-b4d6-b32848180404",
           "longitudinal_comparison": {
             "changes": [
               {
@@ -3183,7 +3819,7 @@
             "from": "2026-10-07T09:30:00-04:00",
             "interval_days": 1.0,
             "note": "Numerical changes do not by themselves establish improvement or worsening.",
-            "previous_result_id": "211192b2-9f2f-4bd4-8558-a9bdce830d46",
+            "previous_result_id": "d73fcdef-e40f-4317-a0f9-9f764c4a9d4b",
             "to": "2026-10-08T09:30:00-04:00"
           },
           "patient_summary": {
@@ -3278,6 +3914,217 @@
             "test_timestamp": "2026-10-08T09:30:00-04:00"
           },
           "recommendation_plan": {
+            "clinic_care_options": [
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "rehabilitation",
+                "listed_options": [
+                  "Spinal decompression",
+                  "Chiropractic adjustments",
+                  "Postural rehabilitation",
+                  "Shockwave and laser modalities"
+                ],
+                "needed": "Pain, injury, mobility and functional examination; modality-specific contraindications.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/chiropractic-and-physical-therapy",
+                "status": "catalog_only",
+                "title": "Chiropractic and rehabilitation assessment",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "weight_management",
+                "listed_options": [
+                  "Semaglutide-based care",
+                  "Metabolic assessment",
+                  "Brown-fat activation discussion"
+                ],
+                "needed": "Patient goals, metabolic history, medication suitability and a clinician-defined plan. No weight-loss eligibility inferred from InBody alone.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/weight-loss-programs",
+                "status": "catalog_only",
+                "title": "Medical weight-management assessment",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "hormone_review",
+                "listed_options": [
+                  "Hormone replacement",
+                  "Testosterone assessment",
+                  "NAD+ discussion"
+                ],
+                "needed": "Relevant symptoms, diagnosis, labs and prescriber review. Muscle or fat estimates do not diagnose a hormone deficiency.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/anti-aging-medicine",
+                "status": "catalog_only",
+                "title": "Hormone and longevity consultation",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "wellness",
+                "listed_options": [
+                  "Red-light modalities",
+                  "Mind-body practices",
+                  "Vagus-nerve stimulation discussion",
+                  "Individual wellness planning"
+                ],
+                "needed": "Goals, device-specific assessment and an evidence-informed discussion; website benefit claims are not evidence of efficacy.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/biohacking-and-optimization",
+                "status": "catalog_only",
+                "title": "Lifestyle and personalized wellness",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "joint_review",
+                "listed_options": [
+                  "Joint injections",
+                  "PRP discussion"
+                ],
+                "needed": "Diagnosed condition, examination, product/procedure-specific evidence and medical eligibility.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/regenerative-medicine",
+                "status": "catalog_only",
+                "title": "Joint and musculoskeletal consultation",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "infusion_review",
+                "listed_options": [
+                  "Micronutrient infusions",
+                  "NAD+ infusions"
+                ],
+                "needed": "Medical indication, relevant labs, renal/cardiac status and interaction review. An InBody result does not establish an infusion requirement.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/iv-therapy",
+                "status": "catalog_only",
+                "title": "Infusion assessment",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "brain_health",
+                "listed_options": [
+                  "Clarity Direct Neurofeedback",
+                  "PEMF discussion"
+                ],
+                "needed": "Symptoms and domain-specific evaluation; body composition is not a neurofeedback or PEMF indication.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/brain-health",
+                "status": "catalog_only",
+                "title": "Brain-health evaluation",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "injury_review",
+                "listed_options": [
+                  "Post-collision concussion assessment",
+                  "Medical-legal documentation"
+                ],
+                "needed": "Actual injury history, neurological/clinical assessment and appropriate documentation.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/personal-injury",
+                "status": "catalog_only",
+                "title": "Post-injury and concussion review",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "aesthetic_review",
+                "listed_options": [
+                  "PRP aesthetics discussion",
+                  "Hair-restoration consultation"
+                ],
+                "needed": "Patient-requested goal and dedicated assessment. Educational discussion of transplants on the page does not confirm in-clinic surgical capacity.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/aesthetic-treatments",
+                "status": "catalog_only",
+                "title": "Hair and aesthetic consultation",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "pelvic_health",
+                "listed_options": [
+                  "VTone pelvic-floor treatment discussion"
+                ],
+                "needed": "Relevant symptoms, pelvic-health assessment and device eligibility. Page contains a [Medspa Name] placeholder; operational details need confirmation.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/v-tone",
+                "status": "catalog_only",
+                "title": "Pelvic-health / VTone consultation",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "exomind",
+                "listed_options": [
+                  "ExoMind brain-stimulation service linked from the clinic homepage"
+                ],
+                "needed": "Dedicated medical evaluation, intended-use and contraindication review; not selected from InBody measurements.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/",
+                "status": "catalog_only",
+                "title": "ExoMind consultation",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "exosome_review",
+                "listed_options": [
+                  "The website advertises exosome infusions"
+                ],
+                "needed": "Independent evidence and regulatory review. FDA reports no approved exosome products; this is not an automatically recommended weight-loss or recovery intervention.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "safety_reference": "https://www.fda.gov/safety/medical-product-safety-information/public-safety-alert-due-marketing-unapproved-stem-cell-and-exosome-products",
+                "source_url": "https://www.innovativemedicalwellness.com/en/weight-loss-programs",
+                "status": "evidence_regulatory_review_required",
+                "title": "Exosome offering \u2014 evidence and regulatory review",
+                "website_checked_on": "2026-10-08"
+              }
+            ],
+            "clinic_service_catalog_version": "imw-website-catalog-v1.0",
             "context": {
               "activity_level": "unknown",
               "cardiovascular_symptoms": "unknown",
@@ -3286,7 +4133,8 @@
               "goals": "",
               "medications_reviewed": false,
               "pain_present": "unknown",
-              "pregnancy_or_breastfeeding": "unknown"
+              "pregnancy_or_breastfeeding": "unknown",
+              "requested_service_topics": []
             },
             "context_source": "operator-entered; not independently verified",
             "domains": [
@@ -3570,12 +4418,12 @@
             },
             "segmental_observations": [],
             "source_confirmation_required": false,
-            "source_result_id": "44b1d2c0-7f99-41f5-a9be-19a93db82bd8",
+            "source_result_id": "1f2e2231-caea-4ff8-b685-3c9afc14afd9",
             "status": "draft_for_clinician_review",
             "test_timestamp": "2026-10-08T09:30:00-04:00",
             "version": "clinical-discussion-v1.0"
           },
-          "result_id": "44b1d2c0-7f99-41f5-a9be-19a93db82bd8",
+          "result_id": "1f2e2231-caea-4ff8-b685-3c9afc14afd9",
           "review_status": "pending",
           "rule_findings": [
             {
@@ -3615,8 +4463,8 @@
       "claimed_patient_id": null,
       "device_model": "Synthetic InBody fixture",
       "encounter_id": "SYN-002-FOLLOW",
-      "id": "efb7951a-090b-446d-b225-cb4cbf6da3cb",
-      "ingested_at": "2026-10-08T14:53:40.685946+00:00",
+      "id": "0d64297f-597b-4de0-b25c-8293b23e5e75",
+      "ingested_at": "2026-10-08T15:20:58.736500+00:00",
       "measurements": [
         {
           "confidence": 1.0,
@@ -3825,9 +4673,9 @@
             "source_device": "Synthetic InBody fixture",
             "test_timestamp": "2026-10-08T09:30:00-04:00"
           },
-          "created_at": "2026-10-08T14:53:40.686128+00:00",
+          "created_at": "2026-10-08T15:20:58.736884+00:00",
           "data_quality_passed": true,
-          "id": "7305922b-8437-4d8c-bead-9b10c6cb05a5",
+          "id": "fec8c782-0b2e-46e4-998d-cda48f9c8fff",
           "longitudinal_comparison": {
             "changes": [],
             "interval_days": null,
@@ -3921,6 +4769,217 @@
             "test_timestamp": "2026-10-08T09:30:00-04:00"
           },
           "recommendation_plan": {
+            "clinic_care_options": [
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "rehabilitation",
+                "listed_options": [
+                  "Spinal decompression",
+                  "Chiropractic adjustments",
+                  "Postural rehabilitation",
+                  "Shockwave and laser modalities"
+                ],
+                "needed": "Pain, injury, mobility and functional examination; modality-specific contraindications.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/chiropractic-and-physical-therapy",
+                "status": "catalog_only",
+                "title": "Chiropractic and rehabilitation assessment",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "weight_management",
+                "listed_options": [
+                  "Semaglutide-based care",
+                  "Metabolic assessment",
+                  "Brown-fat activation discussion"
+                ],
+                "needed": "Patient goals, metabolic history, medication suitability and a clinician-defined plan. No weight-loss eligibility inferred from InBody alone.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/weight-loss-programs",
+                "status": "catalog_only",
+                "title": "Medical weight-management assessment",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "hormone_review",
+                "listed_options": [
+                  "Hormone replacement",
+                  "Testosterone assessment",
+                  "NAD+ discussion"
+                ],
+                "needed": "Relevant symptoms, diagnosis, labs and prescriber review. Muscle or fat estimates do not diagnose a hormone deficiency.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/anti-aging-medicine",
+                "status": "catalog_only",
+                "title": "Hormone and longevity consultation",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "wellness",
+                "listed_options": [
+                  "Red-light modalities",
+                  "Mind-body practices",
+                  "Vagus-nerve stimulation discussion",
+                  "Individual wellness planning"
+                ],
+                "needed": "Goals, device-specific assessment and an evidence-informed discussion; website benefit claims are not evidence of efficacy.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/biohacking-and-optimization",
+                "status": "catalog_only",
+                "title": "Lifestyle and personalized wellness",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "joint_review",
+                "listed_options": [
+                  "Joint injections",
+                  "PRP discussion"
+                ],
+                "needed": "Diagnosed condition, examination, product/procedure-specific evidence and medical eligibility.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/regenerative-medicine",
+                "status": "catalog_only",
+                "title": "Joint and musculoskeletal consultation",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "infusion_review",
+                "listed_options": [
+                  "Micronutrient infusions",
+                  "NAD+ infusions"
+                ],
+                "needed": "Medical indication, relevant labs, renal/cardiac status and interaction review. An InBody result does not establish an infusion requirement.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/iv-therapy",
+                "status": "catalog_only",
+                "title": "Infusion assessment",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "brain_health",
+                "listed_options": [
+                  "Clarity Direct Neurofeedback",
+                  "PEMF discussion"
+                ],
+                "needed": "Symptoms and domain-specific evaluation; body composition is not a neurofeedback or PEMF indication.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/brain-health",
+                "status": "catalog_only",
+                "title": "Brain-health evaluation",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "injury_review",
+                "listed_options": [
+                  "Post-collision concussion assessment",
+                  "Medical-legal documentation"
+                ],
+                "needed": "Actual injury history, neurological/clinical assessment and appropriate documentation.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/personal-injury",
+                "status": "catalog_only",
+                "title": "Post-injury and concussion review",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "aesthetic_review",
+                "listed_options": [
+                  "PRP aesthetics discussion",
+                  "Hair-restoration consultation"
+                ],
+                "needed": "Patient-requested goal and dedicated assessment. Educational discussion of transplants on the page does not confirm in-clinic surgical capacity.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/aesthetic-treatments",
+                "status": "catalog_only",
+                "title": "Hair and aesthetic consultation",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "pelvic_health",
+                "listed_options": [
+                  "VTone pelvic-floor treatment discussion"
+                ],
+                "needed": "Relevant symptoms, pelvic-health assessment and device eligibility. Page contains a [Medspa Name] placeholder; operational details need confirmation.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/v-tone",
+                "status": "catalog_only",
+                "title": "Pelvic-health / VTone consultation",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "exomind",
+                "listed_options": [
+                  "ExoMind brain-stimulation service linked from the clinic homepage"
+                ],
+                "needed": "Dedicated medical evaluation, intended-use and contraindication review; not selected from InBody measurements.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "source_url": "https://www.innovativemedicalwellness.com/en/",
+                "status": "catalog_only",
+                "title": "ExoMind consultation",
+                "website_checked_on": "2026-10-08"
+              },
+              {
+                "availability_status": "website_advertised; operational_availability_unverified",
+                "booking_created": false,
+                "clinician_review_required": true,
+                "id": "exosome_review",
+                "listed_options": [
+                  "The website advertises exosome infusions"
+                ],
+                "needed": "Independent evidence and regulatory review. FDA reports no approved exosome products; this is not an automatically recommended weight-loss or recovery intervention.",
+                "price": null,
+                "relevance_basis": "No patient-specific service indication established",
+                "safety_reference": "https://www.fda.gov/safety/medical-product-safety-information/public-safety-alert-due-marketing-unapproved-stem-cell-and-exosome-products",
+                "source_url": "https://www.innovativemedicalwellness.com/en/weight-loss-programs",
+                "status": "evidence_regulatory_review_required",
+                "title": "Exosome offering \u2014 evidence and regulatory review",
+                "website_checked_on": "2026-10-08"
+              }
+            ],
+            "clinic_service_catalog_version": "imw-website-catalog-v1.0",
             "context": {
               "activity_level": "unknown",
               "cardiovascular_symptoms": "unknown",
@@ -3929,7 +4988,8 @@
               "goals": "",
               "medications_reviewed": false,
               "pain_present": "unknown",
-              "pregnancy_or_breastfeeding": "unknown"
+              "pregnancy_or_breastfeeding": "unknown",
+              "requested_service_topics": []
             },
             "context_source": "operator-entered; not independently verified",
             "domains": [
@@ -4207,12 +5267,12 @@
             },
             "segmental_observations": [],
             "source_confirmation_required": false,
-            "source_result_id": "efb7951a-090b-446d-b225-cb4cbf6da3cb",
+            "source_result_id": "0d64297f-597b-4de0-b25c-8293b23e5e75",
             "status": "draft_for_clinician_review",
             "test_timestamp": "2026-10-08T09:30:00-04:00",
             "version": "clinical-discussion-v1.0"
           },
-          "result_id": "efb7951a-090b-446d-b225-cb4cbf6da3cb",
+          "result_id": "0d64297f-597b-4de0-b25c-8293b23e5e75",
           "review_status": "pending",
           "rule_findings": [],
           "reviews": []

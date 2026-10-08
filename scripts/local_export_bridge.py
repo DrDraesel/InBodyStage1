@@ -12,6 +12,7 @@ import time
 from pathlib import Path
 
 from adapters.inbody.documents import MAX_BYTES, extract
+from adapters.inbody.spreadsheets import extract_sheet
 
 EXTENSIONS = {'.csv', '.pdf', '.png', '.jpg', '.jpeg', '.bmp', '.xls', '.xlsx'}
 
@@ -46,8 +47,13 @@ def collect(inbox, queue, settle_seconds=3):
                 evidence = extract(data, 'pdf' if suffix == '.pdf' else 'image', allow_empty=True)
             except ValueError as error:
                 evidence['warnings'].append(str(error))
+        elif suffix in {'.csv','.xls','.xlsx'}:
+            try:
+                evidence = extract_sheet(data,suffix[1:])
+            except ValueError as error:
+                evidence['warnings'].append(str(error))
         else:
-            evidence['warnings'].append('Original export retained. CSV/Excel/BMP field mapping is not enabled; review or export a PNG/JPEG/PDF.')
+            evidence['warnings'].append('Original BMP retained; convert to PNG/JPEG for extraction.')
         record = {'bridge_version': 'local-export-v1', 'status': 'awaiting_source_review',
                   'patient_id': None, 'encounter_id': None, 'review_required': True,
                   'hardware_connection_verified': False, 'source_sha256': digest,

@@ -1,9 +1,4 @@
-# Run from the repository root after installing Python, requirements and Tesseract.
-if (Test-Path '.env') {
-    Get-Content '.env' | ForEach-Object {
-        if ($_ -match '^([A-Za-z_][A-Za-z0-9_]*)=(.*)$') {
-            [Environment]::SetEnvironmentVariable($matches[1], $matches[2], 'Process')
-        }
-    }
-}
+# Run from the repository root. Python loads .env literally and preserves process overrides.
+python -m scripts.setup_local
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 python -m backend.server --seed
