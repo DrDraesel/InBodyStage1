@@ -77,6 +77,10 @@ class Service:
             raise Invalid('Payload patient association differs from selected patient')
         raw_payload = dumps(payload).encode()
         source_files = []
+        extraction = []
+        scanner = payload.get('scanned_codes', '')
+        if not isinstance(scanner,str) or len(scanner)>4096:
+            raise Invalid('Scanner entry must be text, maximum 4096 characters')
         claimed = None
         if source_type in ('pdf','image'):
             if not files or not 1<=len(files)<=5:
@@ -85,15 +89,27 @@ class Service:
             for data, kind in files:
                 if kind != source_type:
                     raise Invalid('Choose a single import type')
-                parsed = extract(data,kind)
+                parsed = extract(data,kind,allow_empty=True)
+                extraction.append(parsed)
                 if parsed['claimed_patient_id'] and parsed['claimed_patient_id'] != pid:
                     raise Invalid('Source patient identifier conflicts with selected patient')
                 claimed = parsed['claimed_patient_id'] or claimed
                 for m in parsed['measurements']:
-                    if m['metric'] in combined and combined[m['metric']]['value']!=m['value']:
+                    if m['metric'] in combined and (combined[m['metric']]['value'],combined[m['metric']]['unit'])!=(m['value'],m['unit']):
                         m['value'],m['confidence'],m['quality_note'] = None,0,'Conflicting values across source files.'
                     combined[m['metric']]=m
                 source_files.append({'sha256':self.storage.put(data),'media_type':kind,'size_bytes':len(data)})
+            transcribed = payload.get('transcribed_measurements')
+            if transcribed is not None:
+                if not isinstance(transcribed,list) or not 1<=len(transcribed)<=200:
+                    raise Invalid('Transcribe 1–200 measurements')
+                # Human transcription of an imported source still needs clinician confirmation.
+                for m in transcribed:
+                    if not isinstance(m,dict): raise Invalid('Measurement must be an object')
+                    combined[m.get('metric')] = dict(m,status='unverified',confidence=0.8,
+                        quality_note='Operator transcription from source; clinician confirmation required.')
+            if not combined:
+                raise Invalid('No labeled measurements extracted. Use Extract first, transcribe the source values with explicit units, then import.')
             payload = dict(payload,measurements=list(combined.values()))
         result = normalize(payload)
         if not self.db.one('SELECT id FROM encounters WHERE id=? AND patient_id=?',(result['encounter_id'],pid)):
@@ -115,6 +131,9 @@ class Service:
             result.update({'id':uid(),'patient_id':pid,'ingested_at':now(),'source_type':source_type,
                 'supersedes':supersedes, 'claimed_patient_id':claimed,
                 'source_result':{'payload_sha256':raw_hash,'files':source_files},
+                'source_extraction':extraction or (original.get('source_extraction',[]) if original else []),
+                'scanned_codes': ([{'text':scanner,'format':'scanner-entry','status':'unverified'}] if scanner.strip() else
+                    original.get('scanned_codes',[]) if original else []),
                 'provenance':{'parser_version':PARSER_VERSION if files else 'normalized-contract-v1.0',
                     'software_version':'InBodyStage1-0.1.0','schema_version':'normalized-v1.0',
                     'source_hash':digest,'identity_binding':'operator-selected; no automatic name matching',
@@ -125,6 +144,22 @@ class Service:
             self.audit(actor,'result.imported',result['id'])
         self.analyze(pid,result['id'],actor)
         return self.detail(pid,result['id'])
+
+    def extract_sources(self, files):
+        if not files or not 1<=len(files)<=5:
+            raise Invalid('Supply 1–5 PDF, PNG or JPEG source files')
+        documents = []
+        combined = {}
+        for data, kind in files:
+            parsed = extract(data,kind,allow_empty=True)
+            documents.append(dict(parsed,source_sha256=hashlib.sha256(data).hexdigest()))
+            for m in parsed['measurements']:
+                previous = combined.get(m['metric'])
+                if previous and (previous['value'],previous['unit'])!=(m['value'],m['unit']):
+                    m = dict(m,value=None,confidence=0,quality_note='Conflicting values across files; transcribe from the correct source.')
+                combined[m['metric']] = m
+        return {'documents':documents,'measurements':list(combined.values()),
+            'review_required':True,'saved':False,'code_policy':'Codes are retained as unverified evidence. Links are not fetched and codes do not bind patient identity.'}
 
     def history(self,pid,include_superseded=False):
         self.patient(pid)

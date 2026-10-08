@@ -194,3 +194,7 @@ The downloadable source package includes `source-history.bundle` with the increm
 ## Vercel visual preview (v0.1.1 addition)
 
 A separate synthetic preview is ready for Vercel. Run `node scripts/build-preview.mjs`; `vercel.json` publishes only `dist-preview`. See `docs/vercel-preview.md`. The preview reuses the clinical interface with precomputed synthetic studies and an in-memory demonstration adapter. It does not host the local database, imports, AI credentials or live patient API. The source repository is available at https://github.com/DrDraesel/InBodyStage1 . Vercel deployment remains pending account access; no hosted preview URL is claimed.
+
+## Printed results and code capture
+
+See [printed-result-import.md](docs/printed-result-import.md) for the photograph/PDF extraction preview, barcode/QR decoding, handheld scanner entry, retained full source text, manual transcription and LookinBody sync prerequisites. The device Wi-Fi connection is Founder-reported; automatic sync remains unconfigured.

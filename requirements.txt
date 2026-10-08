@@ -1,3 +1,4 @@
 PyMuPDF==1.26.6
 Pillow==12.3.0
 psycopg[binary]==3.3.6
+zxing-cpp==2.3.0

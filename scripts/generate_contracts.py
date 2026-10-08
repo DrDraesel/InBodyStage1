@@ -34,8 +34,10 @@ operation('/patients/{patient_id}/encounters','get','List patient encounters')
 operation('/patients/{patient_id}/encounters','post','Create encounter',json_body({'type':'object','required':['id'],'properties':{'id':{'type':'string'},'label':{'type':'string'}}}),status='201')
 operation(base+'/import','post','Import completed result; source file values require confirmation',{
  **json_body(result),'multipart/form-data':{'schema':{'type':'object','required':['metadata','files'],'properties':{
- 'metadata':{'type':'string','description':'JSON metadata: encounter_id, test_timestamp, source_identifier, device_model, source_type. No guessed timestamp.'},
+ 'metadata':{'type':'string','description':'JSON metadata: encounter_id, test_timestamp, source_identifier, device_model, source_type; optional scanned_codes (max 4096 chars) and transcribed_measurements (1–200). No guessed timestamp.'},
  'files':{'type':'array','minItems':1,'maxItems':5,'items':{'type':'string','format':'binary'}}}}}},status='201')
+operation('/inbody/extract','post','Preview OCR and barcode/QR evidence without saving a result',{'multipart/form-data':{'schema':{'type':'object','required':['files'],'properties':{'metadata':{'type':'string'},'files':{'type':'array','minItems':1,'maxItems':5,'items':{'type':'string','format':'binary'}}}}}})
+operation('/inbody/connectivity','get','Report app sync readiness; does not probe the clinic network')
 operation('/inbody/webhook','post','Internal synthetic fixture webhook; live vendor webhook disabled',json_body({'allOf':[result,{'type':'object','required':['patient_id','contract'],'properties':{'contract':{'const':'synthetic-normalized-v1'}}}]}),status='201')
 operation(base,'get','List all patient studies including superseded versions')
 operation(base+'/{result_id}','get','Get source, measurements, analysis versions and review history')

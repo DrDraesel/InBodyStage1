@@ -40,6 +40,13 @@ class Application:
 
     def route(self,method,path,payload,files,role):
         s = self.service
+        if path=='/inbody/extract' and method=='POST':
+            return 200,s.extract_sources(files)
+        if path=='/inbody/connectivity' and method=='GET':
+            return 200,{'automatic_sync':'not_configured','vendor_mapping':'awaiting_official_documentation',
+                'required':['Exact device model','Device registered in LookinBody Web','Approved API access and key','Server IP whitelist and webhook setup','Validated sample response and patient/encounter mapping'],
+                'import_methods':['pdf','photo_ocr','barcode_qr_evidence','scanner_entry'],
+                'network_note':'Device Wi-Fi is configured on the InBody. This server does not discover or pair with devices.'}
         if path=='/patients':
             if method=='GET': return 200,s.patients()
             if method=='POST': return 201,s.add_patient(payload,role)
