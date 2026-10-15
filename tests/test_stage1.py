@@ -47,7 +47,10 @@ class Stage1(unittest.TestCase):
     def image(self):
         from PIL import Image,ImageDraw,ImageFont
         img=Image.new('RGB',(1200,300),'white');draw=ImageDraw.Draw(img)
-        font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',42)
+        font_path=next((p for p in ('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',
+            'C:/Windows/Fonts/arial.ttf','C:/Windows/Fonts/segoeui.ttf') if Path(p).exists()),None)
+        if font_path is None: self.skipTest('no TrueType font available on this host')
+        font=ImageFont.truetype(font_path,42)
         draw.text((30,20),'Patient ID: SYN-1\nWeight: 80 kg\nBMI: 27 kg/m2',fill='black',font=font,spacing=18)
         out=io.BytesIO();img.save(out,format='PNG');return out.getvalue()
     def test_valid_pdf_import(self):

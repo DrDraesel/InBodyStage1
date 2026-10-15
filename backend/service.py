@@ -187,11 +187,15 @@ class Service:
         row = self.db.one('SELECT * FROM results WHERE id=? AND patient_id=?',(rid,pid))
         if not row: raise Missing('Result not found for this patient')
         result = json.loads(row['content'])
-        analysis_rows = self.db.rows('SELECT * FROM analyses WHERE result_id=? ORDER BY created_at DESC,id DESC',(rid,))
+        # Newest analysis = last row inserted. created_at alone is not enough:
+        # hosts with a coarse clock can stamp two analyses in the same tick,
+        # and the id tiebreak is a random uuid -- that made review() reject a
+        # just-returned analysis id with a spurious 'Analysis changed' conflict.
+        analysis_rows = self.db.rows('SELECT * FROM analyses WHERE result_id=? ORDER BY created_at DESC,rowid DESC',(rid,))
         result['analyses'] = []
         for row in analysis_rows:
             a = json.loads(row['content'])
-            reviews = self.db.rows('SELECT * FROM reviews WHERE analysis_id=? ORDER BY created_at DESC,id DESC',(row['id'],))
+            reviews = self.db.rows('SELECT * FROM reviews WHERE analysis_id=? ORDER BY created_at DESC,rowid DESC',(row['id'],))
             a['reviews'],a['review_status'] = reviews,reviews[0]['status'] if reviews else 'pending'
             a['clinician_summary']['review_status'] = a['review_status']
             a['patient_summary']['review_status'] = a['review_status']
